@@ -55,3 +55,16 @@
   width: 50%;
   text-align: center
 }
+
+#loginPhoto{
+ 
+  height:100vh;
+  max-width: 40vw;
+  
+}
+.loginScreen{
+
+  background-image: url("/images/background.png");
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+}

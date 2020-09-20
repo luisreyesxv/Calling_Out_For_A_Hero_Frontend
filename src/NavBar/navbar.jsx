@@ -1,7 +1,6 @@
 import React,{useState} from 'react'
 import { Link } from 'react-router-dom'
 import {
-    Collapse,
     Navbar,
     NavbarToggler,
     NavbarBrand,
@@ -25,8 +24,7 @@ const NavBar =(props)=>{
         <>
       <Navbar dark={true}  light expand="md" id="NavBar">
           {/* below is where i want to put in the logo for the website */}
-         <NavbarBrand tag={Link} to='/' ><img style={{width:"50px"}} src="https://logosolusa.com/wp-content/uploads/parser/Random-Logo-1.png" /></NavbarBrand>
-        <NavbarToggler onClick={toggle} />
+         <NavbarBrand tag={Link} to='/' ><img style={{width:"50px"}} src="/favicon.ico" /></NavbarBrand>
           <Nav className="mr-auto" navbar>
             <NavItem>
             <NavLink tag={Link} to='/login' >LogIn</NavLink>

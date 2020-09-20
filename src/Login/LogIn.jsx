@@ -1,10 +1,11 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom';
 import {Container, Form, FormGroup, Label, Input, Button, FormFeedback} from 'reactstrap';
   
 
 
 class LogIn extends React.Component{
-    constructor(props){
+    constructor(){
         super()
         this.state={
             email: "",
@@ -54,20 +55,24 @@ class LogIn extends React.Component{
     }
 
 
-
-
-
-
-
-
-
-    render(){
-        return(
-              <Container id="login" className="userInformation" >
+    checkingIfLoggedin=()=>{
+        return this.props.user ? (
+        <>
+        "Log In"
+        <Redirect to="/" />
+        </>
+        )
+        
+        
+        
+        
+        
+        : (
+            <Container id="login" className="userInformation" >
                 <h2>Sign In</h2>
                 <Form  onSubmit={this.loggingIn}>
                     <FormGroup>
-                        <Label  for="emaileEmail">Email</Label>
+                        <Label  for="email">Email</Label>
                         <Input invalid={this.state.errorStatus}type="email" name="email" id="email" placeholder="example@email.com"  value={this.state.email} onChange={this.onChange}/>
                         <FormFeedback invalid>Email/password combination is invalid. Please Try Again.</FormFeedback>
                     </FormGroup>
@@ -78,8 +83,22 @@ class LogIn extends React.Component{
                     <Button style={{background: "#D2691E"}}>Submit</Button>
                 </Form>
               </Container>
-            
-          
+        )
+        
+
+    }
+
+
+
+
+
+
+    render(){
+        return(
+            <div className="loginScreen">
+              {this.checkingIfLoggedin()}
+              <img id="loginPhoto" src="/images/shopper.png" />
+              </div>
     )
     }
 }
