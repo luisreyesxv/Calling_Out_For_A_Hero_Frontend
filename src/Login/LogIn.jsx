@@ -39,7 +39,7 @@ class LogIn extends React.Component{
             ...this.state,
             email: "",
             password: "",
-            errorStatus: true
+            errorStatus: "true"
         }))
 
 
@@ -56,6 +56,7 @@ class LogIn extends React.Component{
 
 
     checkingIfLoggedin=()=>{
+        console.log(this.props.user, "I'm checking if I logged in")
         return this.props.user ? (
         <>
         "Log In"
@@ -97,7 +98,7 @@ class LogIn extends React.Component{
         return(
             <div className="loginScreen">
               {this.checkingIfLoggedin()}
-              <img id="loginPhoto" src="/images/shopper.png" />
+              <img id="loginPhoto" src="/images/shopper.png"  alt="Shop Keeper"/>
               </div>
     )
     }
