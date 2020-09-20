@@ -21,7 +21,7 @@ function App() {
 
   return (
     <>  
-    <NavBar  />
+    <NavBar  user={user} name={"luis"} />
     <Route exact path="/" render={()=><Homepage user={user}/>} />
     <Route exact path="/login" render={(routerProps)=><LogIn {...routerProps} setUserInformation={setUserInformation} apiUrl={baseAPIUrl}/>} />
     <Route exact path="/register" render={(routerProps)=><Register {...routerProps} setUserInformation={setUserInformation} apiUrl={baseAPIUrl}/>} />

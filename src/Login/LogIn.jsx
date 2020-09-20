@@ -1,17 +1,20 @@
 import React from 'react'
-
+import {Container, Form, FormGroup, Label, Input, Button, FormFeedback} from 'reactstrap';
+  
 
 
 class LogIn extends React.Component{
-    constructor(){
+    constructor(props){
         super()
         this.state={
-            email: "fake@email.com",
-            password: "totallyfake"
+            email: "",
+            password: "",
+            valid: false
         }
     }
 
-    loggingIn=()=>{
+    loggingIn=(e)=>{
+        e.preventDefault()
         const LoginInfo ={
             email: this.state.email,
             password: this.state.password
@@ -29,11 +32,25 @@ class LogIn extends React.Component{
         fetch(this.props.apiUrl +"login", options)
         .then(response => response.json())
         .then(userObj => {
-            console.log("the fetch just happened, this is what it gave us",userObj)
             this.props.setUserInformation(userObj.user,userObj.jwt)
         })
+        .catch(this.setState({
+            ...this.state,
+            email: "",
+            password: "",
+            errorStatus: true
+        }))
 
 
+    }
+
+
+    onChange=(e)=>{
+        this.setState({
+            ...this.state,
+            [e.target.id]: e.target.value,
+            errorStatus: false
+        })
     }
 
 
@@ -42,22 +59,27 @@ class LogIn extends React.Component{
 
 
 
-
-
-    componentDidMount(){
-        console.log("login sheet just loaded")
-        
-    }
 
 
     render(){
         return(
-        <>
-            <h3 style={{color:"purple"}}>Log In sheet </h3>
-            {this.state.username}
-            {this.state.password}
-            {/* {this.loggingIn()} */}
-         </>   
+              <Container id="login" className="userInformation" >
+                <h2>Sign In</h2>
+                <Form  onSubmit={this.loggingIn}>
+                    <FormGroup>
+                        <Label  for="emaileEmail">Email</Label>
+                        <Input invalid={this.state.errorStatus}type="email" name="email" id="email" placeholder="example@email.com"  value={this.state.email} onChange={this.onChange}/>
+                        <FormFeedback invalid>Email/password combination is invalid. Please Try Again.</FormFeedback>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="password">Password</Label>
+                        <Input type="password" name="password" id="password" placeholder="password"  value={this.state.password}  onChange={this.onChange}/>
+                    </FormGroup>
+                    <Button style={{background: "#D2691E"}}>Submit</Button>
+                </Form>
+              </Container>
+            
+          
     )
     }
 }
