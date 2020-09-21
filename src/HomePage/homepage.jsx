@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col, Jumbotron, Button } from 'reactstrap'
 import Banner from './banner'
+// import {SpriteAnimator} from 'react-sprite-animator'
+import Spritesheet from 'react-responsive-spritesheet';
 
 const Homepage = () =>{
 
@@ -15,15 +17,53 @@ const Homepage = () =>{
     // <img alt="beginning sprite" src="http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--9a6b855051ac18a44fadb0867a516973e3cfe4a5/pirate.PNG" />
     //     </div>
     <>
+   
+    
         <Banner />
         <Container>
             <Row style={{"margin-top":"10%"}} className="row justify-content-between"  noGutters="false" >
-                <Col md="4" style={{background:"green"}}> Random Avatar</Col>
+                <Col md="4" style={{background:"green"}}> 
+                
+                {/* <SpriteAnimator
+                style={{"border=style":"dotted","border-radius":"50%"}}
+                    sprite ="/images/testknightsprite.png"
+                    width={1800}
+                    height={700}
+                    shouldAnimate={true}
+                    direction="horizontal"
+                    frameCount={9}
+                    fps="20"
+                    scale ={5}
+                    
+                /> */}
+
+<Spritesheet
+    image="/images/testknightsprite.png"
+    widthFrame={1800}
+    heightFrame={1000}
+    fps={20}
+    // steps={20} this seems to go counter to endAt. may just want to use startAt and endAt. the possibility for it to be more dynamic
+    direction="forward"
+    startAt={0}
+    endAt={20}
+    loop={true}
+    scale={.25}
+    isResponsive={true}
+  
+  
+
+
+
+
+    />
+
+
+                </Col>
                 <Col md="4" style={{background:"orange"}} offset="1"> another random avatar</Col>
             </Row>
  
                
-            <Row style={{"margin-top":"10%"}} >
+            <Row  >
                 <Col>
                 <Jumbotron >
                     <p>
@@ -107,7 +147,7 @@ const Homepage = () =>{
                 </Col>
             </Row>
 
-            <Row style={{"margin-top":"10%"}} className="row justify-content-between"  noGutters="false" >
+            <Row style={{"margin-top":"5"}} className="row justify-content-between"  noGutters="false" >
                 <Col md="4" style={{background:"yellow"}}>
                     <Link to="/login" >
                         <Button block style={{background: "#D2691E"}} size="lg">
