@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import {
     Navbar,
@@ -15,9 +15,7 @@ import {
   } from 'reactstrap';
 
 const NavBar =(props)=>{
-    const [isOpen, setIsOpen] = useState(false);
-    const toggle = () => setIsOpen(!isOpen);
-  
+   
 
     return(
        
@@ -48,6 +46,7 @@ const NavBar =(props)=>{
               </DropdownMenu>
             </UncontrolledDropdown>
             ):null}
+             
           </Nav>
           <NavbarText>{props.user? `Welcome ${props.user.name}`:null}</NavbarText>
       </Navbar>
