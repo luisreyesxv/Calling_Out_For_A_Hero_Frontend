@@ -7,6 +7,8 @@ import NavBar from './NavBar/navbar'
 import LogIn from './Login/LogIn'
 import Register from './Register/register'
 import MainContainer from './Main/mainContainer'
+import COFAHContainer from './COFAH/cofahContainer'
+
 
 function App() {
   const baseAPIUrl = "http://localhost:3000/"
@@ -26,13 +28,14 @@ function App() {
 
   return (
     <>  
-    <NavBar  user={user} name={"luis"} />
+    <NavBar  user={user} />
     {console.log("this is the current state",user,"this is the token",token,"this is the sprite",sprite,"this is the chosenHero",chosenHero)}
     <Route exact path="/" render={(routerProps)=><Homepage  {...routerProps} user={user}/>} />
     <Route exact path="/login" render={(routerProps)=><LogIn {...routerProps} setUserInformation={setUserInformation} apiUrl={baseAPIUrl} user={user}/>} />
     <Route exact path="/logout" render={()=><>{setUserInformation()} Successfully Logged Out. Redirecting ... <Redirect to="/" /> </>} />
     <Route exact path="/register" render={(routerProps)=><Register {...routerProps} setUserInformation={setUserInformation} apiUrl={baseAPIUrl} user={user}/>} />
-    <Route path="/main" render={(routerProps)=> <MainContainer {...routerProps} />} />
+  <Route exact path={`/cofah`} render={(routerProps)=> <COFAHContainer {...routerProps} token={token} />}/>
+    <Route path="/main" render={(routerProps)=> <MainContainer {...routerProps} user={user} sprite={sprite} token={token}/>} />
   </>
   );
 }
