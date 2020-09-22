@@ -42,7 +42,7 @@ class LogIn extends React.Component{
             ...this.state,
             email: "",
             password: "",
-            errorStatus: "true"
+            errorStatus: true
             
         })})
         
@@ -75,7 +75,7 @@ class LogIn extends React.Component{
                     <FormGroup>
                         <Label  for="email">Email</Label>
                         <Input invalid={this.state.errorStatus}type="email" name="email" id="email" placeholder="example@email.com"  value={this.state.email} onChange={this.onChange}/>
-                        <FormFeedback invalid>Email/password combination is invalid. Please Try Again.</FormFeedback>
+                        <FormFeedback>Email/password combination is invalid. Please Try Again.</FormFeedback>
                     </FormGroup>
                     <FormGroup>
                         <Label for="password">Password</Label>

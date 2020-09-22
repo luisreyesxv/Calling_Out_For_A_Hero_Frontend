@@ -8,7 +8,7 @@ class Register extends React.Component{
     constructor(){
         super()
         this.state={
-            username: "",
+            name: "",
             password: "",
             password_confirmation: "",
             email: "",
@@ -23,7 +23,9 @@ class Register extends React.Component{
 
         const RegisterInfo ={
             email: this.state.email,
-            password: this.state.password
+            password: this.state.password,
+            name: this.state.name,
+
         }
         const options={
             method: "POST",
@@ -38,11 +40,11 @@ class Register extends React.Component{
         fetch(this.props.apiUrl +"register", options)
         .then(response => response.json())
         .then(userObj => {
-            this.props.setUserInformation(userObj.user,userObj.jwt,userObj.sprite,userObj.chosen_hero)
             this.setState({
                 ...this.state,
                 errorStatus: !!userObj.error
             })
+            this.props.setUserInformation(userObj.user,userObj.jwt,userObj.sprite,userObj.chosen_hero)
         })
         .catch(()=>{
            
@@ -50,7 +52,7 @@ class Register extends React.Component{
             ...this.state,
             email: "",
             password: "",
-            errorStatus: "true"
+            errorStatus: true
             
         })})
         
@@ -92,7 +94,7 @@ class Register extends React.Component{
                     <FormGroup >
                         <Label  for="email"><h5>Email</h5></Label>
                         <Input invalid={this.state.errorStatus} type="email" name="email" id="email" placeholder="example@email.com"  value={this.state.email} onChange={this.onChange}/>
-                        <FormFeedback invalid>Email/password combination is invalid. Please Try Again.</FormFeedback>
+                        <FormFeedback >Email/password combination is invalid. Please Try Again.</FormFeedback>
                     </FormGroup>
                     <FormGroup >
                         <Label  for="name"><h5>Name</h5></Label>
@@ -106,7 +108,7 @@ class Register extends React.Component{
                     <FormGroup>
                         <Label for="password_confirmation"><h5>Re-type Password</h5></Label>
                         <Input invalid={this.state.password_error} type="password" name="password_confirmation" id="password_confirmation" placeholder="re-type password"  value={this.state.password_confirmation}  onChange={this.onChange}/>
-                        <FormFeedback invalid>Password & Password confirmation must match.</FormFeedback>                   
+                        <FormFeedback>Password & Password confirmation must match.</FormFeedback>                   
                     </FormGroup>
                     <FormGroup>
                         <Button style={{background: "#D2691E"}}>Submit</Button>
