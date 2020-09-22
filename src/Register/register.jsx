@@ -81,7 +81,7 @@ class Register extends React.Component{
         return this.props.user ? (
         <>
         "Already Registered. Redirecting you to the Main Page"
-        <Redirect to="/" />
+        <Redirect to='/main' />
         </>
         )        
         : 

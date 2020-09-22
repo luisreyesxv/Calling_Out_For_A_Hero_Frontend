@@ -49,12 +49,6 @@ const Homepage = () =>{
     loop={true}
     scale={.25}
     isResponsive={true}
-  
-  
-
-
-
-
     />
     
 

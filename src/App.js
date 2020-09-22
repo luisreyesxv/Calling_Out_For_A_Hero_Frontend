@@ -6,6 +6,7 @@ import Homepage from './HomePage/homepage'
 import NavBar from './NavBar/navbar'
 import LogIn from './Login/LogIn'
 import Register from './Register/register'
+import MainContainer from './Main/mainContainer'
 
 function App() {
   const baseAPIUrl = "http://localhost:3000/"
@@ -31,6 +32,7 @@ function App() {
     <Route exact path="/login" render={(routerProps)=><LogIn {...routerProps} setUserInformation={setUserInformation} apiUrl={baseAPIUrl} user={user}/>} />
     <Route exact path="/logout" render={()=><>{setUserInformation()} Successfully Logged Out. Redirecting ... <Redirect to="/" /> </>} />
     <Route exact path="/register" render={(routerProps)=><Register {...routerProps} setUserInformation={setUserInformation} apiUrl={baseAPIUrl} user={user}/>} />
+    <Route path="/main" render={(routerProps)=> <MainContainer {...routerProps} />} />
   </>
   );
 }

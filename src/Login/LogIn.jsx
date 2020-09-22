@@ -64,7 +64,7 @@ class LogIn extends React.Component{
         return this.props.user ? (
         <>
         "Already Logged In. Redirecting you to the Main Page"
-        <Redirect to="/" />
+        <Redirect to='/main' />
         </>
         )        
         : 

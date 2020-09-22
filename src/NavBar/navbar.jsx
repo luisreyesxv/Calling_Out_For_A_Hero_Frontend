@@ -29,7 +29,10 @@ const NavBar =(props)=>{
             {props.user?<NavLink tag={Link} to='/logout' >LogOut</NavLink>:<NavLink tag={Link} to='/login' >LogIn</NavLink>}
             </NavItem>
             <NavItem>
-              <NavLink tag={Link} to="/register">Register</NavLink>
+            {props.user?<NavLink tag={Link} to='/main' >Main Page</NavLink>:null}
+            </NavItem>
+            <NavItem>
+            {props.user?null:<NavLink tag={Link} to="/register">Register</NavLink>}
             </NavItem>
             {props.user? (
             <UncontrolledDropdown nav inNavbar>

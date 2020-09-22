@@ -102,3 +102,17 @@ width: 40vw;
 margin-left: 30%;
 background: #D2691E;
 }
+
+
+#task-carousel{
+  height: 20vh;
+}
+
+#main-page-hero{
+  margin-top: 5%;
+}
+
+#podium{
+  height: 30%;
+  width: 100%
+}
