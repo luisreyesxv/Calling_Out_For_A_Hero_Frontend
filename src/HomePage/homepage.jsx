@@ -21,7 +21,7 @@ const Homepage = () =>{
     
         <Banner />
         <Container>
-            <Row style={{"margin-top":"10%"}} className="row justify-content-between"  noGutters="false" >
+            <Row style={{"marginTop":"10%"}} className="row justify-content-between"  noGutters={false} >
                 <Col md="4" style={{background:"green"}}> 
                 
                 {/* <SpriteAnimator
@@ -147,7 +147,7 @@ const Homepage = () =>{
                 </Col>
             </Row>
 
-            <Row style={{"margin-top":"5"}} className="row justify-content-between"  noGutters="false" >
+            <Row style={{"marginTop":"5"}} className="row justify-content-between"  noGutters={true} >
                 <Col md="4" style={{background:"yellow"}}>
                     <Link to="/login" >
                         <Button block style={{background: "#D2691E"}} size="lg">

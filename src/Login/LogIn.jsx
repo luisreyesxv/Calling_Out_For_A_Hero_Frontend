@@ -10,7 +10,7 @@ class LogIn extends React.Component{
         this.state={
             email: "",
             password: "",
-            valid: false
+            errorStatus: false
         }
     }
 
@@ -33,14 +33,19 @@ class LogIn extends React.Component{
         fetch(this.props.apiUrl +"login", options)
         .then(response => response.json())
         .then(userObj => {
-            this.props.setUserInformation(userObj.user,userObj.jwt)
+           console.log(userObj)
+            this.props.setUserInformation(userObj.user,userObj.jwt,userObj.sprite,userObj.chosen_hero)
         })
-        .catch(this.setState({
+        .catch(()=>{
+           
+            this.setState({
             ...this.state,
             email: "",
             password: "",
             errorStatus: "true"
-        }))
+            
+        })})
+        
 
 
     }
@@ -56,19 +61,14 @@ class LogIn extends React.Component{
 
 
     checkingIfLoggedin=()=>{
-        console.log(this.props.user, "I'm checking if I logged in")
         return this.props.user ? (
         <>
-        "Log In"
+        "Already Logged In. Redirecting you to the Main Page"
         <Redirect to="/" />
         </>
-        )
-        
-        
-        
-        
-        
-        : (
+        )        
+        : 
+        (
             <Container id="login" className="userInformation" >
                 <h2>Sign In</h2>
                 <Form  onSubmit={this.loggingIn}>
@@ -89,7 +89,7 @@ class LogIn extends React.Component{
 
     }
 
-
+   
 
 
 

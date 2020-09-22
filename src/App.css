@@ -69,7 +69,29 @@
 }
 .loginScreen{
 
-  background-image: url("/images/background.png");
+  background-image: url("/images/login.png");
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+}
+#register{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  text-align: center
+}
+
+#registerPhoto{
+ 
+  height:100vh;
+  max-width: 40vw;
+   transform: translate(150%, 0);
+  
+}
+.registerScreen{
+
+  background-image: url("/images/register.png");
   background-repeat: no-repeat;
   background-size: 100vw 100vh;
 }

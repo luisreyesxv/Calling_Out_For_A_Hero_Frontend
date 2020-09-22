@@ -11,18 +11,22 @@ function App() {
   const baseAPIUrl = "http://localhost:3000/"
   const [user, setUser] = useState(null)
   const [token, setToken] = useState(null)
+  const [sprite, setSprite] = useState(null)
+  const [chosenHero, setChosenHero] = useState(null)
 
-  const setUserInformation =(userObject,tokenInfo)=>{
-    console.log("this is from APP component, and it just ran", userObject,tokenInfo, token)
+  const setUserInformation =(userObject,tokenInfo,spriteUrl,chosenHeroObj)=>{
+    
     setUser(userObject)
     setToken(tokenInfo)
+    setSprite(spriteUrl)
+    setChosenHero(chosenHeroObj)
   }
 
 
   return (
     <>  
     <NavBar  user={user} name={"luis"} />
-    
+    {console.log("this is the current state",user,"this is the token",token,"this is the sprite",sprite,"this is the chosenHero",chosenHero)}
     <Route exact path="/" render={(routerProps)=><Homepage  {...routerProps} user={user}/>} />
     <Route exact path="/login" render={(routerProps)=><LogIn {...routerProps} setUserInformation={setUserInformation} apiUrl={baseAPIUrl} user={user}/>} />
     <Route exact path="/logout" render={()=><>{setUserInformation()} Successfully Logged Out. Redirecting ... <Redirect to="/" /> </>} />
