@@ -22,7 +22,7 @@ const Homepage = () =>{
         <Banner />
         <Container>
             <Row style={{"marginTop":"10%"}} className="row justify-content-between"  noGutters={false} >
-                <Col md="4" style={{background:"green"}}> 
+                <Col md="6" style={{background:"green"}}> 
                 
                 {/* <SpriteAnimator
                 style={{"border=style":"dotted","border-radius":"50%"}}
@@ -39,13 +39,13 @@ const Homepage = () =>{
 
 <Spritesheet
     image="/images/testknightsprite.png"
-    widthFrame={1800}
-    heightFrame={1000}
+    widthFrame={819.2}
+    heightFrame={338}
     fps={20}
     // steps={20} this seems to go counter to endAt. may just want to use startAt and endAt. the possibility for it to be more dynamic
     direction="forward"
-    startAt={0}
-    endAt={20}
+    startAt={51}
+    endAt={60}
     loop={true}
     scale={.25}
     isResponsive={true}
@@ -56,6 +56,7 @@ const Homepage = () =>{
 
 
     />
+    
 
 
                 </Col>
