@@ -5,7 +5,7 @@ import { Container, Row, Col, Jumbotron, Button,Carousel,
     CarouselControl,
     CarouselIndicators,
     CarouselCaption } from 'reactstrap'
-    import Spritesheet from 'react-responsive-spritesheet';
+import Spritesheet from 'react-responsive-spritesheet';
 
 
 class MainPage extends React.Component{
@@ -14,6 +14,32 @@ class MainPage extends React.Component{
         this.state={
             tasks: []
         }
+    }
+
+    spriteOrButton=()=>{
+      return  this.props.sprite["missing?"] ?
+      
+      (<Link to="/cofah" >
+          <div style={{background:"purple", height: "200px", textAlign: "center"}} >
+            <Button span={3} color="warning" >Call Out For A Hero!</Button>
+            </div>
+        </Link>)
+       :
+       (<>
+            <Spritesheet
+                image= {this.props.sprite.url}
+                widthFrame= {this.props.sprite.width}
+                heightFrame= {this.props.sprite.height}
+                fps= {15}
+                direction="forward"
+                startAt={1}
+                endAt={9}
+                loop={true}
+                isResponsive={true}
+            />
+            <img id="podium" alt="podium" src="https://cdn.clipart.email/718c8d7a6b8c56439bce7cd2bc0f932e_stage-transparent-podium-picture-1190297-stage-transparent-podium_600-211.png" />
+        </>
+    )
     }
 
     render(){
@@ -42,19 +68,7 @@ class MainPage extends React.Component{
                         <Link to="/cofah" >
                             <h1> current hero?</h1>
                         </Link>
-                        <Spritesheet
-                            image={this.props.sprite.url}
-                            widthFrame={this.props.sprite.width}
-                            heightFrame={this.props.sprite.height}
-                            fps={15}
-                            // steps={20} this seems to go counter to endAt. may just want to use startAt and endAt. the possibility for it to be more dynamic
-                            direction="forward"
-                            startAt={0}
-                            endAt={10}
-                            loop={true}
-                            isResponsive={true}
-                        />
-                        <img id="podium" alt="podium" src="https://cdn.clipart.email/718c8d7a6b8c56439bce7cd2bc0f932e_stage-transparent-podium-picture-1190297-stage-transparent-podium_600-211.png" />
+                        {this.spriteOrButton()}
                     </Col>
                     <Col md="5" style={{background:"orange"}} >
                         <h1>Placeholder for spotify player</h1>
@@ -64,6 +78,7 @@ class MainPage extends React.Component{
         )
     }
 }
+
 
 
 export default MainPage

@@ -6,12 +6,12 @@ import { Container, Row, Col, Button} from 'reactstrap'
 
 
 class COFAHContainer extends React.Component{
-    constructor(){
+    constructor(props){
         super()
         this.state={
-            randomButton: false,
-            quizButton: false,
-            spotifyButton: false
+            randomButton: !!props.sprite,
+            quizButton: true,
+            spotifyButton: true
                                                                               
         
         }
@@ -53,13 +53,13 @@ class COFAHContainer extends React.Component{
                 <Container>
                     <Row className="row justify-content-between">
                         <Col md="3">
-                            <Button onClick={()=>this.callHero()} color="warning" >DESPERATELY CALLING OUT FOR A HERO!</Button>
+                            <Button disabled= {this.state.randomButton} onClick={()=>this.callHero()} color="warning" >DESPERATELY CALLING OUT FOR A HERO!</Button>
                         </Col>
                         <Col md="3">
-                            <Button  disabled ={true} color="success" >Calling Out For A Hero based on quiz</Button>
+                            <Button  disabled ={this.state.quizButton} color="success" >Calling Out For A Hero based on quiz</Button>
                         </Col>
                         <Col md="3">
-                            <Button  disabled ={true} color="danger" >Calling Out For A Hero based on Spotify</Button>
+                            <Button  disabled ={this.state.spotifyButton} color="danger" >Calling Out For A Hero based on Spotify</Button>
                         </Col>
                     </Row>
                 </Container>

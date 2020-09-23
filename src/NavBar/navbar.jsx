@@ -41,10 +41,10 @@ const NavBar =(props)=>{
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>
-                  New Quest
+                <NavLink style={{color: "peru"}} tag={Link} to="/main/quests/new">New Quest</NavLink>
                 </DropdownItem>
                 <DropdownItem>
-                  View All Quests
+                <NavLink style={{color: "peru"}} tag={Link} to="/main/quests/">View All Quests</NavLink>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>

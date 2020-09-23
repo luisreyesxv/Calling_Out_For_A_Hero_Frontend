@@ -33,7 +33,6 @@ class LogIn extends React.Component{
         fetch(this.props.apiUrl +"login", options)
         .then(response => response.json())
         .then(userObj => {
-           console.log(userObj)
             this.props.setUserInformation(userObj.user,userObj.jwt,userObj.sprite,userObj.chosen_hero)
         })
         .catch(()=>{

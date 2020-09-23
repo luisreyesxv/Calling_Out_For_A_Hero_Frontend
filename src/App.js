@@ -12,10 +12,10 @@ import COFAHContainer from './COFAH/cofahContainer'
 
 function App() {
   const baseAPIUrl = "http://localhost:3000/"
-  const [user, setUser] = useState(null)
-  const [token, setToken] = useState(null)
-  const [sprite, setSprite] = useState(null)
-  const [chosenHero, setChosenHero] = useState(null)
+  const [user, setUser] = useState()
+  const [token, setToken] = useState()
+  const [sprite, setSprite] = useState()
+  const [chosenHero, setChosenHero] = useState()
 
   const setUserInformation =(userObject,tokenInfo,spriteUrl,chosenHeroObj)=>{
     
@@ -40,9 +40,10 @@ function App() {
     <Route exact path="/logout" render={()=><>{setUserInformation()} Successfully Logged Out. Redirecting ... <Redirect to="/" /> </>} />
     <Route exact path="/register" render={(routerProps)=><Register {...routerProps} setUserInformation={setUserInformation} apiUrl={baseAPIUrl} user={user}/>} />
     <Route exact path={`/cofah`} render={(routerProps)=> <COFAHContainer {...routerProps} token={token} apiUrl={baseAPIUrl} sprite={sprite} updateChosenHero={updateChosenHero}/>}/>
-    <Route path="/main" render={(routerProps)=> <MainContainer {...routerProps} user={user} sprite={sprite} token={token}/>} />
+    <Route path="/main" render={(routerProps)=> <MainContainer {...routerProps} user={user} sprite={sprite} token={token} apiUrl={baseAPIUrl}/>} />
   </>
   );
 }
+
 
 export default App;

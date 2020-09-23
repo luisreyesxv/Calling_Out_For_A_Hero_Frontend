@@ -44,7 +44,7 @@ const Homepage = () =>{
     fps={20}
     // steps={20} this seems to go counter to endAt. may just want to use startAt and endAt. the possibility for it to be more dynamic
     direction="forward"
-    startAt={11}
+    startAt={31}
     endAt={40}
     loop={true}
     scale={10}
