@@ -39,15 +39,15 @@ const Homepage = () =>{
 
 <Spritesheet
     image="/images/testknightsprite.png"
-    widthFrame={819.2}
-    heightFrame={338}
+    widthFrame={740}
+    heightFrame={508}
     fps={20}
     // steps={20} this seems to go counter to endAt. may just want to use startAt and endAt. the possibility for it to be more dynamic
     direction="forward"
-    startAt={51}
-    endAt={60}
+    startAt={11}
+    endAt={40}
     loop={true}
-    scale={.25}
+    scale={10}
     isResponsive={true}
     />
     
