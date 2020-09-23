@@ -9,8 +9,39 @@ class COFAHContainer extends React.Component{
     constructor(){
         super()
         this.state={
+            randomButton: false,
+            quizButton: false,
+            spotifyButton: false
+                                                                              
         
         }
+    }
+
+
+
+    callHero = ( body={method:"random"}) =>{
+
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                'Authorization': this.props.token
+            },
+            body: JSON.stringify({chosen_hero: body})
+        }
+
+        fetch(this.props.apiUrl + "hire", options)
+        .then(response=> response.json())
+        .then(chosenhero=> {
+            
+            console.log("this is inside cofah", chosenhero)
+            this.props.updateChosenHero(chosenhero.sprite,chosenhero.chosen_hero)
+            
+        })
+
+
+
     }
 
 
@@ -22,7 +53,7 @@ class COFAHContainer extends React.Component{
                 <Container>
                     <Row className="row justify-content-between">
                         <Col md="3">
-                            <Button  color="warning" >DESPERATELY CALLING OUT FOR A HERO!</Button>
+                            <Button onClick={()=>this.callHero()} color="warning" >DESPERATELY CALLING OUT FOR A HERO!</Button>
                         </Col>
                         <Col md="3">
                             <Button  disabled ={true} color="success" >Calling Out For A Hero based on quiz</Button>

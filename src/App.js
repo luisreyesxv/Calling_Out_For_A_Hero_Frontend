@@ -25,6 +25,11 @@ function App() {
     setChosenHero(chosenHeroObj)
   }
 
+  const updateChosenHero = (spriteUrl,chosenHeroObj) =>{
+    setSprite(spriteUrl)
+    setChosenHero(chosenHeroObj)
+  }
+
 
   return (
     <>  
@@ -34,7 +39,7 @@ function App() {
     <Route exact path="/login" render={(routerProps)=><LogIn {...routerProps} setUserInformation={setUserInformation} apiUrl={baseAPIUrl} user={user}/>} />
     <Route exact path="/logout" render={()=><>{setUserInformation()} Successfully Logged Out. Redirecting ... <Redirect to="/" /> </>} />
     <Route exact path="/register" render={(routerProps)=><Register {...routerProps} setUserInformation={setUserInformation} apiUrl={baseAPIUrl} user={user}/>} />
-  <Route exact path={`/cofah`} render={(routerProps)=> <COFAHContainer {...routerProps} token={token} />}/>
+    <Route exact path={`/cofah`} render={(routerProps)=> <COFAHContainer {...routerProps} token={token} apiUrl={baseAPIUrl} sprite={sprite} updateChosenHero={updateChosenHero}/>}/>
     <Route path="/main" render={(routerProps)=> <MainContainer {...routerProps} user={user} sprite={sprite} token={token}/>} />
   </>
   );

@@ -39,18 +39,19 @@ class MainPage extends React.Component{
                 </Row>
                 <Row className="row justify-content-between" id="main-page-hero"  noGutters={false}>
                     <Col md="6" style={{background:"red"}} >
-                        <h1> current hero?</h1>
+                        <Link to="/cofah" >
+                            <h1> current hero?</h1>
+                        </Link>
                         <Spritesheet
-                            image="/images/testknightsprite.png"
-                            widthFrame={819.2}
-                            heightFrame={338}
+                            image={this.props.sprite.url}
+                            widthFrame={this.props.sprite.width}
+                            heightFrame={this.props.sprite.height}
                             fps={15}
                             // steps={20} this seems to go counter to endAt. may just want to use startAt and endAt. the possibility for it to be more dynamic
                             direction="forward"
                             startAt={0}
                             endAt={10}
                             loop={true}
-                            
                             isResponsive={true}
                         />
                         <img id="podium" alt="podium" src="https://cdn.clipart.email/718c8d7a6b8c56439bce7cd2bc0f932e_stage-transparent-podium-picture-1190297-stage-transparent-podium_600-211.png" />
