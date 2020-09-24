@@ -1,5 +1,5 @@
 import React from 'react'
-import {Container, Form, FormGroup, Label, Input, Button, FormFeedback,Row, Col} from 'reactstrap';
+import {Container, Form, FormGroup,FormText, Label, Input, Button, FormFeedback,Row, Col} from 'reactstrap';
 import SpriteContainer from '../spriteAndClocks/spriteContainer'
 
 
@@ -17,6 +17,17 @@ class NewTaskForm extends React.Component{
 
 
     onChange=(e)=>{
+
+        if (e.target.id === "title" && e.target.value.length > 100){
+            this.setState({ ...this.state,
+                submitDisabled: true,
+                errorMessage: "Please Keep Title up to 100 characters"})
+            } else if(e.target.id === "description" && e.target.value.length > 110){
+                this.setState({ ...this.state,
+                    submitDisabled: true,
+                    errorMessage: "Please Keep Description up to 110 characters"})
+            } else{
+
         
         this.setState({
             ...this.state,
@@ -24,7 +35,7 @@ class NewTaskForm extends React.Component{
             submitDisabled: false,
             submitted: false,
             errorMessage: "Please Make Sure All Fields Are Filled In"
-        })
+        })}
     }
 
     submittingNewQuest=(e)=>{
@@ -100,6 +111,7 @@ class NewTaskForm extends React.Component{
                         <FormGroup >
                             <Label for="title"><h5>Title</h5></Label>
                             <Input   invalid={this.state.submitDisabled} type="title" name="title" id="title" placeholder="Title For Quest"  value={this.state.title} onChange={this.onChange}/>
+                            <FormText>(max 100 Characters)</FormText>
                             <FormFeedback invalid={this.state.submitDisabled}>{this.state.errorMessage}</FormFeedback>
                         </FormGroup>
                     </Col> 
@@ -109,6 +121,7 @@ class NewTaskForm extends React.Component{
                     <FormGroup >
                         <Label  for="description"><h5>Description</h5></Label>
                         <Input type="textarea" name="description" id="description" placeholder="Specify What the Quest is About" value={this.state.description} onChange={this.onChange}/>
+                        <FormText>(max 110 Characters)</FormText>
                     </FormGroup>
                 </Col> 
             </Row>

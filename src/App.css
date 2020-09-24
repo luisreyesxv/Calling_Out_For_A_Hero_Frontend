@@ -125,7 +125,7 @@ background: #D2691E;
 }
 
 .RegisterNewQuest{
-background-image: url("https://i.pinimg.com/originals/16/df/8f/16df8f88791f835754b634188fe06268.png");
+background-image: url("/images/newQuestBackground.png");
 background-repeat: no-repeat;
 background-size: 100vw 100vh;
 height: 100vh;

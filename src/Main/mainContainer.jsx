@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import {Route, Redirect} from 'react-router-dom'
 import MainPage from './mainPage'
 import NewTaskForm from '../Tasks/NewTaskForm'
+import TaskList from '../Tasks/TaskList'
 
 
 
@@ -63,6 +64,7 @@ class MainContainer extends React.Component{
             method: "GET",
             headers: {
                 "Authorization": this.props.token,
+                // "Authorization":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxOTF9.ZytW337SspPntJrV_jEDJRiLItVgxH8Aj-Mz4cPLsXQ",
                 "Content-Type": "application/json",
             }
         }
@@ -92,7 +94,7 @@ class MainContainer extends React.Component{
         return(
             <>
             <Route exact path={`${this.props.match.url}/quests/new`} render={(routerProps)=> <NewTaskForm {...routerProps} token={this.props.token} postNewQuest={this.postNewTask} lengthOfTasks={this.state.tasks.length} postStatus={this.state.status} sprite={this.props.sprite}/>} />
-            <Route exact path={`${this.props.match.url}/quest`} render={(routerProps)=> <MainPage {...routerProps} />} />
+            <Route exact path={`${this.props.match.url}/quests`} render={(routerProps)=> <TaskList {...routerProps} tasks={this.state.tasks}/>} />
             <Route exact path={this.props.match.url} render={(routerProps)=> <MainPage {...routerProps}  sprite={this.props.sprite}/>} />
             </>
         )
