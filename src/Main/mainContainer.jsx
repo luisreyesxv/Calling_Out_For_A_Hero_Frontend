@@ -63,11 +63,11 @@ class MainContainer extends React.Component{
         )
     }
 }
-MainContainer.defaultProps= {
-    sprite: {url: "/images/testknightsprite.png",
-            width: 740,
-            height: 508,
-            ["missing?"]: true}
-  }
+// MainContainer.defaultProps= {
+//     sprite: {url: "/images/testknightsprite.png",
+//             width: 740,
+//             height: 508,
+//             ["missing?"]: true}
+//   }
 
 export default MainContainer

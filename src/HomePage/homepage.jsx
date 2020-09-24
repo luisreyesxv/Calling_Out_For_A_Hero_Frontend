@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Container, Row, Col, Jumbotron, Button } from 'reactstrap'
 import Banner from './banner'
 // import {SpriteAnimator} from 'react-sprite-animator'
-import Spritesheet from 'react-responsive-spritesheet';
+import SpriteContainer from '../spriteAndClocks/spriteContainer'
 
 const Homepage = () =>{
 
@@ -23,36 +23,7 @@ const Homepage = () =>{
         <Container>
             <Row style={{"marginTop":"10%"}} className="row justify-content-between"  noGutters={false} >
                 <Col md="6" style={{background:"green"}}> 
-                
-                {/* <SpriteAnimator
-                style={{"border=style":"dotted","border-radius":"50%"}}
-                    sprite ="/images/testknightsprite.png"
-                    width={1800}
-                    height={700}
-                    shouldAnimate={true}
-                    direction="horizontal"
-                    frameCount={9}
-                    fps="20"
-                    scale ={5}
-                    
-                /> */}
-
-<Spritesheet
-    image="/images/testknightsprite.png"
-    widthFrame={740}
-    heightFrame={508}
-    fps={20}
-    // steps={20} this seems to go counter to endAt. may just want to use startAt and endAt. the possibility for it to be more dynamic
-    direction="forward"
-    startAt={31}
-    endAt={40}
-    loop={true}
-    scale={10}
-    isResponsive={true}
-    />
-    
-
-
+                    <SpriteContainer key="demoHero" url="/images/testknightsprite.png" width={740} height= {508} />
                 </Col>
                 <Col md="4" style={{background:"orange"}} offset="1"> another random avatar</Col>
             </Row>

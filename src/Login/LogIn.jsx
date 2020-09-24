@@ -10,7 +10,8 @@ class LogIn extends React.Component{
         this.state={
             email: "",
             password: "",
-            errorStatus: false
+            errorStatus: false,
+            errorMessage: ""
         }
     }
 
@@ -31,17 +32,23 @@ class LogIn extends React.Component{
 
 
         fetch(this.props.apiUrl +"login", options)
-        .then(response => response.json())
+        .then(response => {
+            if(!response.ok){
+                const errorMessage = response.status === 401 ? "Email/password combination is invalid. Please Try Again." : "Small issue with logging. Please Try again later"
+                throw Error(errorMessage)
+            } else {
+                return response.json()
+            }})
         .then(userObj => {
             this.props.setUserInformation(userObj.user,userObj.jwt,userObj.sprite,userObj.chosen_hero)
         })
-        .catch(()=>{
-           
+        .catch((error)=>{
             this.setState({
             ...this.state,
             email: "",
             password: "",
-            errorStatus: true
+            errorStatus: true,
+            errorMessage: error.message
             
         })})
         
@@ -54,7 +61,8 @@ class LogIn extends React.Component{
         this.setState({
             ...this.state,
             [e.target.id]: e.target.value,
-            errorStatus: false
+            errorStatus: false,
+            errorMessage:""
         })
     }
 
@@ -74,7 +82,7 @@ class LogIn extends React.Component{
                     <FormGroup>
                         <Label  for="email">Email</Label>
                         <Input invalid={this.state.errorStatus}type="email" name="email" id="email" placeholder="example@email.com"  value={this.state.email} onChange={this.onChange}/>
-                        <FormFeedback>Email/password combination is invalid. Please Try Again.</FormFeedback>
+                        <FormFeedback>{this.state.errorMessage}</FormFeedback>
                     </FormGroup>
                     <FormGroup>
                         <Label for="password">Password</Label>

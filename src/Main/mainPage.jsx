@@ -6,6 +6,7 @@ import { Container, Row, Col, Jumbotron, Button,Carousel,
     CarouselIndicators,
     CarouselCaption } from 'reactstrap'
 import Spritesheet from 'react-responsive-spritesheet';
+import SpriteContainer from '../spriteAndClocks/spriteContainer'
 
 
 class MainPage extends React.Component{
@@ -17,7 +18,7 @@ class MainPage extends React.Component{
     }
 
     spriteOrButton=()=>{
-      return  this.props.sprite["missing?"] ?
+      return !this.props.sprite ?
       
       (<Link to="/cofah" >
           <div style={{background:"purple", height: "200px", textAlign: "center"}} >
@@ -26,7 +27,7 @@ class MainPage extends React.Component{
         </Link>)
        :
        (<>
-            <Spritesheet
+            {/* <Spritesheet
                 image= {this.props.sprite.url}
                 widthFrame= {this.props.sprite.width}
                 heightFrame= {this.props.sprite.height}
@@ -36,7 +37,8 @@ class MainPage extends React.Component{
                 endAt={9}
                 loop={true}
                 isResponsive={true}
-            />
+            /> */}
+            <SpriteContainer key="mainChosenHero" {...this.props.sprite} />
             <img id="podium" alt="podium" src="https://cdn.clipart.email/718c8d7a6b8c56439bce7cd2bc0f932e_stage-transparent-podium-picture-1190297-stage-transparent-podium_600-211.png" />
         </>
     )
