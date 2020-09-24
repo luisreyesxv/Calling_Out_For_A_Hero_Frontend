@@ -118,6 +118,34 @@ background: #D2691E;
 }
 
 #New-Quest-Form{
+  
   width: 50%;
-  text-align: center
+  text-align: center;
+  padding: 10px;
+}
+
+.RegisterNewQuest{
+background-image: url("https://i.pinimg.com/originals/16/df/8f/16df8f88791f835754b634188fe06268.png");
+background-repeat: no-repeat;
+background-size: 100vw 100vh;
+height: 100vh;
+padding-top:20px;
+
+}
+
+#New-Quest-Form{
+  
+  width: 50%;
+  text-align: center;
+  padding: 10px;
+}
+
+.NewTaskFormSprites{
+  height: 100px;
+  text-align: center;
+}
+
+#NewTaskFormSpriteContainer{
+  height: 100px;
+  text-align: center;
 }
