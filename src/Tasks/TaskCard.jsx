@@ -55,7 +55,9 @@ const TaskCard =(props)=>{
 
         const submitHandler=()=>{
             const newDate = new Date(date)
-            const fixedDate= `${newDate.getMonth()+1}/${newDate.getDate()}/${newDate.getFullYear()}`
+
+            const fixedDate = newDate.toISOString() 
+
             const body ={
                 title: title,
                 description: description,

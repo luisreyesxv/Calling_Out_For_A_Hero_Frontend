@@ -40,8 +40,8 @@ class NewTaskForm extends React.Component{
 
     submittingNewQuest=(e)=>{
         e.preventDefault()
-        const date = new Date(e.target.date.value)
-        const fixedDate= `${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`
+        const fixedDate = new Date(e.target.date.value).toISOString() 
+    
 
         let body = {
             title: e.target.title.value,

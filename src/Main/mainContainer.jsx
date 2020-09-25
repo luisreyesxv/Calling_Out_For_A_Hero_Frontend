@@ -75,7 +75,7 @@ class MainContainer extends React.Component{
                 this.communicateWithAPI(options,id)
                 .then(taskObj => {
                     const newTasks = this.state.tasks
-                    const taskIndex = newTasks.findIndex((task)=> task.id = id)
+                    const taskIndex = newTasks.findIndex((task)=> task.id === id)
                     newTasks[taskIndex] = taskObj
                     this.setState({
                         ...this.state,
