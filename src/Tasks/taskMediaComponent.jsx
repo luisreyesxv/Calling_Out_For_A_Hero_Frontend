@@ -89,8 +89,9 @@ const TaskMedia =(props)=>{
                 <Media heading>
                 Story Description
                 </Media>
-                An arrogant elven lady named Nimrellye seeks a company of adventurers to steal the axe Malevolent Storm from a rival.
-
+                <p>
+                    An arrogant elven lady named Nimrellye seeks a company of adventurers to steal the axe Malevolent Storm from a rival.
+                </p>
             </Media>
             <Media></Media>
         </Media>
