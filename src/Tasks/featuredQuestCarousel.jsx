@@ -35,21 +35,21 @@ const FeaturedQuestCarousel =(props)=>{
         setActiveIndex(nextIndex);
       }
     
-      const goToIndex = (newIndex) => {
-        if (animating) return;
-        setActiveIndex(newIndex);
-      }
+      // const goToIndex = (newIndex) => {
+      //   if (animating) return;
+      //   setActiveIndex(newIndex);
+      // }
     
-      const slides = props.tasks.map((item) => {
+      const slides = props.tasks.map((task) => {
         return (
           <CarouselItem 
             onExiting={() => setAnimating(true)}
             onExited={() => setAnimating(false)}
-            key={item.id}
+            key={task.id}
            
           >
     
-                <TaskMedia key={item.id} {...item} patchHandler={props.patchTask} />
+                <TaskMedia key={task.id} {...task} patchHandler={props.patchTask} />
             
           </CarouselItem>
         );

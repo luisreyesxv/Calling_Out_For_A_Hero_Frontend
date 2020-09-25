@@ -3,6 +3,8 @@ import { Card, CardTitle, CardText, CardImg, CardImgOverlay, CardBody,CardHeader
     Modal, ModalHeader, ModalBody, ModalFooter ,
     InputGroup, InputGroupAddon, InputGroupText, Input, FormText, FormFeedback
 } from 'reactstrap';
+import { Link } from 'react-router-dom'
+
 
 
 
@@ -85,7 +87,10 @@ const TaskCard =(props)=>{
                 </CardBody>
                 {isCompleted()}
                 <CardFooter >
+                <Link className="featured-quests-buttons" to={`/main/quests/${props.id}`} >
                 <Button disabled={props["completed?"]} color="success">Run Quest</Button>
+            </Link>
+                
                 <Button disabled={props["completed?"]} color="danger" onClick={toggle}>Edit Quest</Button>
                 </CardFooter>
         </Card>

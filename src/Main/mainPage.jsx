@@ -1,10 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Container, Row, Col, Jumbotron, Button,Carousel,
-    CarouselItem,
-    CarouselControl,
-    CarouselIndicators,
-    CarouselCaption } from 'reactstrap'
+import { Container, Row, Col, Button } from 'reactstrap'
 import Spritesheet from 'react-responsive-spritesheet';
 import SpriteContainer from '../spriteAndClocks/spriteContainer'
 import TaskList from '../Tasks/TaskList'

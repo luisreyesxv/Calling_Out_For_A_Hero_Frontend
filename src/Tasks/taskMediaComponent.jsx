@@ -1,9 +1,9 @@
 import React,  {useState} from 'react'
 import { Media, Button, Col , Row,
-
     Modal, ModalHeader, ModalBody, ModalFooter ,
     InputGroup, InputGroupAddon, InputGroupText, Input, FormText
 } from 'reactstrap';
+import { Link } from 'react-router-dom'
 
 
 
@@ -77,8 +77,10 @@ const TaskMedia =(props)=>{
                 </Media>
                 {props.description}
             <Media>
-                
-                    <Button  className="featured-quests-buttons" disabled={props["completed?"]} color="success">Run Quest</Button>
+            <Link className="featured-quests-buttons" to={`/main/quests/${props.id}`} >
+                    <Button className="featured-quests-buttons"  disabled={props["completed?"]} color="success">Run Quest</Button>
+            </Link>
+          
                </Media>
             <Media>
                     <Button className="featured-quests-buttons" disabled={props["completed?"]} color="danger" onClick={toggle}>Edit Quest</Button>

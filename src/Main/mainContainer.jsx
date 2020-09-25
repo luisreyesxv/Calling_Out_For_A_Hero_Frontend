@@ -1,9 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import {Route, Redirect} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import MainPage from './mainPage'
 import NewTaskForm from '../Tasks/NewTaskForm'
 import TaskList from '../Tasks/TaskList'
+import AdventureContainer from '../Adventure/AdventureContainer'
 
 
 
@@ -141,11 +141,13 @@ class MainContainer extends React.Component{
 
         render(){
             return(
-                <>
+                <Switch>
                 <Route exact path={`${this.props.match.url}/quests/new`} render={(routerProps)=> <NewTaskForm {...routerProps} token={this.props.token} postNewQuest={this.postNewTask} lengthOfTasks={this.state.tasks.length} postStatus={this.state.status} sprite={this.props.sprite}/>} />
-                <Route exact path={`${this.props.match.url}/quests`} render={(routerProps)=> <TaskList {...routerProps} tasks={this.state.tasks} patchTask={this.patchTask} />} />
+                <Route exact path={`${this.props.match.url}/quests/:id`} render={(routerProps)=> <AdventureContainer {...routerProps}   sprite={this.props.sprite} tasks={this.state.showcaseTasks} patchTask={this.patchTask}/>} />
+
+                <Route exact path={`${this.props.match.url}/quests`} render={(routerProps)=> <TaskList {...routerProps} sprite={this.props.sprite} tasks={this.state.showcaseTasks} patchTask={this.patchTask} />} />
                 <Route exact path={this.props.match.url} render={(routerProps)=> <MainPage {...routerProps}  sprite={this.props.sprite} tasks={this.state.showcaseTasks} patchTask={this.patchTask}/>} />
-                </>
+                </Switch>
             )
         }
     }
