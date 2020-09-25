@@ -1,12 +1,13 @@
 import React,  {useState} from 'react'
-import { Card, CardTitle, CardText, CardImg, CardImgOverlay, CardBody,CardHeader,CardFooter, Button, Col , 
+import { Media, Button, Col , Row,
+
     Modal, ModalHeader, ModalBody, ModalFooter ,
-    InputGroup, InputGroupAddon, InputGroupText, Input, FormText, FormFeedback
+    InputGroup, InputGroupAddon, InputGroupText, Input, FormText
 } from 'reactstrap';
 
 
 
-const TaskCard =(props)=>{
+const TaskMedia =(props)=>{
     const [modal, setModal] = useState(false);
     const [title, setTitle] = useState(props.title);
     const [description, setDescription] = useState(props.description);
@@ -17,13 +18,7 @@ const TaskCard =(props)=>{
 
   const toggle = () => setModal(!modal);
  
-    const isCompleted =()=>{
-       return props["completed?"] ? ( <CardImgOverlay>
-            <img style={{maxWidth:"100%",maxHeight:"50%"}} src="https://www.onlygfx.com/wp-content/uploads/2018/04/completed-stamp-4.png"/>
-        </CardImgOverlay>
-        )
-        : null
-        }
+    
 
 
         const onChange=(e)=>{   
@@ -72,24 +67,34 @@ const TaskCard =(props)=>{
 
     return (
     
-        <>
-        <Col md={3}>
-            <Card body  inverse color="warning" className="card w-75" >
-                <CardBody >
-               
-                    <CardHeader  ><CardTitle >{props.title}</CardTitle></CardHeader>
-                    <CardText >{props.description}</CardText>
-                    <CardText>
-                        <small className="text-muted">Created {props.date}</small>
-                    </CardText>
-                </CardBody>
-                {isCompleted()}
-                <CardFooter >
-                <Button disabled={props["completed?"]} color="success">Run Quest</Button>
-                <Button disabled={props["completed?"]} color="danger" onClick={toggle}>Edit Quest</Button>
-                </CardFooter>
-        </Card>
-        </Col>
+        <div className="featured-quests-slide" > 
+        <h1> {props.title}</h1>
+         <Media className="featured-quests-slide">
+      
+            <Media body>
+                <Media heading>
+                IRL Description
+                </Media>
+                {props.description}
+            <Media>
+                
+                    <Button  className="featured-quests-buttons" disabled={props["completed?"]} color="success">Run Quest</Button>
+               </Media>
+            <Media>
+                    <Button className="featured-quests-buttons" disabled={props["completed?"]} color="danger" onClick={toggle}>Edit Quest</Button>
+                
+            </Media>
+            </Media>
+            <Media body >
+                <Media heading>
+                Story Description
+                </Media>
+                An arrogant elven lady named Nimrellye seeks a company of adventurers to steal the axe Malevolent Storm from a rival.
+
+            </Media>
+            <Media></Media>
+        </Media>
+        
 
 
         
@@ -128,7 +133,7 @@ const TaskCard =(props)=>{
                         </ModalFooter>
                     </Modal>
         
-        </>
+        </div>
         )
 
 
@@ -136,4 +141,11 @@ const TaskCard =(props)=>{
 
 }
 
-export default TaskCard
+export default TaskMedia
+
+
+
+
+
+
+

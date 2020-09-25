@@ -7,6 +7,8 @@ import { Container, Row, Col, Jumbotron, Button,Carousel,
     CarouselCaption } from 'reactstrap'
 import Spritesheet from 'react-responsive-spritesheet';
 import SpriteContainer from '../spriteAndClocks/spriteContainer'
+import TaskList from '../Tasks/TaskList'
+import FeaturedQuestCarousel from '../Tasks/featuredQuestCarousel'
 
 
 class MainPage extends React.Component{
@@ -47,22 +49,12 @@ class MainPage extends React.Component{
     render(){
         return(
             <Container >
-                <Row fluid style={{"marginTop":"10%"}} className="row justify-content-between"  noGutters={false} >
-                    <Col id="task-carousel" fluid md="6" style={{background:"green"}}> 
-                        {/* <Carousel >
-                            <CarouselItem key="luis">
-                                <h2>swag swag swag</h2>
-                            </CarouselItem>
-                        </Carousel> */}
-                        <h1> Placeholder for the task carousel idea</h1>
-                        
-                        
-                        
-                        
-                    </Col >
+                <FeaturedQuestCarousel tasks={this.props.tasks} patchTask={this.props.patchTask} />
+                <Row style={{"marginTop":"10%"}} className="row justify-content-between"  noGutters={false} >
 
-                    <Col  fluid md="5" style={{background:"purple"}}> 
+                    <Col  md={6} style={{background:"purple"}}> 
                         <h1> Placeholder for List of Tasks </h1>
+                        {/* <TaskList  tasks={this.props.tasks} patchTask={this.props.patchTask} /> */}
                     </Col >
                 </Row>
                 <Row className="row justify-content-between" id="main-page-hero"  noGutters={false}>

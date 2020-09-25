@@ -12,6 +12,7 @@ class MainContainer extends React.Component{
         super()
         this.state={
             tasks: [],
+            showcaseTasks: [],
             status:"success"
         }
     }
@@ -69,7 +70,7 @@ class MainContainer extends React.Component{
                         "Content-Type": "application/json",
                         Accept: "application/json"
                     },
-                    body: JSON.stringify({task: bodyObj})
+                    body: JSON.stringify({task: bodyObj},null,0)
                     }
 
                 this.communicateWithAPI(options,id)
@@ -89,8 +90,8 @@ class MainContainer extends React.Component{
         const options = {
             method: "GET",
             headers: {
-                "Authorization": this.props.token,
-                // "Authorization":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxOTh9.qyERkbxVZ1fnCwgOIcrNirgcbA5FVHIINl77ukwTrOM",
+                // "Authorization": this.props.token,
+                "Authorization":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxOTZ9.GVL0anlxiHYb9bbZNQ3GI05gvWmVxDkWc4JtE_dI2AY",
                 "Content-Type": "application/json",
             }
         }
@@ -98,7 +99,8 @@ class MainContainer extends React.Component{
         this.communicateWithAPI(options).then(tasksObj => {            
             this.setState({
             ...this.state,
-            tasks: tasksObj
+            tasks: tasksObj,
+            showcaseTasks: tasksObj.slice(0,9)
         })})
     }
 
@@ -121,7 +123,7 @@ class MainContainer extends React.Component{
             <>
             <Route exact path={`${this.props.match.url}/quests/new`} render={(routerProps)=> <NewTaskForm {...routerProps} token={this.props.token} postNewQuest={this.postNewTask} lengthOfTasks={this.state.tasks.length} postStatus={this.state.status} sprite={this.props.sprite}/>} />
             <Route exact path={`${this.props.match.url}/quests`} render={(routerProps)=> <TaskList {...routerProps} tasks={this.state.tasks} patchTask={this.patchTask} />} />
-            <Route exact path={this.props.match.url} render={(routerProps)=> <MainPage {...routerProps}  sprite={this.props.sprite}/>} />
+            <Route exact path={this.props.match.url} render={(routerProps)=> <MainPage {...routerProps}  sprite={this.props.sprite} tasks={this.state.showcaseTasks} patchTask={this.patchTask}/>} />
             </>
         )
     }

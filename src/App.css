@@ -149,3 +149,13 @@ padding-top:20px;
   height: 100px;
   text-align: center;
 }
+
+.featured-quests-buttons{
+  width:100%
+}
+
+.featured-quests-slide{
+  background: #D2691E;
+   text-align: center;
+  
+}

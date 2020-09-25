@@ -1,9 +1,6 @@
-import React, {useState} from 'react'
+import React from 'react'
 import TaskCard from './TaskCard'
-import {
-   Button, CardColumns, Modal, ModalHeader, ModalBody, ModalFooter ,
-   InputGroup, InputGroupAddon, InputGroupText, Input
-  } from 'reactstrap';
+import { CardDeck} from 'reactstrap';
 
 
 const TaskList =(props)=>{
@@ -18,11 +15,11 @@ const TaskList =(props)=>{
         <div  >
                 <h1> List of all tasks</h1>
                 
-                <CardColumns>
+                <CardDeck>
             
                     {displayCards()}
            
-                </CardColumns>
+                </CardDeck>
 
         </div>
 
