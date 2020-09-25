@@ -22,10 +22,10 @@ class NewTaskForm extends React.Component{
             this.setState({ ...this.state,
                 submitDisabled: true,
                 errorMessage: "Please Keep Title up to 100 characters"})
-            } else if(e.target.id === "description" && e.target.value.length > 110){
+            } else if(e.target.id === "description" && e.target.value.length > 125){
                 this.setState({ ...this.state,
                     submitDisabled: true,
-                    errorMessage: "Please Keep Description up to 110 characters"})
+                    errorMessage: "Please Keep Description up to 125 characters"})
             } else{
 
         
@@ -49,7 +49,7 @@ class NewTaskForm extends React.Component{
             date: fixedDate
         };
      
-        if(this.state.title && this.state.description && this.state.date) {
+        if(this.state.title !== '' && this.state.description !== '' && this.state.date !== '') {
             this.props.postNewQuest(body)
         } else{
             this.setState({ ...this.state, submitDisabled: true})
@@ -121,7 +121,7 @@ class NewTaskForm extends React.Component{
                     <FormGroup >
                         <Label  for="description"><h5>Description</h5></Label>
                         <Input type="textarea" name="description" id="description" placeholder="Specify What the Quest is About" value={this.state.description} onChange={this.onChange}/>
-                        <FormText>(max 110 Characters)</FormText>
+                        <FormText>(max 125 Characters)</FormText>
                     </FormGroup>
                 </Col> 
             </Row>

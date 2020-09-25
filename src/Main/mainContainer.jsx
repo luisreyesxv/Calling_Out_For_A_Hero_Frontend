@@ -57,14 +57,40 @@ class MainContainer extends React.Component{
             status:"fail"
             
         })})
-}   
+
+
+
+    }   
+            patchTask =(bodyObj,id)=>{
+                const options = {
+                    method: "PATCH",
+                    headers: {
+                        "Authorization": this.props.token,
+                        "Content-Type": "application/json",
+                        Accept: "application/json"
+                    },
+                    body: JSON.stringify({task: bodyObj})
+                    }
+
+                this.communicateWithAPI(options,id)
+                .then(taskObj => {
+                    const newTasks = this.state.tasks
+                    const taskIndex = newTasks.findIndex((task)=> task.id = id)
+                    newTasks[taskIndex] = taskObj
+                    this.setState({
+                        ...this.state,
+                        tasks: newTasks,
+                        status:"success"
+                    })
+                })
+            }
 
     fetchAllTasks =()=>{
         const options = {
             method: "GET",
             headers: {
                 "Authorization": this.props.token,
-                // "Authorization":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxOTF9.ZytW337SspPntJrV_jEDJRiLItVgxH8Aj-Mz4cPLsXQ",
+                // "Authorization":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxOTh9.qyERkbxVZ1fnCwgOIcrNirgcbA5FVHIINl77ukwTrOM",
                 "Content-Type": "application/json",
             }
         }
@@ -94,7 +120,7 @@ class MainContainer extends React.Component{
         return(
             <>
             <Route exact path={`${this.props.match.url}/quests/new`} render={(routerProps)=> <NewTaskForm {...routerProps} token={this.props.token} postNewQuest={this.postNewTask} lengthOfTasks={this.state.tasks.length} postStatus={this.state.status} sprite={this.props.sprite}/>} />
-            <Route exact path={`${this.props.match.url}/quests`} render={(routerProps)=> <TaskList {...routerProps} tasks={this.state.tasks}/>} />
+            <Route exact path={`${this.props.match.url}/quests`} render={(routerProps)=> <TaskList {...routerProps} tasks={this.state.tasks} patchTask={this.patchTask} />} />
             <Route exact path={this.props.match.url} render={(routerProps)=> <MainPage {...routerProps}  sprite={this.props.sprite}/>} />
             </>
         )
