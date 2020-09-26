@@ -1,6 +1,6 @@
 import React from 'react'
 import TaskCard from './TaskCard'
-import { CardDeck} from 'reactstrap';
+import { CardColumns} from 'reactstrap';
 
 
 const TaskList =(props)=>{
@@ -15,11 +15,11 @@ const TaskList =(props)=>{
         <div  >
                 <h1> List of all tasks</h1>
                 
-                <CardDeck>
+                <CardColumns>
             
                     {displayCards()}
            
-                </CardDeck>
+                </CardColumns>
 
         </div>
 

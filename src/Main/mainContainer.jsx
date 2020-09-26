@@ -17,9 +17,9 @@ class MainContainer extends React.Component{
         }
     }
     
-        communicateWithAPI=(options, id="")=>{
+        communicateWithAPI=(options, id="",route="tasks")=>{
 
-        return( fetch(this.props.apiUrl+"tasks/"+id ,options)
+        return( fetch(this.props.apiUrl+route+"/"+id ,options)
                 .then(response => {
                     if(!response.ok){
                         const errorMessage = response.status === 401 ? "Quest was not able to be created. Please Try Again." : "Server. Please Try again later"
@@ -44,11 +44,20 @@ class MainContainer extends React.Component{
             this.communicateWithAPI(options)
             .then(taskObj => {
                 const newTasks = this.state.tasks
+                const newShowcaseTasks = this.state.showcaseTasks
+                const todayDate = new Date().toISOString().split("T")[0]
                 newTasks.unshift(taskObj)
+
+                if( new Date(taskObj.date).toISOString().split("T")[0] === todayDate && !taskObj["completed?"]){
+                    newShowcaseTasks.unshift(taskObj)
+                }
+
+
                 console.log("this is communicating with post action. the following is newTasks",newTasks,"this is current state",this.state.tasks)
                 this.setState({
                     ...this.state,
                     tasks: newTasks,
+                    showCaseTasks: newShowcaseTasks,
                     status:"success"
                 })
             })
@@ -126,6 +135,27 @@ class MainContainer extends React.Component{
         }
 
 
+        patchChosenHero=(bodyObj,id)=>{
+            const options = {
+                method: "PATCH",
+                headers: {
+                    "Authorization": this.props.token,
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                body: JSON.stringify({chosen_hero: bodyObj})
+                }
+            this.communicateWithAPI(options,id,"chosen_heros")
+            .then(chosenhero=> {
+
+                this.props.updateChosenHero(chosenhero.sprite,chosenhero.chosen_hero)
+                
+            })
+
+
+
+        }
+
 
         componentDidMount(){
             this.fetchAllTasks()
@@ -143,19 +173,15 @@ class MainContainer extends React.Component{
             return(
                 <Switch>
                 <Route exact path={`${this.props.match.url}/quests/new`} render={(routerProps)=> <NewTaskForm {...routerProps} token={this.props.token} postNewQuest={this.postNewTask} lengthOfTasks={this.state.tasks.length} postStatus={this.state.status} sprite={this.props.sprite}/>} />
-                <Route exact path={`${this.props.match.url}/quests/:id`} render={(routerProps)=> <AdventureContainer {...routerProps}   sprite={this.props.sprite} tasks={this.state.showcaseTasks} patchTask={this.patchTask}/>} />
+                <Route exact path={`${this.props.match.url}/quests/:id`} render={(routerProps)=> <AdventureContainer {...routerProps}   chosenHero={this.props.chosenHero} sprite={this.props.sprite} tasks={this.state.tasks} patchTask={this.patchTask} patchChosenHero={this.patchChosenHero}/>} />
+                {/* <Route exact path={`${this.props.match.url}/quests/:id`} render={(routerProps)=> <AdventureContainer {...routerProps}   chosenHero={{"id":63,"user_id":196,"hero_id":209,"name":"Elfberto","reputation":34}} sprite={this.props.sprite} tasks={this.state.showcaseTasks} patchTask={this.patchTask} patchChosenHero={this.patchChosenHero}/>} /> */}
 
-                <Route exact path={`${this.props.match.url}/quests`} render={(routerProps)=> <TaskList {...routerProps} sprite={this.props.sprite} tasks={this.state.showcaseTasks} patchTask={this.patchTask} />} />
+                <Route exact path={`${this.props.match.url}/quests`} render={(routerProps)=> <TaskList {...routerProps} sprite={this.props.sprite} tasks={this.state.tasks} patchTask={this.patchTask} />} />
                 <Route exact path={this.props.match.url} render={(routerProps)=> <MainPage {...routerProps}  sprite={this.props.sprite} tasks={this.state.showcaseTasks} patchTask={this.patchTask}/>} />
                 </Switch>
             )
         }
     }
-// MainContainer.defaultProps= {
-//     sprite: {url: "/images/testknightsprite.png",
-//             width: 740,
-//             height: 508,
-//             ["missing?"]: true}
-//   }
+
 
 export default MainContainer

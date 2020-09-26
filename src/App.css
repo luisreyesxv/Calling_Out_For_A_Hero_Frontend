@@ -162,7 +162,16 @@ padding-top:20px;
 
 #inside-timer-text{
   text-align: center;
-  color: powderblue;
-  font-size: 125%
+  color: black;
+  font-size: 160%;
+  font-weight: bold;
+  font-family: "Arial Black", Gadget, sans-serif; 
 
+}
+
+.completed{
+  max-width: 100%;
+  max-height: 50%;
+  margin-left: 25%;
+  margin-top: 5%
 }

@@ -21,7 +21,7 @@ const TaskCard =(props)=>{
  
     const isCompleted =()=>{
        return props["completed?"] ? ( <CardImgOverlay>
-            <img style={{maxWidth:"100%",maxHeight:"50%"}} src="https://www.onlygfx.com/wp-content/uploads/2018/04/completed-stamp-4.png"/>
+            <img className="completed"  src="https://www.onlygfx.com/wp-content/uploads/2018/04/completed-stamp-4.png"/>
         </CardImgOverlay>
         )
         : null
@@ -75,8 +75,8 @@ const TaskCard =(props)=>{
     return (
     
         <>
-        <Col md={3}>
-            <Card body  inverse color="warning" className="card w-75" >
+        <Col md={12} sm={12}>
+            <Card body  inverse color="warning" className="card w-100" >
                 <CardBody >
                
                     <CardHeader  ><CardTitle >{props.title}</CardTitle></CardHeader>
