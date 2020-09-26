@@ -76,16 +76,20 @@ const TaskMedia =(props)=>{
                 IRL Description
                 </Media>
                 {props.description}
-            <Media>
-            <Link className="featured-quests-buttons" to={`/main/quests/${props.id}`} >
-                    <Button className="featured-quests-buttons"  disabled={props["completed?"]} color="success">Run Quest</Button>
-            </Link>
-          
-               </Media>
-            <Media>
-                    <Button className="featured-quests-buttons" disabled={props["completed?"]} color="danger" onClick={toggle}>Edit Quest</Button>
+            
+            {props.featured ?  (
+                <>
+                    <Media>
+                    <Link className="featured-quests-buttons" to={`/main/quests/${props.id}`} >
+                            <Button className="featured-quests-buttons"  disabled={props["completed?"]} color="success">Run Quest</Button>
+                    </Link>
                 
-            </Media>
+                    </Media>
+                    <Media>
+                            <Button className="featured-quests-buttons" disabled={props["completed?"]} color="danger" onClick={toggle}>Edit Quest</Button>
+                        
+                    </Media> </> ): null
+            }
             </Media>
             <Media body >
                 <Media heading>
