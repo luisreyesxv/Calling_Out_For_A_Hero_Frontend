@@ -96,7 +96,7 @@ const TaskMedia =(props)=>{
                 Story Description
                 </Media>
                 <p>
-                    An arrogant elven lady named Nimrellye seeks a company of adventurers to steal the axe Malevolent Storm from a rival.
+                    {props.flavor}
                 </p>
             </Media>
             <Media></Media>

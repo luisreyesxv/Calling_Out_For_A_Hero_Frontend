@@ -8,7 +8,7 @@
 
 }
  #NavBar{
-   background: #D2691E;
+   background: #C6A15B;
    box-shadow: 0 3px 5px rgba(0,0,0,20.05);
 
  }
@@ -100,7 +100,7 @@
 width: 40vw;
 
 margin-left: 30%;
-background: #D2691E;
+background: #574D68;
 }
 
 
@@ -110,7 +110,36 @@ background: #D2691E;
 
 #main-page-hero{
   margin-top: 5%;
+  text-align: center;
 }
+
+
+#main-page-hero div div.sprite{
+  float: 9999;
+  padding-top: 15%;
+  margin-left: 30%;
+  text-align: center;
+
+}
+
+#COFAH-page-bottom-row{
+
+  margin-top: 5%;
+  text-align: center;
+ 
+  
+}
+
+#COFAH-page-hero{
+  width: 50vh;
+  background: purple;
+  padding-top: 10%;
+  margin-left: 15%;
+  text-align: center;
+  
+}
+
+
 
 #podium{
   height: 30%;
@@ -155,26 +184,26 @@ padding-top:20px;
 }
 
 .featured-quests-container{
-  background-image: url("https://s3.amazonaws.com/files.d20.io/marketplace/552206/uk_E8PAGp-P1JwVONV6t5Q/max.jpg?1529931001");
+  background-image: url("/images/questboard.jpg");
   background-size: 100% 100%;
    text-align: center;
    padding:50px
 }
 
 .featured-quests-container h1{
-  color: yellow
+  color: #F2E86D
 }
 
 .featured-quests-slide{
   padding:20px;
-  background-image: url("https://i.pinimg.com/736x/5f/6d/41/5f6d41f1048a9cdea28a2146955e71af.jpg");
+  background-image: url("/images/quest-background.jpg");
   background-size: 100% 100%;
 }
 
 
 #inside-timer-text{
   text-align: center;
-  color: black;
+  color: #574D68;
   font-size: 160%;
   font-weight: bold;
   font-family: "Arial Black", Gadget, sans-serif; 
@@ -215,8 +244,62 @@ padding-top:20px;
 
 #clockContainer{
 
-  color: purple;
   margin-left: 25%;
 
 }
 
+* {
+  color: #574D68
+}
+
+
+
+
+
+
+
+
+
+.wrapper {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-image: url("/images/scroll.png");
+  background-size: 100% 100%;
+  text-align: center;
+  
+}
+
+
+
+
+
+
+
+.reputation {
+  text-transform: uppercase;
+  font-size: 100%;
+  font-weight: bolder;
+  margin-bottom: 3px;
+}
+
+
+
+
+
+.chosenHero-Name {
+  font-size: 200%;
+  color: #574D68;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+
+.bio {
+  padding: 20px;
+  margin-bottom: 10px;  
+}
+
+body {
+  background-image: url("/images/adventureBackgrounds/3.png");
+  background-size: fill;
+  background-repeat: no-repeat
+}

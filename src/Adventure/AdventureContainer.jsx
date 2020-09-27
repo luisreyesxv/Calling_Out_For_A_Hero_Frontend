@@ -64,7 +64,7 @@ const AdventureContainer = (props) => {
                 <Jumbotron id="adventure-sprite-jumbotron">
                     <h1>this is where we display the avatars</h1> 
                     <div id="hero-avatar-container" >
-                        <SpriteContainer key="mainChosenHero" {...props.sprite} />
+                        <SpriteContainer key="mainChosenHero" {...props.sprite} status="attack" />
                     </div>
                 </Jumbotron>
             </Col>

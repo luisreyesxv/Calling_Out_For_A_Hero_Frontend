@@ -7,6 +7,7 @@ import AdventureContainer from '../Adventure/AdventureContainer'
 
 
 
+
 class MainContainer extends React.Component{
     constructor(){
         super()
@@ -115,7 +116,7 @@ class MainContainer extends React.Component{
                 method: "GET",
                 headers: {
                     // "Authorization": this.props.token,
-                    "Authorization":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxOTZ9.GVL0anlxiHYb9bbZNQ3GI05gvWmVxDkWc4JtE_dI2AY",
+                    "Authorization":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMTR9.hgK13RnDU9G7oSKiuHZuWqOV3aigGr19aJXMctBDMNw",
                     "Content-Type": "application/json",
                 }
             }
@@ -173,11 +174,11 @@ class MainContainer extends React.Component{
             return(
                 <Switch>
                 <Route exact path={`${this.props.match.url}/quests/new`} render={(routerProps)=> <NewTaskForm {...routerProps} token={this.props.token} postNewQuest={this.postNewTask} lengthOfTasks={this.state.tasks.length} postStatus={this.state.status} sprite={this.props.sprite}/>} />
-                {/* <Route exact path={`${this.props.match.url}/quests/:id`} render={(routerProps)=> <AdventureContainer {...routerProps}   chosenHero={this.props.chosenHero} sprite={this.props.sprite} tasks={this.state.tasks} patchTask={this.patchTask} patchChosenHero={this.patchChosenHero}/>} /> */}
-                <Route exact path={`${this.props.match.url}/quests/:id`} render={(routerProps)=> <AdventureContainer {...routerProps}   chosenHero={{"id":63,"user_id":196,"hero_id":209,"name":"Elfberto","reputation":34}} sprite={{"url":"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBQZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--66127009b3c7d5e1ef4bbadd1dba508b7e648c5b/elf%201.png","width":816.8,"height":593.5}} tasks={this.state.tasks} patchTask={this.patchTask} patchChosenHero={this.patchChosenHero}/>} />
+                <Route exact path={`${this.props.match.url}/quests/:id`} render={(routerProps)=> <AdventureContainer {...routerProps}   chosenHero={this.props.chosenHero} sprite={this.props.sprite} tasks={this.state.tasks} patchTask={this.patchTask} patchChosenHero={this.patchChosenHero}/>} />
+                {/* <Route exact path={`${this.props.match.url}/quests/:id`} render={(routerProps)=> <AdventureContainer {...routerProps}   chosenHero={{"id":67,"user_id":200,"hero_id":213,"name":"Elfberto","reputation":34}} sprite={{"url":"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBRZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--34806bcbf486b237b0458f2215f6d2394bea1c16/elf%201.png","width":816.8,"height":593.5}} tasks={this.state.tasks} patchTask={this.patchTask} patchChosenHero={this.patchChosenHero}/>} /> */}
 
                 <Route exact path={`${this.props.match.url}/quests`} render={(routerProps)=> <TaskList {...routerProps} sprite={this.props.sprite} tasks={this.state.tasks} patchTask={this.patchTask} />} />
-                <Route exact path={this.props.match.url} render={(routerProps)=> <MainPage {...routerProps}  sprite={this.props.sprite} tasks={this.state.showcaseTasks} patchTask={this.patchTask}/>} />
+                <Route exact path={this.props.match.url} render={(routerProps)=> <MainPage {...routerProps}  sprite={this.props.sprite} tasks={this.state.showcaseTasks} patchTask={this.patchTask} chosenHero={this.props.chosenHero}/>} />
                 </Switch>
             )
         }
@@ -185,3 +186,8 @@ class MainContainer extends React.Component{
 
 
 export default MainContainer
+
+MainContainer.defaultProps={
+   chosenHero: {"id":81,"user_id":214,"hero_id":225,"name":"Elfberto","reputation":34,"flavor":{"trait":"I'm lucky like you wouldn't believe.Give me a drink and I'm your friend.","bond":"One day I will return to my guild and prove that I am the greatest artisan of them all.","flaw":"I have an insatiable desire for carnal pleasures."}},
+sprite: {"url":"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBUZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--95dd3270b0017b1804c743a45f264301620f763a/elf%201.png","width":816.8,"height":593.5}
+}

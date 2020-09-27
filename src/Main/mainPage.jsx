@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col, Button } from 'reactstrap'
-import Spritesheet from 'react-responsive-spritesheet';
 import SpriteContainer from '../spriteAndClocks/spriteContainer'
-import TaskList from '../Tasks/TaskList'
+import Bio from '../COFAH/bioComponent'
 import FeaturedQuestCarousel from '../Tasks/featuredQuestCarousel'
+
 
 
 class MainPage extends React.Component{
@@ -25,19 +25,8 @@ class MainPage extends React.Component{
         </Link>)
        :
        (<>
-            {/* <Spritesheet
-                image= {this.props.sprite.url}
-                widthFrame= {this.props.sprite.width}
-                heightFrame= {this.props.sprite.height}
-                fps= {15}
-                direction="forward"
-                startAt={1}
-                endAt={9}
-                loop={true}
-                isResponsive={true}
-            /> */}
             <SpriteContainer key="mainChosenHero" {...this.props.sprite} />
-            <img id="podium" alt="podium" src="https://cdn.clipart.email/718c8d7a6b8c56439bce7cd2bc0f932e_stage-transparent-podium-picture-1190297-stage-transparent-podium_600-211.png" />
+            <img id="podium" alt="podium" src="/images/podium.png" />
         </>
     )
     }
@@ -48,17 +37,18 @@ class MainPage extends React.Component{
                 <FeaturedQuestCarousel tasks={this.props.tasks} patchTask={this.props.patchTask} />
                 
                 <Row className="row justify-content-between" id="main-page-hero"  noGutters={false}>
-                    <Col md={3} style={{background:"red"}} >
+                    <Col  sm={4} md={4} xl={4}  >
                         <Link to="/cofah" >
                             <h1> current hero?</h1>
                         </Link>
                         {this.spriteOrButton()}
                     </Col>
-                    <Col  md={4} style={{background:"purple"}}> 
-                        <h1> Placeholder for List of Tasks </h1>
+                    <Col  sm={4} md={4} xl={4} > 
+                        <h4>Certified Pomodoria Hero Card</h4>
+                        {this.props.chosenHero ? <Bio {...this.props.chosenHero} /> : <h1>Call Out For A Hero to get your Certified Pomodoria Hero Card Today!</h1>}
                         {/* <TaskList  tasks={this.props.tasks} patchTask={this.props.patchTask} /> */}
                     </Col >
-                    <Col md={3} style={{background:"orange"}} >
+                    <Col sm={3} md={4} xl={4} style={{background:"orange"}} >
                         <h1>Placeholder for spotify player</h1>
                     </Col>
                 </Row>
