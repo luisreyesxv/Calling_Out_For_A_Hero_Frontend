@@ -22,10 +22,14 @@ const Homepage = () =>{
         <Banner />
         <Container>
             <Row style={{"marginTop":"10%"}} className="row justify-content-between"  noGutters={false} >
-                <Col md="6" style={{background:"green"}}> 
-                    <SpriteContainer key="demoHero" url="/images/testknightsprite.png" width={740} height= {508} />
+                <Col md="6" > 
+                    <SpriteContainer key="demoHero" url="/images/testknightsprite.png" width={740} height= {508.66666666666666667}  steps={10}/>
                 </Col>
-                <Col md="4" style={{background:"orange"}} offset="1"> another random avatar</Col>
+                <Col md="4"  offset="1"> 
+                <div id="enemy-container">
+                <SpriteContainer key="enemyOrc" url="/images/enemies/1.png" width={531} height= {357.5}  steps={10}/>
+                </div>
+                </Col>
             </Row>
  
                

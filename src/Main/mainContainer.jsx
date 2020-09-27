@@ -116,7 +116,7 @@ class MainContainer extends React.Component{
                 method: "GET",
                 headers: {
                     // "Authorization": this.props.token,
-                    "Authorization":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMTR9.hgK13RnDU9G7oSKiuHZuWqOV3aigGr19aJXMctBDMNw",
+                    "Authorization":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMjJ9.pCqhA-DM1IDDCzuZCoChAJ1hCt7M_fQ816Bxz4ORosQ",
                     "Content-Type": "application/json",
                 }
             }
@@ -189,5 +189,5 @@ export default MainContainer
 
 MainContainer.defaultProps={
    chosenHero: {"id":81,"user_id":214,"hero_id":225,"name":"Elfberto","reputation":34,"flavor":{"trait":"I'm lucky like you wouldn't believe.Give me a drink and I'm your friend.","bond":"One day I will return to my guild and prove that I am the greatest artisan of them all.","flaw":"I have an insatiable desire for carnal pleasures."}},
-sprite: {"url":"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBUZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--95dd3270b0017b1804c743a45f264301620f763a/elf%201.png","width":816.8,"height":593.5}
+sprite: {"url":"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBVdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--65ab898dd3788c819e8b6c128f0aef0683443f47/Dragonfly%20Peppershimmer.png","width":740,"height":508.66,"steps":10}
 }

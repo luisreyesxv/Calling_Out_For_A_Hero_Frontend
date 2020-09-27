@@ -37,18 +37,18 @@ class MainPage extends React.Component{
                 <FeaturedQuestCarousel tasks={this.props.tasks} patchTask={this.props.patchTask} />
                 
                 <Row className="row justify-content-between" id="main-page-hero"  noGutters={false}>
-                    <Col  sm={4} md={4} xl={4}  >
+                    <Col  sm={4} md={4} xl={3}  >
                         <Link to="/cofah" >
                             <h1> current hero?</h1>
                         </Link>
                         {this.spriteOrButton()}
                     </Col>
-                    <Col  sm={4} md={4} xl={4} > 
+                    <Col  sm={4} md={4} xl={3} > 
                         <h4>Certified Pomodoria Hero Card</h4>
                         {this.props.chosenHero ? <Bio {...this.props.chosenHero} /> : <h1>Call Out For A Hero to get your Certified Pomodoria Hero Card Today!</h1>}
                         {/* <TaskList  tasks={this.props.tasks} patchTask={this.props.patchTask} /> */}
                     </Col >
-                    <Col sm={3} md={4} xl={4} style={{background:"orange"}} >
+                    <Col sm={3} md={4} xl={3} style={{background:"orange"}} >
                         <h1>Placeholder for spotify player</h1>
                     </Col>
                 </Row>

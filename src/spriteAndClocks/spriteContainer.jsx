@@ -8,18 +8,18 @@ const SpriteContainer =(props)=>{
     const actions ={
         idle: {
             start:1,
-            end: 10},
+            end: (props.steps)},
         attack: {
-            start:11,
-            end: 20}
+            start: (props.steps+1),
+            end: (2* props.steps)}
 
     }
 
     const onMouseEnter = {
         idle:  (sprite)=> {
-            sprite.goToAndPlay(21)
-            sprite.setStartAt(21)
-            sprite.setEndAt(30)
+            sprite.goToAndPlay((2* props.steps + 1))
+            sprite.setStartAt((2* props.steps + 1))
+            sprite.setEndAt((3* props.steps ))
             }
             ,
 

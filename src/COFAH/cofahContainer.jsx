@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import {Route, Redirect} from 'react-router-dom'
 import { Container, Row, Col, Button} from 'reactstrap'
 import SpriteContainer from '../spriteAndClocks/spriteContainer'
+import Bio from './bioComponent'
+
 
 
 
@@ -85,7 +87,7 @@ class COFAHContainer extends React.Component{
                             } 
                         </Col>
                         <Col md="5">
-                        <p> Placeholder something else</p>
+                        {this.props.chosenHero ? <Bio {...this.props.chosenHero} /> : <h1>Call Out For A Hero to get your Certified Pomodoria Hero Card Today!</h1>}
                         </Col>
                         
                     </Row>
