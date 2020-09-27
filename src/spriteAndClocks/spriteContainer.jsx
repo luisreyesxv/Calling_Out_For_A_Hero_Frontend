@@ -14,8 +14,8 @@ const SpriteContainer =(props)=>{
         heightFrame= {props.height}
         fps= {20}
         direction="forward"
-        startAt={21}
-        endAt={30}
+        startAt={31}
+        endAt={40}
         loop={true}
         isResponsive={true}
     />

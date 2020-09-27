@@ -4,6 +4,7 @@ import ClockContainer from '../spriteAndClocks/clockContainer'
 import { Container, Row, Col, Button, Jumbotron } from 'reactstrap'
 import TaskMedia from '../Tasks/taskMediaComponent'
 
+
 const AdventureContainer = (props) => {
     const quest =  props.tasks.find(taskObj=> taskObj.id === parseInt(props.match.params.id))
     const [status, setStatus] = useState("active");
@@ -33,12 +34,12 @@ const AdventureContainer = (props) => {
     const loadingOrRender =()=>{
         return quest ? (
             <>
-        <h1> This is the Adventure Container</h1>
+        {/* <h1> This is the Adventure Container</h1>
         <h3>Inside is the following quest</h3>
         <h4> {`Param ID = ${props.match.params.id}`}</h4> 
         <h4> {`Item was found? = ${!!quest}`}</h4> 
         { quest ? <h4> {`Item title is  = ${quest.title}`}</h4> : "loading" } 
-        {props.chosenHero? <h4> ChosenHero's reputation is {props.chosenHero.reputation}</h4> : null}
+        {props.chosenHero? <h4> ChosenHero's reputation is {props.chosenHero.reputation}</h4> : null} */}
 
 
         <Row >
@@ -47,19 +48,24 @@ const AdventureContainer = (props) => {
             </Col>
             <Col style={{background:"red"}} lg={2}>
                 <h2>placeholder for some buttons</h2> 
-                <Button color="primary" onClick={completeQuest} >This makes the timer go on break</Button>
+               {status==="active" ? <Button color="info" onClick={()=>setStatus("break")} >This makes the timer go on break</Button> : null}
+
                 <Button color="success" onClick={()=> setStatus("active")} >This makes the timer go on active</Button>
-                <Button color="warning" onClick={()=> setStatus("bad")} >This makes the timer go complete</Button>
+                <Button color="warning" onClick={()=> setStatus("bad")} >This makes the timer go bad</Button>
+                <Button color="secondary" onClick={completeQuest} >Complete Task</Button>
             </Col>
             <Col xl={5} >
-                <h1>place holder for current quest</h1> 
+                
                 <TaskMedia key={quest.id} {...quest} patchHandler={""} />
             </Col>
         </Row>
         <Row className="row justify-content-between">
             <Col style={{background:"orange"}} xl={12}>
-                <Jumbotron style={{background:"blue"}}>
+                <Jumbotron id="adventure-sprite-jumbotron">
                     <h1>this is where we display the avatars</h1> 
+                    <div id="hero-avatar-container" >
+                        <SpriteContainer key="mainChosenHero" {...props.sprite} />
+                    </div>
                 </Jumbotron>
             </Col>
         </Row>

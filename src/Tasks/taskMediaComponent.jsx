@@ -67,8 +67,8 @@ const TaskMedia =(props)=>{
 
     return (
     
-        <div className="featured-quests-slide" > 
-        <h1> {props.title}</h1>
+        <div className="featured-quests-container" > 
+        <h1> Quest: {props.title}</h1>
          <Media className="featured-quests-slide">
       
             <Media body>

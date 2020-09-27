@@ -44,7 +44,7 @@ const ClockContainer =(props)=>{
 
 
     return(
-    <div style={{color:"purple"}} >
+    <div id="clockContainer" >
             <CountdownCircleTimer
                 onComplete={() => {
                 // do your stuff here

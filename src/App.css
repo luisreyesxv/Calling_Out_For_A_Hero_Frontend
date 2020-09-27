@@ -154,11 +154,23 @@ padding-top:20px;
   width:100%
 }
 
-.featured-quests-slide{
-  background: #D2691E;
+.featured-quests-container{
+  background-image: url("https://s3.amazonaws.com/files.d20.io/marketplace/552206/uk_E8PAGp-P1JwVONV6t5Q/max.jpg?1529931001");
+  background-size: 100% 100%;
    text-align: center;
-  
+   padding:50px
 }
+
+.featured-quests-container h1{
+  color: yellow
+}
+
+.featured-quests-slide{
+  padding:20px;
+  background-image: url("https://i.pinimg.com/736x/5f/6d/41/5f6d41f1048a9cdea28a2146955e71af.jpg");
+  background-size: 100% 100%;
+}
+
 
 #inside-timer-text{
   text-align: center;
@@ -175,3 +187,36 @@ padding-top:20px;
   margin-left: 25%;
   margin-top: 5%
 }
+
+
+
+
+#hero-avatar-container{
+  
+  width: 25%;
+  margin-bottom: 0
+ 
+  
+}
+#hero-avatar-container img{
+  position: absolute;
+  bottom: 0
+
+}
+
+
+
+#adventure-sprite-jumbotron{
+
+  background-image: url("/images/adventureBackgrounds/7.png");
+  background-size: 100% 100%;
+
+}
+
+#clockContainer{
+
+  color: purple;
+  margin-left: 25%;
+
+}
+
