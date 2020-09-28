@@ -6,8 +6,10 @@ import TaskMedia from '../Tasks/taskMediaComponent'
 
 
 const AdventureContainer = (props) => {
+    
     const quest =  props.tasks.find(taskObj=> taskObj.id === parseInt(props.match.params.id))
     const [status, setStatus] = useState("active");
+    const [heroBehavior, setHeroBehavior] = useState("running");
 
 
     const punishHero = ()=>{
@@ -28,8 +30,23 @@ const AdventureContainer = (props) => {
        !quest["completed?"] ? props.patchTask({["completed?"]: true},quest.id) : console.log("this already completed")
     }
     
+    const changingHeroAction=(command)=>{
+        console.log("the orc has reached the end of the apath", command,heroBehavior)
+        const monsters = [ 
+            {url:"/images/enemies/1.png",
+            width:531, 
+            height: 357.5, 
+             steps:10 },
+             { url:"/images/testknightsprite.png", width:740, height:(508.66666666666666667),  steps:10 }]
+        setHeroBehavior(command)
+    }
 
-
+    const monsters = [ 
+        {url:"/images/enemies/1.png",
+        width:531, 
+        height: 357.5, 
+         steps:10 },
+         { url:"/images/testknightsprite.png", width:740, height:(508.66666666666666667),  steps:10 }]
     
     const loadingOrRender =()=>{
         return quest ? (
@@ -64,11 +81,16 @@ const AdventureContainer = (props) => {
                 <TaskMedia key={quest.id} {...quest} patchHandler={""} />
             </Col>
         </Row>
-        <Row className="row justify-content-between" style={{marginTop: "10px", height:"75px"}}>
+        <Row className="row justify-content-between" style={{marginTop: "10px", height:"25px"}}>
             <Col  xl={12} id="adventure-sprite-jumbotron">
-                    <div id="hero-avatar-container" >
-                        <SpriteContainer key="mainChosenHero" {...props.sprite} status="attack" />
-                    </div>
+                <Row>
+                  
+                        {/* <SpriteContainer key="mainChosenHero" {...props.sprite} status={heroBehavior} divName= "hero-avatar-container"/> */}
+                        <SpriteContainer key="mainChosenHero" {...props.sprite} status={heroBehavior} divName= "hero-avatar-container" changeHero={changingHeroAction}/>
+
+                  
+                        <SpriteContainer key="enemyOrc" {...monsters[(Math.floor(Math.random()*2))]} status= "enemy" divName= "enemy-avatar-container" changeHero={changingHeroAction} />
+                    </Row>
             </Col>
         </Row>
 

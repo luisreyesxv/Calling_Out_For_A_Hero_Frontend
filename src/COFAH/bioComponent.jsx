@@ -119,29 +119,3 @@ export const BioEmpty =()=>{
 
 export default Bio
 
-
-  // <>
-        //     <h1>Name: {props.name}</h1>
-        //     <h3>Bio: {props.flavor.trait}</h3>
-        //     <h3>About Me: {props.flavor.bond}</h3>
-
-        //     <h4>Flaws: {props.flavor.flaw}</h4>
-        //     <h2> Reputation: {props.reputation}</h2>
-        // </>
-{/* <>
-                    <CardTitle  ><h1>Elfberto</h1></CardTitle>
-        <Card body  inverse color="primary"   >
-                <CardBody >
-               
-                    <CardText >Bio: I don't like to bathe.I ask a lot of questions.</CardText>
-                    <CardText >About Me: I will become the greatest thief that ever lived.</CardText>
-                    <CardText >Flaws: I put too much trust in the people who give me orders..</CardText>
-
-                    <CardText>
-                    <em >Reputation 34 {props.date}</em>
-                    </CardText>
-                </CardBody>
-                
-                
-        </Card>
-        </> */}

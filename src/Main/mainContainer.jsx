@@ -116,7 +116,7 @@ class MainContainer extends React.Component{
                 method: "GET",
                 headers: {
                     // "Authorization": this.props.token,
-                    "Authorization":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMTl9.9zM_zbpN1lLQKgxBW8EpZkT-dLf8jDce0PYHMt2gO7c",
+                    "Authorization":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMzB9.yeWND_iTiWh-80-zVeHqQIN-EQFy9rW9gPOv_l-8uhY",
                     "Content-Type": "application/json",
                 }
             }
@@ -188,6 +188,5 @@ class MainContainer extends React.Component{
 export default MainContainer
 
 MainContainer.defaultProps={
-   chosenHero: {"id":81,"user_id":214,"hero_id":225,"name":"Elfberto","reputation":34,"flavor":{"trait":"I'm lucky like you wouldn't believe.Give me a drink and I'm your friend.","bond":"One day I will return to my guild and prove that I am the greatest artisan of them all.","flaw":"I have an insatiable desire for carnal pleasures."}},
-sprite: {"url":"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBVdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--65ab898dd3788c819e8b6c128f0aef0683443f47/Dragonfly%20Peppershimmer.png","width":740,"height":508.66,"steps":10}
-}
+  chosenHero:  {"id":97,"user_id":230,"hero_id":237,"name":"Elfberto","reputation":34,"flavor":{"trait":"I like to read and memorize poetry. It keeps me calm and brings me fleeting moments of happiness. Also,I live for the thrill of the hunt.","bond":"Ruthless pirates murdered my captain and crewmates, plundered our ship, and left me to die. Vengeance will be mine.","flaw":"I have lived a hard life and find it difficult to empathize with others."}},
+sprite: {"url":"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBXZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--1084cab903f76d240ad1edba2d24b0d9b3aa9a36/elf%201.png","width":816.8,"height":593.5,"steps":10}}

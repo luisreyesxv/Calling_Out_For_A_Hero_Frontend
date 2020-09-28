@@ -26,8 +26,8 @@ function App() {
   }
 
   const updateChosenHero = (spriteUrl,chosenHeroObj) =>{
-    setSprite(spriteUrl)
     setChosenHero(chosenHeroObj)
+    setSprite(spriteUrl)
   }
 
 

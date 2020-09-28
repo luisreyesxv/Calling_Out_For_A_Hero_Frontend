@@ -246,6 +246,22 @@ padding-top:20px;
 
 }
 
+#enemy-avatar-container{
+  position: absolute;
+  width: 25%;
+  margin-bottom: 0;
+  bottom: 0;
+  right: 70.00%
+ 
+  
+}
+#enemy-avatar-container img{
+  position: absolute;
+  bottom: 0;
+  
+
+}
+
 
 
 #adventure-sprite-jumbotron{
