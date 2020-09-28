@@ -115,8 +115,8 @@ class MainContainer extends React.Component{
             const options = {
                 method: "GET",
                 headers: {
-                    "Authorization": this.props.token,
-                    // "Authorization":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMjJ9.pCqhA-DM1IDDCzuZCoChAJ1hCt7M_fQ816Bxz4ORosQ",
+                    // "Authorization": this.props.token,
+                    "Authorization":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMTl9.9zM_zbpN1lLQKgxBW8EpZkT-dLf8jDce0PYHMt2gO7c",
                     "Content-Type": "application/json",
                 }
             }
@@ -187,7 +187,7 @@ class MainContainer extends React.Component{
 
 export default MainContainer
 
-// MainContainer.defaultProps={
-//    chosenHero: {"id":81,"user_id":214,"hero_id":225,"name":"Elfberto","reputation":34,"flavor":{"trait":"I'm lucky like you wouldn't believe.Give me a drink and I'm your friend.","bond":"One day I will return to my guild and prove that I am the greatest artisan of them all.","flaw":"I have an insatiable desire for carnal pleasures."}},
-// sprite: {"url":"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBVdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--65ab898dd3788c819e8b6c128f0aef0683443f47/Dragonfly%20Peppershimmer.png","width":740,"height":508.66,"steps":10}
-// }
+MainContainer.defaultProps={
+   chosenHero: {"id":81,"user_id":214,"hero_id":225,"name":"Elfberto","reputation":34,"flavor":{"trait":"I'm lucky like you wouldn't believe.Give me a drink and I'm your friend.","bond":"One day I will return to my guild and prove that I am the greatest artisan of them all.","flaw":"I have an insatiable desire for carnal pleasures."}},
+sprite: {"url":"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBVdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--65ab898dd3788c819e8b6c128f0aef0683443f47/Dragonfly%20Peppershimmer.png","width":740,"height":508.66,"steps":10}
+}

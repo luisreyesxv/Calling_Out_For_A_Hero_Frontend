@@ -1,7 +1,7 @@
 import React,{useState}  from 'react'
 import SpriteContainer from '../spriteAndClocks/spriteContainer'
 import ClockContainer from '../spriteAndClocks/clockContainer'
-import { Container, Row, Col, Button, Jumbotron } from 'reactstrap'
+import { Container, Row, Col, Button,ButtonGroup, Jumbotron } from 'reactstrap'
 import TaskMedia from '../Tasks/taskMediaComponent'
 
 
@@ -42,31 +42,33 @@ const AdventureContainer = (props) => {
         {props.chosenHero? <h4> ChosenHero's reputation is {props.chosenHero.reputation}</h4> : null} */}
 
 
-        <Row >
-            <Col  lg={4}>
+        <Row className="row justify-content-between" style={{marginTop: "10px"}}>
+            <Col style={{textAlign:"center"}} lg={4}>
                 <ClockContainer key={status} status={status}  active={activeFunction} break={breakFunction} bad={badFunction} />
+                <ButtonGroup style={{textAlign:"center"}}>
+                    {status==="bad" ? <Button color="info" onClick={()=>setStatus("break")} >Take A Break</Button> : null}
+                    {status==="break" || status==="bad" ? <Button color="success" onClick={()=> setStatus("active")} >Get Active</Button> : null}
+                    <Button color="warning" onClick={()=> setStatus("bad")} >you won't see this</Button>
+                    <Button color="secondary" onClick={completeQuest} >Complete Quest</Button>
+                    </ButtonGroup>
             </Col>
             <Col style={{background:"red"}} lg={2}>
-                <h2>placeholder for some buttons</h2> 
-               {status==="active" ? <Button color="info" onClick={()=>setStatus("break")} >This makes the timer go on break</Button> : null}
-
-                <Button color="success" onClick={()=> setStatus("active")} >This makes the timer go on active</Button>
-                <Button color="warning" onClick={()=> setStatus("bad")} >This makes the timer go bad</Button>
+                <h2>Player</h2> 
+            
                 <Button color="secondary" onClick={completeQuest} >Complete Task</Button>
+                <iframe width="100%" height="100" scrolling="yes" frameborder="no" allow="autoplay" autoplay="1" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/260939434&auto_play=true"></iframe>
+
             </Col>
             <Col xl={5} >
                 
                 <TaskMedia key={quest.id} {...quest} patchHandler={""} />
             </Col>
         </Row>
-        <Row className="row justify-content-between">
-            <Col style={{background:"orange"}} xl={12}>
-                <Jumbotron id="adventure-sprite-jumbotron">
-                    <h1>this is where we display the avatars</h1> 
+        <Row className="row justify-content-between" style={{marginTop: "10px", height:"75px"}}>
+            <Col  xl={12} id="adventure-sprite-jumbotron">
                     <div id="hero-avatar-container" >
                         <SpriteContainer key="mainChosenHero" {...props.sprite} status="attack" />
                     </div>
-                </Jumbotron>
             </Col>
         </Row>
 
