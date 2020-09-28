@@ -21,14 +21,16 @@ const Homepage = () =>{
     
         <Banner />
         <Container>
-            <Row style={{"marginTop":"10%"}} className="row justify-content-between"  noGutters={false} >
-                <Col md="6" > 
-                    <SpriteContainer key="demoHero" url="/images/testknightsprite.png" width={740} height= {508.66666666666666667}  steps={10}/>
+            <Row className="row justify-content-between"  noGutters={false} >
+                <Col md={5} sm={5} xs={5} > 
+                {/* <div id= "enemy-container" > */}
+                    <SpriteContainer key="demoHero" url="/images/testknightsprite.png" width={740} height= {508.66666666666666667}  steps={10} status="attack" />
+                {/* </div> */}
                 </Col>
-                <Col md="4"  offset="1"> 
-                <div id="enemy-container">
-                <SpriteContainer key="enemyOrc" url="/images/enemies/1.png" width={531} height= {357.5}  steps={10}/>
-                </div>
+                <Col md={5} sm={5}  xs={5} > 
+                {/* <div id= "enemy-container" > */}
+                    <SpriteContainer key="enemyOrc" url="/images/enemies/1.png" width={531} height= {357.5}  steps={10} status= "attack" />
+                {/* </div> */}
                 </Col>
             </Row>
  

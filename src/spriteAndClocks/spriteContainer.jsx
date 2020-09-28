@@ -23,9 +23,11 @@ const SpriteContainer =(props)=>{
             }
             ,
 
-        attack: {
-            start:11,
-            end: 20}
+        attack: (sprite)=> {
+            sprite.goToAndPlay((5* props.steps + 1))
+            sprite.setStartAt((5* props.steps + 1))
+            sprite.setEndAt((6* props.steps ))
+            }
 
     }
 // this is what the onMouseLeave Function shoudl ook like if I want to make it different depending on who is there, but right now.I can only think to keep it the same, just return it to normal
@@ -52,7 +54,7 @@ const SpriteContainer =(props)=>{
     return(
 
         <Spritesheet
-        className= "sprite"
+        className= {props.styling}
         image= {props.url}
         widthFrame= {props.width}
         heightFrame= {props.height}
@@ -62,7 +64,7 @@ const SpriteContainer =(props)=>{
         endAt={actions[behavior].end}
         loop={true}
         isResponsive={true}
-        onMouseEnter= {onMouseEnter["idle"]}
+        onMouseEnter= {onMouseEnter[behavior]}
         onMouseLeave= {onMouseLeave}
     />
 
@@ -73,5 +75,6 @@ const SpriteContainer =(props)=>{
 export default SpriteContainer
 
 SpriteContainer.defaultProps ={
-    status: "idle"
+    status: "idle",
+    styling: "sprite"
 }

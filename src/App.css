@@ -97,9 +97,10 @@
 }
 
 #banner{
-width: 40vw;
+width: 100vw;
+height: 30vh;
 
-margin-left: 30%;
+/* margin-left: 30%; */
 background: #574D68;
 }
 
@@ -114,12 +115,13 @@ background: #574D68;
 }
 
 
-#main-page-hero div div.sprite{
-  float: 9999;
+#main-page-hero div div.swag{
+  
   padding-top: 15%;
   margin-left: 30%;
   text-align: center;
-  background-color: purple
+  
+  
 }
 
 #COFAH-page-bottom-row{
@@ -132,16 +134,27 @@ background: #574D68;
 
 #COFAH-page-hero{
   width: 50vh;
-  background: purple;
+  
+ 
   padding-top: 10%;
   margin-left: 15%;
   text-align: center;
+  background-image: url("/images/scroll.png");
+  background-size: 100% 100%;
   
 }
 
+#COFAH-page-hero div{
+  padding-left: 20%;
+}
 
 
 #podium{
+  height: 30%;
+  width: 70%
+}
+
+#question{
   height: 30%;
   width: 70%
 }
@@ -308,7 +321,9 @@ padding-top:20px;
 } */
 
 #enemy-container{
-  position: absolute;
-  bottom: 0;
+  position:absolute;
+  bottom:0;
    right: 10%
 }
+
+

@@ -39,7 +39,8 @@ class COFAHContainer extends React.Component{
         .then(response=> response.json())
         .then(chosenhero=> {
             
-            console.log("this is inside cofah", chosenhero)
+            // this.setState({...this.state,
+            //     randomButton: true})
             this.props.updateChosenHero(chosenhero.sprite,chosenhero.chosen_hero)
             
         })
@@ -70,19 +71,18 @@ class COFAHContainer extends React.Component{
 
 
                 <Container>
-                    <Row className="row justify-content-between" id="COFAH-page-bottom-row">
+                    <Row className="row justify-content-between featured-quests-container" id="COFAH-page-bottom-row">
                         <Col md="3"  id="COFAH-page-hero">
-                            <p> Placeholder for chosen hero</p>
                             {this.props.sprite ? 
                             <>
-                            <h3> This Hero Has Answered The Call!</h3>
+                            <h3> {this.props.chosenHero.name} Has Answered The Call!</h3>
                             <SpriteContainer key="mainChosenHero" {...this.props.sprite} />
                             {/* <img id="podium" alt="podium" src="/images/podium.png" /> */}
                             </> 
                             :
                             <>
                             <h4>No Hero Has Answered Your Call Yet. Chose from above to Call Out For A Hero!</h4>
-                            <img src="https://i.gifer.com/origin/df/dfc7ba7ce41bed86186b9d0587548a23_w200.gif" />
+                            <img id="question" alt="No Hero Placeholder" src="/images/question.svg" />
                             </>
                             } 
                         </Col>

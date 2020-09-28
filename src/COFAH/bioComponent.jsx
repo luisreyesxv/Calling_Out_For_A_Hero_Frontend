@@ -1,5 +1,6 @@
 import React from 'react'
-import { Card, CardTitle, CardText, CardImg, CardImgOverlay, CardBody,CardHeader,CardFooter, Button, Col} from 'reactstrap';
+import { Button} from 'reactstrap';
+import {Link} from 'react-router-dom'
 
 const Bio =(props)=>{
 
@@ -27,6 +28,81 @@ const Bio =(props)=>{
         {props.flavor.bond} 
       </div>
       <div className="reputation">Reputation: {props.reputation}</div>
+
+
+      
+
+    </div> 
+  </div> 
+  
+  
+
+
+
+    )
+}
+
+export const BioStats =(props)=>{
+
+
+
+    return(
+      
+        
+        <div className="wrapper">
+    <div className="poster">
+        
+      
+      
+      <div className="chosenHero-Name">{props.name}</div>
+      <div className="reputation">Reputation</div>
+      <div className="bio">
+        {props.reputation} 
+      </div>
+      <div className="reputation">Quests Completed</div>
+      <div className="bio">
+        {props.tasksCompleted}
+      </div>
+
+      <div className="reputation"># of Quests left Today</div>
+      <div className="bio">
+        {props.numberOfTasks} 
+      </div>
+      <div className="reputation">Reputation: {props.reputation}</div>
+
+
+      
+
+    </div> 
+  </div> 
+  
+  
+
+
+
+    )
+}
+
+export const BioEmpty =()=>{
+
+
+
+    return(
+      
+        
+        <div className="wrapper">
+    <div className="poster">
+        
+      
+      
+    
+      
+      <div className="bio">
+      Get your Certified Pomodoria Hero Card Today
+        <Link to ="/cofah" >
+            <Button > Call Out For A Hero </Button>
+        </Link>
+      </div>
 
 
       

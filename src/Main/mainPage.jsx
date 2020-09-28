@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col, Button } from 'reactstrap'
 import SpriteContainer from '../spriteAndClocks/spriteContainer'
-import Bio from '../COFAH/bioComponent'
+import Bio, {BioStats,BioEmpty} from '../COFAH/bioComponent'
 import FeaturedQuestCarousel from '../Tasks/featuredQuestCarousel'
 
 
@@ -19,12 +19,16 @@ class MainPage extends React.Component{
       return !this.props.sprite ?
       
       (<Link to="/cofah" >
-          <div style={{background:"purple", height: "200px", textAlign: "center"}} >
-            <Button span={3} color="warning" >Call Out For A Hero!</Button>
+          <div style={{ textAlign: "center"}} >
+            <Button  color="warning" >Call Out For A Hero!</Button>
+            <img id="question" alt="No Hero Placeholder" src="/images/question.svg" />
             </div>
         </Link>)
        :
        (<>
+                <Link to="/cofah" >
+                            <h1>Check Hero's Profile</h1>
+                    </Link>
             <SpriteContainer key="mainChosenHero" {...this.props.sprite} />
             <img id="podium" alt="podium" src="/images/podium.png" />
         </>
@@ -37,15 +41,13 @@ class MainPage extends React.Component{
                 <FeaturedQuestCarousel tasks={this.props.tasks} patchTask={this.props.patchTask} />
                 
                 <Row className="row justify-content-between" id="main-page-hero"  noGutters={false}>
-                    <Col  sm={4} md={4} xl={3}  >
-                        <Link to="/cofah" >
-                            <h1> current hero?</h1>
-                        </Link>
+                    <Col xs={10} sm={4} md={4} xl={3}  >
+                        
                         {this.spriteOrButton()}
                     </Col>
                     <Col  sm={4} md={4} xl={3} > 
-                        <h4>Certified Pomodoria Hero Card</h4>
-                        {this.props.chosenHero ? <Bio {...this.props.chosenHero} /> : <h1>Call Out For A Hero to get your Certified Pomodoria Hero Card Today!</h1>}
+                        
+                        {this.props.chosenHero ? <BioStats {...this.props.chosenHero} numberOfTasks={this.props.tasks.length} /> : <BioEmpty />}
                         {/* <TaskList  tasks={this.props.tasks} patchTask={this.props.patchTask} /> */}
                     </Col >
                     <Col sm={3} md={4} xl={3} style={{background:"orange"}} >
