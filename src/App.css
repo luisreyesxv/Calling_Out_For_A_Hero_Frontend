@@ -81,7 +81,7 @@ background: #574D68;
   height: 20vh;
 }
 
-#main-page-hero{
+#{
   margin-top: 5%;
   text-align: center;
 }
@@ -116,9 +116,7 @@ background: #574D68;
   
 }
 
-#COFAH-page-hero div{
-  padding-left: 20%;
-}
+
 
 
 #podium{
@@ -247,6 +245,33 @@ padding-top:20px;
 
 }
 
+#main-avatar-container{
+  
+  width: 150%;
+  margin-bottom: 0
+ 
+  
+}
+#main-avatar-container img{
+  position: absolute;
+  bottom: 0;
+  
+
+}
+#COFAH-avatar-container{
+  
+  width: 200%;
+  margin-bottom: 0
+ 
+  
+}
+#COFAH-avatar-container img{
+  position: absolute;
+  z-index: 2;
+  
+
+}
+
 
 
 #adventure-sprite-jumbotron{
@@ -338,8 +363,11 @@ padding-top:20px;
 }
 
 #main-page-cofah-container{
-  background: #D2691E
+  background: #D2691E;
+ 
 }
+
+
 
 #navbar-icon{
   width: 50px
@@ -348,4 +376,13 @@ padding-top:20px;
 .task-card-error-message{
   color: red
 
+}
+
+#sparkles{
+  position:absolute;
+  
+  left:0;
+  bottom:0;
+  height: 75%;
+  width: 100%;
 }

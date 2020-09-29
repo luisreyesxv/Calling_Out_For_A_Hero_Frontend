@@ -29,7 +29,7 @@ class MainPage extends React.Component{
                 <Link to="/cofah" >
                             <h1>Check Hero's Profile</h1>
                     </Link>
-            <SpriteContainer key="mainChosenHero" {...this.props.sprite} />
+            <SpriteContainer key="mainChosenHero" {...this.props.sprite} divName="main-avatar-container" />
             <img id="podium" alt="podium" src="/images/podium.png" />
         </>
     )
@@ -40,7 +40,7 @@ class MainPage extends React.Component{
             <Container >
                 <FeaturedQuestCarousel tasks={this.props.tasks} patchTask={this.props.patchTask} />
                 
-                <Row className="row justify-content-between" id="main-page-hero"  noGutters={false}>
+                <Row className="row justify-content-between"  noGutters={false}>
                     <Col xs={10} sm={4} md={4} xl={3}  >
                         
                         {this.spriteOrButton()}

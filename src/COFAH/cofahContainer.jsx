@@ -76,7 +76,8 @@ class COFAHContainer extends React.Component{
                             {this.props.sprite ? 
                             <>
                             <h3> {this.props.chosenHero.name} Has Answered The Call!</h3>
-                            <SpriteContainer key="mainChosenHero" {...this.props.sprite} />
+                            <img src="/images/magic cloud.gif" id="sparkles" />
+                            <SpriteContainer key="mainChosenHero" {...this.props.sprite} divName="COFAH-avatar-container"/>
                             {/* <img id="podium" alt="podium" src="/images/podium.png" /> */}
                             </> 
                             :
@@ -98,6 +99,6 @@ class COFAHContainer extends React.Component{
 }
 export default COFAHContainer
 
-// COFAHContainer.defaultProps={
-//     chosenHero:  {"id":97,"user_id":230,"hero_id":237,"name":"Elfberto","reputation":34,"flavor":{"trait":"I like to read and memorize poetry. It keeps me calm and brings me fleeting moments of happiness. Also,I live for the thrill of the hunt.","bond":"Ruthless pirates murdered my captain and crewmates, plundered our ship, and left me to die. Vengeance will be mine.","flaw":"I have lived a hard life and find it difficult to empathize with others."}},
-//   sprite: {"url":"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBXZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--1084cab903f76d240ad1edba2d24b0d9b3aa9a36/elf%201.png","width":816.8,"height":593.5,"steps":10}}
+COFAHContainer.defaultProps={
+    chosenHero:  {"id":97,"user_id":230,"hero_id":237,"name":"Elfberto","reputation":34,"flavor":{"trait":"I like to read and memorize poetry. It keeps me calm and brings me fleeting moments of happiness. Also,I live for the thrill of the hunt.","bond":"Ruthless pirates murdered my captain and crewmates, plundered our ship, and left me to die. Vengeance will be mine.","flaw":"I have lived a hard life and find it difficult to empathize with others."}},
+  sprite: {"url":"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBXZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--1084cab903f76d240ad1edba2d24b0d9b3aa9a36/elf%201.png","width":816.8,"height":593.5,"steps":10}}
