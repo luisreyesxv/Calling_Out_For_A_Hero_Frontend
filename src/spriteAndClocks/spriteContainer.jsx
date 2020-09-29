@@ -161,7 +161,7 @@ class SpriteContainer extends React.Component{
             image= {this.props.url}
             widthFrame= {this.props.width}
             heightFrame= {this.props.height}
-            fps= {24}
+            fps= {this.props.status==="enemy"? 35: 24}
             direction="forward"
             startAt={this.actions[this.state.behavior].start}
             endAt={this.actions[this.state.behavior].end}

@@ -170,7 +170,9 @@ padding-top:20px;
   background-image: url("/images/questboard.jpg");
   background-size: 100% 100%;
    text-align: center;
-   padding:50px
+   padding:20px;
+   
+   
 }
 
 .featured-quests-container h1{
@@ -181,13 +183,15 @@ padding-top:20px;
   padding:20px;
   background-image: url("/images/quest-background.jpg");
   background-size: 100% 100%;
+  height:100%;
+  width: 100%;
 }
 
 
 #inside-timer-text{
   text-align: center;
   color: #574D68;
-  font-size: 160%;
+  font-size: 100%;
   font-weight: bold;
   font-family: "Arial Black", Gadget, sans-serif; 
 
@@ -283,8 +287,8 @@ padding-top:20px;
 
 #clockContainer{
 
-  margin-left: 25%;
-
+  display: inline-block;
+  text-align:center;
 }
 
 * {
@@ -353,12 +357,14 @@ padding-top:20px;
 }
 
 #adventure-jumbotron-row{
-  margin-top: 10px;
-  height:25px
+ 
+  
 }
 
 #adventure-clock-row{
   margin-top:10px;
+  text-align:center;
+ 
   
 }
 
@@ -385,4 +391,10 @@ padding-top:20px;
   bottom:0;
   height: 75%;
   width: 100%;
+}
+
+#react-player{
+position:absolute;
+top:0%;
+left:0;
 }

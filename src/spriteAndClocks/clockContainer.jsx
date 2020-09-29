@@ -28,10 +28,7 @@ const ClockContainer =(props)=>{
         }
 
     
-    const onComplete = () =>{
-        console.log('i should pop up everytime the function is called.',props.timer)
 
-    }
 
     const clockFunctions = {
         active: props.active,
@@ -48,12 +45,11 @@ const ClockContainer =(props)=>{
             <CountdownCircleTimer
                 onComplete={() => {
                 // do your stuff here
-                console.log("i'm inside the clock's oncomplete")
                 clockFunctions[props.status]()
                 return [true, 1500] // repeat animation in 1.5 seconds
                 }}
                 isPlaying
-                size={300}
+                size={150}
                 duration={time[props.status]}
                 colors= {color[props.status]}
                 children={ displayTime }

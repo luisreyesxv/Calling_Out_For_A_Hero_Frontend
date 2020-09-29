@@ -3,6 +3,7 @@ import SpriteContainer from '../spriteAndClocks/spriteContainer'
 import ClockContainer from '../spriteAndClocks/clockContainer'
 import { Container, Row, Col, Button,ButtonGroup, Jumbotron } from 'reactstrap'
 import TaskMedia from '../Tasks/taskMediaComponent'
+import ReactPlayer from 'react-player/soundcloud'
 
 
 const AdventureContainer = (props) => {
@@ -60,30 +61,7 @@ const AdventureContainer = (props) => {
         { quest ? <h4> {`Item title is  = ${quest.title}`}</h4> : "loading" } 
         {props.chosenHero? <h4> ChosenHero's reputation is {props.chosenHero.reputation}</h4> : null} */}
 
-
-        <Row className="row justify-content-between" id="adventure-clock-row">
-            <Col style={{textAlign:"center"}} lg={4}>
-                <ClockContainer key={status} status={status}  active={activeFunction} break={breakFunction} bad={badFunction} />
-                <ButtonGroup style={{textAlign:"center"}}>
-                    {status==="bad" ? <Button color="info" onClick={()=>setStatus("break")} >Take A Break</Button> : null}
-                    {status==="break" || status==="bad" ? <Button color="success" onClick={()=> setStatus("active")} >Get Active</Button> : null}
-                    <Button color="warning" onClick={()=> setStatus("bad")} >you won't see this</Button>
-                    <Button color="secondary" onClick={completeQuest} >Complete Quest</Button>
-                    </ButtonGroup>
-            </Col>
-            <Col  lg={2}>
-                <h2>Player</h2> 
-            
-                <Button color="secondary" onClick={completeQuest} >Complete Task</Button>
-                <iframe width="100%" height="100" scrolling="yes" frameborder="no" allow="autoplay" autoplay="1" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/260939434&auto_play=true"></iframe>
-
-            </Col>
-            <Col xl={5} >
-                
-                <TaskMedia key={quest.id} {...quest} patchHandler={""} />
-            </Col>
-        </Row>
-        <Row className="row justify-content-between " id="adventure-jumbotron-row">
+<Row className="row justify-content-between " id="adventure-jumbotron-row">
             <Col  xl={12} id="adventure-sprite-jumbotron">
                 <Row>
                   
@@ -95,6 +73,43 @@ const AdventureContainer = (props) => {
                     </Row>
             </Col>
         </Row>
+
+        <Row className="row justify-content-center" id="adventure-clock-row">
+            <Col style={{textAlign:"center"}} lg={4}>
+                <ClockContainer key={status} status={status}  active={activeFunction} break={breakFunction} bad={badFunction} />
+                <ButtonGroup style={{textAlign:"center"}}>
+                    {status==="bad" ? <Button color="info" onClick={()=>setStatus("break")} >Take A Break</Button> : null}
+                    {status==="break" || status==="bad" ? <Button color="success" onClick={()=> setStatus("active")} >Get Active</Button> : null}
+                    <Button color="warning" onClick={()=> setStatus("bad")} >you won't see this</Button>
+                    <Button color="secondary" onClick={completeQuest} >Complete Quest</Button>
+                    </ButtonGroup>
+            </Col>
+            <Col  lg={4}>
+                <div id="player-wrapper" >
+                        <ReactPlayer
+                            className='react-player'
+                            loop= {true}
+                            width='100%'
+                            height='200%'
+                            url={"https://api.soundcloud.com/playlists/52414201"}
+                            config={
+                                {
+                                    soundcloud: {
+                                        options: {
+                                            auto_play: true,
+                                        show_artwork: true,
+                                        show_user:false,
+                                        start_track: (Math.round(Math.random()*6)+1),
+                                        }
+                                    }
+                                }
+                            }
+                            />
+                    </div>
+
+            </Col>
+        </Row>
+        <TaskMedia key={quest.id} {...quest} patchHandler={""} />
 
         </>
         )
