@@ -280,7 +280,7 @@ padding-top:20px;
 
 #adventure-sprite-jumbotron{
 
-  background-image: url("/images/adventureBackgrounds/1.png");
+  background-image: url("/images/adventureBackgrounds/2.png");
   background-size: 100% 100%;
 
 }
@@ -289,7 +289,27 @@ padding-top:20px;
 
   display: inline-block;
   text-align:center;
+  /* background-color: red; */
+  background-image: url("/images/bg.png");
+  border-radius: 25px;
+  width: 75%;
+
+  background-size: 100% 100%;
+  /* background-image: url("https://lh3.googleusercontent.com/proxy/6yDvlQNfotW8KiBoXCcn_4gkexofqoKQunoTkqgKRssZfvosEjzCXgszlbRYuS6iXfLbuQxv1aWGZHe2hqV_xu2jCBKVnKV62TRH1bgDURVOrNqV899RTCUoEeOyABuyz7GPUJgpb-A8d5ldgWVpGyGvZ9u0z56_4Bo") */
 }
+#clockContainer div{
+  display: inline-block;
+  
+}
+#clockBackground{
+  background:  url("/images/scroll.png");
+  background-size: 100% 100%;
+  width: 75%;
+  padding-top: 10px;
+  padding-bottom: 10px
+}
+
+
 
 * {
   color: #574D68
@@ -397,4 +417,11 @@ padding-top:20px;
 position:absolute;
 top:0%;
 left:0;
+}
+
+
+#adventure-page{
+  /* background-image: url("/images/newQuestBackground.png"); */
+  background-color: peru;
+  background-size: 100% 100%;
 }

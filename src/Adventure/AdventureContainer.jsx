@@ -1,7 +1,7 @@
 import React,{useState}  from 'react'
 import SpriteContainer from '../spriteAndClocks/spriteContainer'
 import ClockContainer from '../spriteAndClocks/clockContainer'
-import { Container, Row, Col, Button,ButtonGroup, Jumbotron } from 'reactstrap'
+import {Row, Col, Button,ButtonGroup } from 'reactstrap'
 import TaskMedia from '../Tasks/taskMediaComponent'
 import ReactPlayer from 'react-player/soundcloud'
 
@@ -18,10 +18,11 @@ const AdventureContainer = (props) => {
     const [status, setStatus] = useState("active");
     const [heroBehavior, setHeroBehavior] = useState("running");
     const [enemy,setEnemy]= useState(monsters[Math.round(Math.random())])
+    const [music, setMusic] = useState(props.music);
 
 
     const punishHero = ()=>{
-        if( props.chosenHero.reputation <=0 ){
+        if( props.chosenHero.reputation >=0 ){
         const penalty = 10
         const playerReputation = props.chosenHero.reputation -penalty >0 ? props.chosenHero.reputation- penalty: 0
         const body= {reputation: playerReputation}
@@ -38,14 +39,7 @@ const AdventureContainer = (props) => {
        !quest["completed?"] ? props.patchTask({["completed?"]: true},quest.id) : console.log("this already completed")
     }
     
-    const changingHeroAction=(command)=>{
-        console.log("the orc has reached the end of the apath", command,heroBehavior)
-        const monsters = [ 
-            {url:"/images/enemies/1.png",
-            width:531, 
-            height: 357.5, 
-             steps:10 },
-             { url:"/images/testknightsprite.png", width:740, height:(508.66666666666666667),  steps:10 }]
+    const changingHeroAction=(command)=>{ 
         setHeroBehavior(command)
     }
 
@@ -53,15 +47,16 @@ const AdventureContainer = (props) => {
     
     const loadingOrRender =()=>{
         return quest ? (
-            <>
+            <div id="adventure-page">
         {/* <h1> This is the Adventure Container</h1>
         <h3>Inside is the following quest</h3>
         <h4> {`Param ID = ${props.match.params.id}`}</h4> 
         <h4> {`Item was found? = ${!!quest}`}</h4> 
         { quest ? <h4> {`Item title is  = ${quest.title}`}</h4> : "loading" } 
-        {props.chosenHero? <h4> ChosenHero's reputation is {props.chosenHero.reputation}</h4> : null} */}
+         */}
+         {props.chosenHero? <h4> ChosenHero's reputation is {props.chosenHero.reputation}</h4> : null}
 
-<Row className="row justify-content-between " id="adventure-jumbotron-row">
+<Row className="row justify-content-between " id="adventure-jumbotron-row" style={{backgroundImage: `url("/images/adventureBackgrounds/${(Math.floor(Math.random()*7)+1)}.png")`}}>
             <Col  xl={12} id="adventure-sprite-jumbotron">
                 <Row>
                   
@@ -75,7 +70,7 @@ const AdventureContainer = (props) => {
         </Row>
 
         <Row className="row justify-content-center" id="adventure-clock-row">
-            <Col style={{textAlign:"center"}} lg={4}>
+            <Col  lg={4}>
                 <ClockContainer key={status} status={status}  active={activeFunction} break={breakFunction} bad={badFunction} />
                 <ButtonGroup style={{textAlign:"center"}}>
                     {status==="bad" ? <Button color="info" onClick={()=>setStatus("break")} >Take A Break</Button> : null}
@@ -91,7 +86,7 @@ const AdventureContainer = (props) => {
                             loop= {true}
                             width='100%'
                             height='200%'
-                            url={"https://api.soundcloud.com/playlists/52414201"}
+                            url={music}
                             config={
                                 {
                                     soundcloud: {
@@ -111,7 +106,7 @@ const AdventureContainer = (props) => {
         </Row>
         <TaskMedia key={quest.id} {...quest} patchHandler={""} />
 
-        </>
+        </div>
         )
         :
         <h1> We are unable to load this quest. It is either because the quest does not exist or It has been completed. Please return to the quest board or create a new quest.</h1>
@@ -157,5 +152,6 @@ AdventureContainer.defaultProps ={
     tasks: [{title: "test",
     description: "test",
     id: 1
-    }]
+    }],
+    music: "https://api.soundcloud.com/playlists/300494469"
 }

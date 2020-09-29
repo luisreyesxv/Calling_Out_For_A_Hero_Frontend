@@ -6,7 +6,7 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 const ClockContainer =(props)=>{
     const color = {
         active: "#85bb65",
-        break:  "#45b3e0",
+        break:  "#45b3e0", 
         bad: "#CA0B00"
     }
 
@@ -42,6 +42,7 @@ const ClockContainer =(props)=>{
 
     return(
     <div id="clockContainer" >
+        <div id="clockBackground" >
             <CountdownCircleTimer
                 onComplete={() => {
                 // do your stuff here
@@ -55,6 +56,7 @@ const ClockContainer =(props)=>{
                 children={ displayTime }
                
             />
+        </div>
     </div>
     )
 }

@@ -57,14 +57,11 @@ class COFAHContainer extends React.Component{
                 <h1> Recruit a hero time!!</h1>
                 <Container>
                     <Row className="row justify-content-between">
-                        <Col md="3">
-                            <Button disabled= {this.state.randomButton} onClick={()=>this.callHero()} color="warning" >DESPERATELY CALLING OUT FOR A HERO!</Button>
+                        <Col md="5">
+                            <Button disabled= {this.state.randomButton} onClick={()=>this.callHero()} color="warning" >DESPERATELY CALLING OUT FOR A HERO! IT CAN BE ANYONE</Button>
                         </Col>
-                        <Col md="3">
-                            <Button  disabled ={this.state.quizButton} color="success" >Calling Out For A Hero based on quiz</Button>
-                        </Col>
-                        <Col md="3">
-                            <Button  disabled ={this.state.spotifyButton} color="danger" >Calling Out For A Hero based on Spotify</Button>
+                        <Col md="5">
+                            <Button  disabled ={this.state.spotifyButton} color="danger" >I MUST CALL OUT FOR A HERO. THIS HOUSE WILL SURELY ANSWER...</Button>
                         </Col>
                     </Row>
                 </Container>
