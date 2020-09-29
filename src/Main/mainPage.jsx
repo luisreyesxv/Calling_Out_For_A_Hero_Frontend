@@ -19,7 +19,7 @@ class MainPage extends React.Component{
       return !this.props.sprite ?
       
       (<Link to="/cofah" >
-          <div style={{ textAlign: "center"}} >
+          <div id="main-page-cofah-container" >
             <Button  color="warning" >Call Out For A Hero!</Button>
             <img id="question" alt="No Hero Placeholder" src="/images/question.svg" />
             </div>
@@ -50,7 +50,7 @@ class MainPage extends React.Component{
                         {this.props.chosenHero ? <BioStats {...this.props.chosenHero} numberOfTasks={this.props.tasks.length} /> : <BioEmpty />}
                         {/* <TaskList  tasks={this.props.tasks} patchTask={this.props.patchTask} /> */}
                     </Col >
-                    <Col sm={3} md={4} xl={3} style={{background:"orange"}} >
+                    <Col sm={3} md={4} xl={3} >
                 {/* example of playlist */}
                 <iframe width="100%" height="300" scrolling="yes" frameborder="no" allow="autoplay" autoplay="1" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/260939434&auto_play=true"></iframe>
 

@@ -23,7 +23,7 @@ const NavBar =(props)=>{
         
       <Navbar dark={true}  light expand="md" id="NavBar">
           {/* below is where i want to put in the logo for the website */}
-         <NavbarBrand tag={Link} to='/' ><img style={{width:"50px"}} alt="COFAH logo" src="/favicon.ico" /></NavbarBrand>
+         <NavbarBrand tag={Link} to='/' ><img id="navbar-icon" alt="COFAH logo" src="/favicon.ico" /></NavbarBrand>
           <Nav className="mr-auto" navbar>
             <NavItem>
             {props.user?<NavLink tag={Link} to='/logout' >LogOut</NavLink>:<NavLink tag={Link} to='/login' >LogIn</NavLink>}

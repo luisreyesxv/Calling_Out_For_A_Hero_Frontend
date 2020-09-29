@@ -101,7 +101,7 @@ const TaskCard =(props)=>{
                     <Modal isOpen={modal} toggle={toggle} >
                         <ModalHeader toggle={toggle}>
                             {`Edit Quest ${props.title}`}
-                            {submitDisabled ? <h4 style={{color: "red"}}>{errorMessage}</h4> : null }
+                            {submitDisabled ? <h4 className="task-card-error-message" >{errorMessage}</h4> : null }
                             </ModalHeader>
                         <ModalBody>
                             <InputGroup>

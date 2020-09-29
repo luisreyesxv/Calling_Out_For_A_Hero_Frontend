@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React from 'react'
 import Spritesheet from 'react-responsive-spritesheet';
 
 class SpriteContainer extends React.Component{
@@ -27,7 +27,13 @@ class SpriteContainer extends React.Component{
             end: (4* this.props.steps)},
         enemy: {
             start: (3* this.props.steps+1),
-            end: (4* this.props.steps)}
+            end: (4* this.props.steps)},
+        demoHero: {
+            start: (3* this.props.steps+1),
+            end: (4* this.props.steps)},
+        demoEnemy: {
+            start: ( 1),
+            end: (2* this.props.steps)},
 
     }
 
@@ -47,7 +53,18 @@ class SpriteContainer extends React.Component{
             ,
         running: ()=> null,
 
-        enemy: ()=>null
+        enemy: ()=>null,
+
+        demoHero:  (sprite)=> {
+            sprite.goToAndPlay((1* this.props.steps + 1))
+            sprite.setStartAt((1* this.props.steps + 1))
+            sprite.setEndAt((2* this.props.steps ))
+            },
+        demoEnemy:  (sprite)=> {
+            sprite.goToAndPlay((1* this.props.steps + 1))
+            sprite.setStartAt((1* this.props.steps + 1))
+            sprite.setEndAt((3* this.props.steps ))
+            }
 
     }
 // this is what the onMouseLeave Function shoudl ook like if I want to make it different depending on who is there, but right now.I can only think to keep it the same, just return it to normal
@@ -83,12 +100,14 @@ class SpriteContainer extends React.Component{
             
         }
         ,
-        running:  ()=> console.log("done")
+        running:  null
         ,
         enemy:  ()=> {
             
             this.determiningLocation()
-        }
+        },
+        demoHero:  null,
+        demoEnemy:  null
         
 
     }
@@ -117,7 +136,6 @@ class SpriteContainer extends React.Component{
 
     componentDidUpdate(previousProps){
         if (previousProps.status !== this.props.status){
-            console.log("this is running from component did update. this is the prevoius props",previousProps.status,this.state.behavior)
             this.setState({
                 ...this.state,
                 behavior: this.props.status

@@ -6,10 +6,17 @@ import TaskMedia from '../Tasks/taskMediaComponent'
 
 
 const AdventureContainer = (props) => {
+    const monsters = [ 
+        {url:"/images/enemies/1.png",
+        width:531, 
+        height: 357.5, 
+         steps:10 },
+         { url:"/images/enemies/2.png", width:545, height:(388),  steps:10 }]
     
     const quest =  props.tasks.find(taskObj=> taskObj.id === parseInt(props.match.params.id))
     const [status, setStatus] = useState("active");
     const [heroBehavior, setHeroBehavior] = useState("running");
+    const [enemy,setEnemy]= useState(monsters[Math.round(Math.random())])
 
 
     const punishHero = ()=>{
@@ -41,12 +48,7 @@ const AdventureContainer = (props) => {
         setHeroBehavior(command)
     }
 
-    const monsters = [ 
-        {url:"/images/enemies/1.png",
-        width:531, 
-        height: 357.5, 
-         steps:10 },
-         { url:"/images/testknightsprite.png", width:740, height:(508.66666666666666667),  steps:10 }]
+    
     
     const loadingOrRender =()=>{
         return quest ? (
@@ -59,7 +61,7 @@ const AdventureContainer = (props) => {
         {props.chosenHero? <h4> ChosenHero's reputation is {props.chosenHero.reputation}</h4> : null} */}
 
 
-        <Row className="row justify-content-between" style={{marginTop: "10px"}}>
+        <Row className="row justify-content-between" id="adventure-clock-row">
             <Col style={{textAlign:"center"}} lg={4}>
                 <ClockContainer key={status} status={status}  active={activeFunction} break={breakFunction} bad={badFunction} />
                 <ButtonGroup style={{textAlign:"center"}}>
@@ -69,7 +71,7 @@ const AdventureContainer = (props) => {
                     <Button color="secondary" onClick={completeQuest} >Complete Quest</Button>
                     </ButtonGroup>
             </Col>
-            <Col style={{background:"red"}} lg={2}>
+            <Col  lg={2}>
                 <h2>Player</h2> 
             
                 <Button color="secondary" onClick={completeQuest} >Complete Task</Button>
@@ -81,7 +83,7 @@ const AdventureContainer = (props) => {
                 <TaskMedia key={quest.id} {...quest} patchHandler={""} />
             </Col>
         </Row>
-        <Row className="row justify-content-between" style={{marginTop: "10px", height:"25px"}}>
+        <Row className="row justify-content-between " id="adventure-jumbotron-row">
             <Col  xl={12} id="adventure-sprite-jumbotron">
                 <Row>
                   
@@ -89,7 +91,7 @@ const AdventureContainer = (props) => {
                         <SpriteContainer key="mainChosenHero" {...props.sprite} status={heroBehavior} divName= "hero-avatar-container" changeHero={changingHeroAction}/>
 
                   
-                        <SpriteContainer key="enemyOrc" {...monsters[(Math.floor(Math.random()*2))]} status= "enemy" divName= "enemy-avatar-container" changeHero={changingHeroAction} />
+                        <SpriteContainer key="enemyOrc" {...enemy} status= "enemy" divName= "enemy-avatar-container" changeHero={changingHeroAction} />
                     </Row>
             </Col>
         </Row>

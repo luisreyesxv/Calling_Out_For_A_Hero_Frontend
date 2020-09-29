@@ -22,35 +22,7 @@
    
  }
 
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
 
 #login{
   position: absolute;
@@ -246,6 +218,19 @@ padding-top:20px;
 
 }
 
+#home-avatar-container{
+  
+  width: 15%;
+  margin-bottom: 0
+ 
+  
+}
+#home-avatar-container img{
+  position: absolute;
+  bottom: 0
+
+}
+
 #enemy-avatar-container{
   position: absolute;
   width: 25%;
@@ -342,4 +327,25 @@ padding-top:20px;
    right: 10%
 }
 
+#adventure-jumbotron-row{
+  margin-top: 10px;
+  height:25px
+}
 
+#adventure-clock-row{
+  margin-top:10px;
+  
+}
+
+#main-page-cofah-container{
+  background: #D2691E
+}
+
+#navbar-icon{
+  width: 50px
+}
+
+.task-card-error-message{
+  color: red
+
+}
