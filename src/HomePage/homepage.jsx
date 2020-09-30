@@ -33,9 +33,9 @@ const Homepage = () =>{
               
                 <SpriteContainer key="demoHero" url="/images/testknightsprite.png" width={740} height= {508.66666666666666667}  steps={10} status="demoHero" divName="home-avatar-container"/>
 
-                <SpriteContainer key="enemyOrc" url="/images/enemies/1.png" width={531} height= {357.5}  steps={10} status= "demoEnemy" divName="home-avatar-container"/>
-                <SpriteContainer key="enemyOrc" url="/images/enemies/1.png" width={531} height= {357.5}  steps={10} status= "demoEnemy" divName="home-avatar-container"/>
-                <SpriteContainer key="enemyOrc" url="/images/enemies/1.png" width={531} height= {357.5}  steps={10} status= "demoEnemy" divName="home-avatar-container"/>
+                <SpriteContainer key="enemyOrc1" url="/images/enemies/1.png" width={531} height= {357.5}  steps={10} status= "demoEnemy" divName="home-avatar-container"/>
+                {/* <SpriteContainer key="enemyOrc2" url="/images/enemies/1.png" width={531} height= {357.5}  steps={10} status= "demoEnemy" divName="home-avatar-container"/> */}
+                <SpriteContainer key="enemyOrc3" url="/images/shopper%20spritesheet.png" width={598} height= {461}  steps={10} status= "idle" divName="home-avatar-container"/>
                
 
             

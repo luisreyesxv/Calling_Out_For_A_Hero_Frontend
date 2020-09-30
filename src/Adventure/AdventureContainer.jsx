@@ -19,6 +19,7 @@ const AdventureContainer = (props) => {
     const [heroBehavior, setHeroBehavior] = useState("running");
     const [enemy,setEnemy]= useState(monsters[Math.round(Math.random())])
     const [music, setMusic] = useState(props.music);
+    const [background, setBackground] = useState(Math.floor(Math.random() * 8) + 1);
 
 
     const punishHero = ()=>{
@@ -56,8 +57,8 @@ const AdventureContainer = (props) => {
          */}
          {props.chosenHero? <h4> ChosenHero's reputation is {props.chosenHero.reputation}</h4> : null}
 
-<Row className="row justify-content-between " id="adventure-jumbotron-row" style={{backgroundImage: `url("/images/adventureBackgrounds/${(Math.floor(Math.random()*7)+1)}.png")`}}>
-            <Col  xl={12} id="adventure-sprite-jumbotron">
+<Row className="row justify-content-between " id="adventure-jumbotron-row" >
+            <Col  xl={12} id="adventure-sprite-jumbotron" style={{backgroundImage: `url("/images/adventureBackgrounds/${background}.png")`}}>
                 <Row>
                   
                         {/* <SpriteContainer key="mainChosenHero" {...props.sprite} status={heroBehavior} divName= "hero-avatar-container"/> */}

@@ -95,9 +95,9 @@ class NewTaskForm extends React.Component{
 
             <div className={"RegisterNewQuest"}>
            
-            <Container id="New-Quest-Form" className="userInformation" >
+            <Container id="New-Quest-Form"  >
             
-            <Form  onSubmit={this.submittingNewQuest}>
+            <Form  className="userInformation" onSubmit={this.submittingNewQuest}>
                 <Row form >
                     <Col xl={12} >
                         <FormGroup  > 
@@ -138,20 +138,21 @@ class NewTaskForm extends React.Component{
                     <Button style={{background: "#D2691E"}}>Submit</Button>
                 </FormGroup>
             </Form>
-          </Container>
-
-          {/* NEED TO FIX BELOW */}
+          
           {this.props.sprite ? (
-          <Container  >
-          <Row className="row justify-content-center">
-                <Col xl={3} sm={1} md={1}>
+         
+          <Row className="row justify-content-center" style={{margin: "20px",marginBottom:"35px"}}>
+                
             
-                <SpriteContainer key="mainChosenHero" {...this.props.sprite} />
+                <SpriteContainer key="mainChosenHero" {...this.props.sprite} divName="hero-avatar-container"/>
+                <SpriteContainer key="shopper" url="/images/shopper%20spritesheet.png" width={598} height= {461}  steps={10} status= "shopper" divName="hero-avatar-container"/>
+
 
             
-                </Col> 
-            </Row>
-            </Container>) : null}
+              
+            </Row>)
+             : <SpriteContainer key="shopper" url="/images/shopper%20spritesheet.png" width={598} height= {461}  steps={10} status= "shopper" divName="hero-avatar-container"/>}
+            </Container>)
           </div>
         )
     }

@@ -19,6 +19,7 @@
  .userInformation{
    background: #F1F1D4;
    border-radius: 10%;
+   padding: 10px;
    
  }
 
@@ -132,25 +133,20 @@ background: #574D68;
 #New-Quest-Form{
   
   width: 50%;
+  height: 100%;
   text-align: center;
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 .RegisterNewQuest{
 background-image: url("/images/newQuestBackground.png");
 background-repeat: no-repeat;
-background-size: 100vw 100vh;
-height: 100vh;
-padding-top:20px;
+background-size: 100% 100%;
+/* height: 100vh; */
+/* padding-top:20px; */
 
 }
 
-#New-Quest-Form{
-  
-  width: 50%;
-  text-align: center;
-  padding: 10px;
-}
 
 .NewTaskFormSprites{
   height: 100px;
@@ -280,7 +276,6 @@ padding-top:20px;
 
 #adventure-sprite-jumbotron{
 
-  background-image: url("/images/adventureBackgrounds/2.png");
   background-size: 100% 100%;
 
 }
@@ -376,10 +371,7 @@ padding-top:20px;
    right: 10%
 }
 
-#adventure-jumbotron-row{
- 
-  
-}
+
 
 #adventure-clock-row{
   margin-top:10px;

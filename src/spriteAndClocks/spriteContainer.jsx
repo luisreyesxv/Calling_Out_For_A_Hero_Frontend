@@ -34,6 +34,9 @@ class SpriteContainer extends React.Component{
         demoEnemy: {
             start: ( 1),
             end: (2* this.props.steps)},
+        shopper: {
+            start:1,
+            end: (this.props.steps)}
 
     }
 
@@ -64,7 +67,8 @@ class SpriteContainer extends React.Component{
             sprite.goToAndPlay((1* this.props.steps + 1))
             sprite.setStartAt((1* this.props.steps + 1))
             sprite.setEndAt((3* this.props.steps ))
-            }
+            },
+        shopper: ()=>null
 
     }
 // this is what the onMouseLeave Function shoudl ook like if I want to make it different depending on who is there, but right now.I can only think to keep it the same, just return it to normal
@@ -107,7 +111,8 @@ class SpriteContainer extends React.Component{
             this.determiningLocation()
         },
         demoHero:  null,
-        demoEnemy:  null
+        demoEnemy:  null,
+        shopper:  null
         
 
     }
@@ -161,7 +166,7 @@ class SpriteContainer extends React.Component{
             image= {this.props.url}
             widthFrame= {this.props.width}
             heightFrame= {this.props.height}
-            fps= {this.props.status==="enemy"? 35: 24}
+            fps= {this.props.status==="enemy"? 35: 22}
             direction="forward"
             startAt={this.actions[this.state.behavior].start}
             endAt={this.actions[this.state.behavior].end}
