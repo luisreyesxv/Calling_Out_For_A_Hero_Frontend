@@ -35,7 +35,7 @@ class MainPage extends React.Component{
     render(){
         return(
             <Container >
-                <FeaturedQuestCarousel tasks={this.props.tasks} patchTask={this.props.patchTask} />
+                <FeaturedQuestCarousel tasks={this.props.tasks} patchTask={this.props.patchTask} first={!this.props.chosenHero} />
                 <Row className="row justify-content-center"  noGutters={false}>
                    {/* <h5> The Sounds of Pomodoria</h5> */}
                     <PlaylistSelector addPlaylist={this.props.addPlaylist}/>

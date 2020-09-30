@@ -81,7 +81,7 @@ const TaskMedia =(props)=>{
                 <>
                     <Media>
                     <Link className="featured-quests-buttons" to={`/main/quests/${props.id}`} >
-                            <Button className="featured-quests-buttons"  disabled={props["completed?"]} color="success">Run Quest</Button>
+                            <Button className="featured-quests-buttons"  disabled={props["completed?"]||props.first} color="success">Run Quest</Button>
                     </Link>
                 
                     </Media>

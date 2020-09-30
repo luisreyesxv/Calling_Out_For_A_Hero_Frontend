@@ -49,7 +49,7 @@ const FeaturedQuestCarousel =(props)=>{
            
           >
     
-                <TaskMedia key={task.id} {...task} patchHandler={props.patchTask} featured={true} />
+                <TaskMedia key={task.id} {...task} first={props.first} patchHandler={props.patchTask} featured={true} />
             
           </CarouselItem>
         );

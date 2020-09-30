@@ -31,91 +31,52 @@ const Homepage = () =>{
                 <Row className="row justify-content-between"  noGutters={false} >
                 
               
-                <SpriteContainer key="demoHero" url="/images/testknightsprite.png" width={740} height= {508.66666666666666667}  steps={10} status="demoHero" divName="home-avatar-container"/>
 
+                {/* <SpriteContainer key="demoHero" url="/images/testknightsprite.png" width={740} height= {508.66666666666666667}  steps={10} status="demoHero" divName="home-avatar-container"/>
                 <SpriteContainer key="enemyOrc1" url="/images/enemies/1.png" width={531} height= {357.5}  steps={10} status= "demoEnemy" divName="home-avatar-container"/>
-                {/* <SpriteContainer key="enemyOrc2" url="/images/enemies/1.png" width={531} height= {357.5}  steps={10} status= "demoEnemy" divName="home-avatar-container"/> */}
-                <SpriteContainer key="enemyOrc3" url="/images/shopper%20spritesheet.png" width={598} height= {461}  steps={10} status= "shopper" divName="home-avatar-container"/>
+                <SpriteContainer key="enemyOrc2" url="/images/enemies/1.png" width={531} height= {357.5}  steps={10} status= "demoEnemy" divName="home-avatar-container"/>
+                <SpriteContainer key="enemyOrc2" url="/images/enemies/1.png" width={531} height= {357.5}  steps={10} status= "demoEnemy" divName="home-avatar-container"/> */}
                
 
             
         </Row>
+        <div id="homepage-welcome-message">
+                <h1 className="display-4"> Welcome to Calling Out For A Hero</h1>
                     <p>
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
+                    The <strong>Productivity app</strong> & <strong> Pomodoro Timer </strong> designed to help you keep track & accomplish of your personal tasks. With  
+                    <strong> Calling Out For A Hero</strong> , you will
 
-
-
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-
-
-
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
                     </p>
-                    <p>
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
+                 <Row className="row justify-content-between"  noGutters={false} >
+                      <SpriteContainer key="demoHero" url="/images/HomeFairy.png" width={185} height= {127.166666666666666667}  steps={10} status="demoHero" divName="home-avatar-container"/>
+                      <SpriteContainer key="enemyOrc1" url="/images/enemies/1.png" width={531} height= {357.5}  steps={10} status= "demoEnemy" divName="home-avatar-container"/>
+                </Row>
                     
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-
-
-
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-
-
-
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    A crap ton of words
-                    </p>
-                    lol what?
-            
+                   
+                        <h5>
+                            <ul className="welcome-message-ul" >
+                                    <li>Get your own Personal Hero</li>
+                                    <li>Set Up and Organize Personal Quests for both you & your Hero to complete</li>
+                                    <li>Enjoy music playlists designed to help you get into the zone and complete your tasks</li>
+                                    <li>Use Pomodoro Timer & the Pomodoro Technique to help pace yourself in the real world to make sure you don't burn yourself out</li>
+                                    <li>Get to watch Your Personal Hero grow along with you</li> 
+                            </ul> 
+                        </h5>
+                   
+                    <Row className="row justify-content-between"  noGutters={false} >
+                      <SpriteContainer key="demoHero2" url="/images/Home%20Knight.png" width={251.40} height={142.166666666666666667}  steps={10} status="demoEnemy" divName="home-avatar-container"/>
+                      <SpriteContainer key="enemyOrc2" url="/images/enemies/2.png" width={545} height={388}  steps={10} status= "demoHero" divName="home-avatar-container"/>
+                    </Row>
+                    
+                    
+                    <p>     
+                    Inside <strong>Calling Out For A Hero</strong>, you will find yourself in the world of Pomodoria, which is filled with rival factions. As you go on your own personal quests,
+                    you find yourself getting burned out & looking for help. You reach the local guild hall, where you find yourself  <strong>Calling Out For A Hero</strong>. The call is heard all throughout
+                    Pomodoria, where different heroes come to your aid. As you continue doing your quests, your hero will grow along with you, and there may be a few surprises along the way.
+                    There is no better time than the present for <strong>Calling Out For A Hero</strong>
+                        
+                   </p>
+        </div>
                     </Jumbotron>
 
 
