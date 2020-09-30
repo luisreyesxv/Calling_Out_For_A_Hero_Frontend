@@ -2,7 +2,7 @@ import React,{useState, useEffect}  from 'react'
 import SpriteContainer from '../spriteAndClocks/spriteContainer'
 import SuccessModal from '../spriteAndClocks/successModal'
 import ClockContainer from '../spriteAndClocks/clockContainer'
-import {Row, Col, Button,ButtonGroup } from 'reactstrap'
+import {Row, Col, Button,ButtonGroup, Spinner } from 'reactstrap'
 import TaskMedia from '../Tasks/taskMediaComponent'
 import ReactPlayer from 'react-player/soundcloud'
 
@@ -42,6 +42,7 @@ const AdventureContainer = (props) => {
 
         if(!quest["completed?"]){
             setModalOn(true)
+            setMusic("https://api.soundcloud.com/tracks/311545220")
             props.patchTask({["completed?"]: true},quest.id)
         }
 
@@ -58,7 +59,28 @@ const AdventureContainer = (props) => {
             <div id="adventure-page">
       
          {modalOn && quest["completed?"] ?  
+         <div id="victory-screen">
+         <ReactPlayer
+                            className='react-player'
+                            loop= {true}
+                            width='1px'
+                            height='1px'
+                            url={music}
+                            config={
+                                {
+                                    soundcloud: {
+                                        options: {
+                                            auto_play: true,
+                                        show_artwork: true,
+                                        show_user:false,
+                                        start_track: (Math.round(Math.random()*6)+1),
+                                        }
+                                    }
+                                }
+                            }
+                            />
               <SuccessModal divName="quest-success-sprite-modal" sprite={props.sprite} chosenHero={props.chosenHero} link1= {{url:"/main", text: "Back to Main"}}  link2= {{url:"/main/quests/", text: "Tackle Another Quest"} } adventure={true}/>
+              </div>
                 :
                 <>
 <Row className="row justify-content-between " id="adventure-jumbotron-row" >
@@ -116,8 +138,8 @@ const AdventureContainer = (props) => {
         :
         <div id="loadingScreen" >
             <h1> Loading... </h1>
-               {props.tasks ? <h2>Please return to the quest board or create a new quest.</h2> : null}
-            <img src="https://i.gifer.com/4V0b.gif" />
+               {props.tasks ? <h1>Please return to the quest board or create a new quest.</h1> : null}
+               <Spinner color="light" />
         </div>
     }
 

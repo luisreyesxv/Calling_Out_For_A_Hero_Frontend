@@ -377,6 +377,7 @@ background: orange;
   color: #574D68;
   font-weight: 900;
   margin-bottom: 5px;
+  
 }
 
 .bio {
@@ -466,4 +467,11 @@ text-align: center;
 #loadingScreen h1{
  
   color: white;
+}
+
+#victory-screen{
+  height: 100vh;
+  width: 100vw;
+  background-image: url("/images/adventureBackgrounds/victory.png");
+  background-size: 100% 100%
 }

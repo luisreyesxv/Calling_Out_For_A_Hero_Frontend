@@ -14,10 +14,18 @@ class MainContainer extends React.Component{
         this.state={
             tasks: [],
             showcaseTasks: [],
-            status:"success"
+            status:"success",
+            playlist: "https://api.soundcloud.com/playlists/300494469"
         }
     }
     
+    addingMusicToState=(playlist)=>{
+        this.setState({
+            ...this.state,
+            playlist: playlist
+        })
+    }
+
         communicateWithAPI=(options, id="",route="tasks")=>{
 
         return( fetch(this.props.apiUrl+route+"/"+id ,options)
@@ -178,11 +186,11 @@ class MainContainer extends React.Component{
             return(
                 <Switch>
                 <Route exact path={`${this.props.match.url}/quests/new`} render={(routerProps)=> <NewTaskForm {...routerProps} token={this.props.token} postNewQuest={this.postNewTask} lengthOfTasks={this.state.tasks.length} postStatus={this.state.status} sprite={this.props.sprite}/>} />
-                <Route exact path={`${this.props.match.url}/quests/:id`} render={(routerProps)=> <AdventureContainer {...routerProps}   chosenHero={this.props.chosenHero} sprite={this.props.sprite} tasks={this.state.tasks} patchTask={this.patchTask} patchChosenHero={this.patchChosenHero}/>} />
+                <Route exact path={`${this.props.match.url}/quests/:id`} render={(routerProps)=> <AdventureContainer {...routerProps}   chosenHero={this.props.chosenHero} sprite={this.props.sprite} tasks={this.state.tasks} patchTask={this.patchTask} patchChosenHero={this.patchChosenHero} music={this.state.playlist}/>} />
                 {/* <Route exact path={`${this.props.match.url}/quests/:id`} render={(routerProps)=> <AdventureContainer {...routerProps}   chosenHero={{"id":67,"user_id":200,"hero_id":213,"name":"Elfberto","reputation":34}} sprite={{"url":"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBRZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--34806bcbf486b237b0458f2215f6d2394bea1c16/elf%201.png","width":816.8,"height":593.5}} tasks={this.state.tasks} patchTask={this.patchTask} patchChosenHero={this.patchChosenHero}/>} /> */}
 
                 <Route exact path={`${this.props.match.url}/quests`} render={(routerProps)=> <TaskList {...routerProps} sprite={this.props.sprite} tasks={this.state.tasks} patchTask={this.patchTask} />} />
-                <Route exact path={this.props.match.url} render={(routerProps)=> <MainPage {...routerProps}  sprite={this.props.sprite} tasks={this.state.showcaseTasks} patchTask={this.patchTask} chosenHero={this.props.chosenHero} />} />
+                <Route exact path={this.props.match.url} render={(routerProps)=> <MainPage {...routerProps}  sprite={this.props.sprite} tasks={this.state.showcaseTasks} patchTask={this.patchTask} chosenHero={this.props.chosenHero} addPlaylist={this.addingMusicToState}/>} />
                 </Switch>
             )
         }

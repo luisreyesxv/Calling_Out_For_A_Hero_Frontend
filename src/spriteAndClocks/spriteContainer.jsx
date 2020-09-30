@@ -96,10 +96,13 @@ class SpriteContainer extends React.Component{
 
      onMouseLeave = (sprite)=> {
          
-       return this.props.status==="cofah" || this.props.status==="rescue" ? null:
+       return (this.props.status==="cofah" || this.props.status==="rescue") ? null:
+       
+       
         sprite.goToAndPlay(this.actions[this.state.behavior].start)
                 sprite.setStartAt(this.actions[this.state.behavior].start)
                 sprite.setEndAt(this.actions[this.state.behavior].end)
+            
     }
 
 
@@ -190,7 +193,7 @@ class SpriteContainer extends React.Component{
     render(){
     return(
         
-        <div id={this.props.divName} style={{[this.state.behavior=="cofah" ? "left" : "right"]:(this.state.location.toFixed(2)+"%")}}>
+        <div id={this.props.divName} style={{[this.state.behavior==="cofah" ? "left" : "right"]:(this.state.location.toFixed(2)+"%")}}>
             <Spritesheet
             className= {this.props.styling}
             image= {this.props.url}

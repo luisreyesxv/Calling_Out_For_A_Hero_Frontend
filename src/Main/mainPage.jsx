@@ -3,17 +3,16 @@ import { Link } from 'react-router-dom'
 import { Container, Row, Col, Button } from 'reactstrap'
 import SpriteContainer from '../spriteAndClocks/spriteContainer'
 import Bio, {BioStats,BioEmpty} from '../COFAH/bioComponent'
+import PlaylistSelector from './playlistSelector'
+
 import FeaturedQuestCarousel from '../Tasks/featuredQuestCarousel'
 
 
 
 class MainPage extends React.Component{
-    constructor(){
-        super()
-        this.state={
-            tasks: []
-        }
-    }
+    
+
+
 
     spriteOrButton=()=>{
       return !this.props.sprite ?
@@ -26,9 +25,7 @@ class MainPage extends React.Component{
         </Link>)
        :
        (<>
-                <Link to="/cofah" >
-                            <h1>Check Hero's Profile</h1>
-                    </Link>
+                
             <SpriteContainer key="mainChosenHero" {...this.props.sprite} divName="main-avatar-container" />
             <img id="podium" alt="podium" src="/images/podium.png" />
         </>
@@ -39,24 +36,21 @@ class MainPage extends React.Component{
         return(
             <Container >
                 <FeaturedQuestCarousel tasks={this.props.tasks} patchTask={this.props.patchTask} />
-                
-                <Row className="row justify-content-between"  noGutters={false}>
-                    <Col xs={10} sm={4} md={4} xl={3}  >
+                <Row className="row justify-content-center"  noGutters={false}>
+                   {/* <h5> The Sounds of Pomodoria</h5> */}
+                    <PlaylistSelector addPlaylist={this.props.addPlaylist}/>
+                </Row>
+                <Row className="row justify-content-center"  noGutters={false}>
+                    <Col xs={10} sm={4} md={2} xl={2}  >
                         
                         {this.spriteOrButton()}
                     </Col>
-                    <Col  sm={4} md={4} xl={3} > 
+                    <Col  sm={8} md={10} xl={10} > 
                         
                         {this.props.chosenHero ? <BioStats {...this.props.chosenHero} numberOfTasks={this.props.tasks.length} /> : <BioEmpty />}
                         {/* <TaskList  tasks={this.props.tasks} patchTask={this.props.patchTask} /> */}
                     </Col >
-                    <Col sm={3} md={4} xl={3} >
-                {/* example of playlist */}
-                <iframe width="100%" height="300" scrolling="yes" frameborder="no" allow="autoplay" autoplay="1" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/260939434&auto_play=true"></iframe>
-
-                        {/* example of solo track */}
-                    {/* <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" autoplay="1" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/195694654&auto_play=true"></iframe> */}
-                    </Col>
+                   
                 </Row>
             </Container>
         )

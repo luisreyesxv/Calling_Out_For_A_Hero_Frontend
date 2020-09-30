@@ -54,21 +54,22 @@ export const BioStats =(props)=>{
         
       
       
-      <div className="chosenHero-Name">{props.name}</div>
-      <div className="reputation">Reputation</div>
-      <div className="bio">
+      <h1 className="biostat-Name">{props.name}</h1>
+      <h4 className="biostat-reputation">Reputation</h4>
+      <div className="biostat-score">
         {props.reputation} 
       </div>
-      <div className="reputation">Quests Completed</div>
-      <div className="bio">
-        {props.tasksCompleted}
+      <div className="biostat-category">Quests Completed</div>
+      <div className="biostat-score">
+        {console.log("number of tasks completed", props.tasksCompleted)}
+        {props.tasksCompleted ? props.tasksCompleted : 0}
       </div>
 
-      <div className="reputation"># of Quests left Today</div>
-      <div className="bio">
+      <div className="biostat-category"># of Quests left Today</div>
+      <div className="biostat-score">
         {props.numberOfTasks} 
       </div>
-      <div className="reputation">Reputation: {props.reputation}</div>
+      
 
 
       

@@ -57,7 +57,7 @@ const FeaturedQuestCarousel =(props)=>{
     
       return (
           <>
-            <h3> Today's Tasks</h3>
+           
             <Carousel
             activeIndex={activeIndex}
             next={next}
