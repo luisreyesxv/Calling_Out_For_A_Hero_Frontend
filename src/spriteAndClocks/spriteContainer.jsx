@@ -95,15 +95,17 @@ class SpriteContainer extends React.Component{
     // }
 
      onMouseLeave = (sprite)=> {
-         
-       return (this.props.status==="cofah" || this.props.status==="rescue") ? null:
-       
-       
-        sprite.goToAndPlay(this.actions[this.state.behavior].start)
-                sprite.setStartAt(this.actions[this.state.behavior].start)
-                sprite.setEndAt(this.actions[this.state.behavior].end)
+        console.log("i'm 1")     
+
+       if(this.props.status !=="cofah" && this.props.status !=="rescue") {  
+        sprite.goToAndPlay(this.actions[this.state.behavior].start);
+        sprite.setStartAt(this.actions[this.state.behavior].start);
+        this.spritesheetInstance.setEndAt(this.actions[this.state.behavior].end);
+    }
             
     }
+
+    
 
 
     

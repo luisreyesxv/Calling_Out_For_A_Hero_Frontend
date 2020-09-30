@@ -1,5 +1,6 @@
 import React from 'react'
-import {Container, Form, FormGroup,FormText, Label, Input, Button, FormFeedback,Row, Col} from 'reactstrap';
+import {Container, Form, FormGroup,FormText, Label, Input, Button, FormFeedback,Row, Col, Alert} from 'reactstrap';
+import {Link} from 'react-router-dom'
 import SpriteContainer from '../spriteAndClocks/spriteContainer'
 
 
@@ -11,7 +12,8 @@ class NewTaskForm extends React.Component{
             description: "",
             date: "",
             submitDisabled: false,
-            errorMessage: "Please Make Sure All Fields Are Filled In"
+            errorMessage: "Please Make Sure All Fields Are Filled In",
+            alert: false
         }
     }
 
@@ -34,7 +36,8 @@ class NewTaskForm extends React.Component{
             [e.target.id]: e.target.value,
             submitDisabled: false,
             submitted: false,
-            errorMessage: "Please Make Sure All Fields Are Filled In"
+            errorMessage: "Please Make Sure All Fields Are Filled In",
+            alert: false
         })}
     }
 
@@ -69,11 +72,10 @@ class NewTaskForm extends React.Component{
                 date: "",
                 submitDisabled: false,
                 submitted: true,
-                errorMessage: "Please Make Sure All Fields Are Filled In"
+                errorMessage: "Please Make Sure All Fields Are Filled In",
+                alert: true
             })
-            console.log("this is new task form updating",this.props.lengthOfTasks)
         }else if(previousProps.lengthOfTasks === this.props.lengthOfTasks && this.props.postStatus==="fail" && previousProps.postStatus !== "fail"){
-            console.log("this is what happens when the post fails")
             this.setState({
                 ...this.state,
                 submitDisabled: true,
@@ -94,7 +96,9 @@ class NewTaskForm extends React.Component{
         return(
 
             <div className={"RegisterNewQuest"}>
-           
+           <Alert isOpen={this.state.alert} color="success">
+                Quest was successfully submitted
+            </Alert>
             <Container id="New-Quest-Form"  >
             
             <Form  className="userInformation" onSubmit={this.submittingNewQuest}>
@@ -136,6 +140,7 @@ class NewTaskForm extends React.Component{
             </Row>
                 <FormGroup>
                     <Button style={{background: "#D2691E"}}>Submit</Button>
+                    <Button tag={Link} to="/main" style={{background: "#D2691E"}}>Back to Main</Button>
                 </FormGroup>
             </Form>
           

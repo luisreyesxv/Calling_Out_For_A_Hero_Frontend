@@ -14,7 +14,7 @@ class MainContainer extends React.Component{
         this.state={
             tasks: [],
             showcaseTasks: [],
-            status:"success",
+            status:"",
             playlist: "https://api.soundcloud.com/playlists/300494469"
         }
     }
