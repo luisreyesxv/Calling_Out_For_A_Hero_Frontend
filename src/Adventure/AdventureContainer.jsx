@@ -1,5 +1,6 @@
-import React,{useState}  from 'react'
+import React,{useState, useEffect}  from 'react'
 import SpriteContainer from '../spriteAndClocks/spriteContainer'
+import SuccessModal from '../spriteAndClocks/successModal'
 import ClockContainer from '../spriteAndClocks/clockContainer'
 import {Row, Col, Button,ButtonGroup } from 'reactstrap'
 import TaskMedia from '../Tasks/taskMediaComponent'
@@ -14,12 +15,17 @@ const AdventureContainer = (props) => {
          steps:10 },
          { url:"/images/enemies/2.png", width:545, height:(388),  steps:10 }]
     
-    const quest =  props.tasks.find(taskObj=> taskObj.id === parseInt(props.match.params.id))
+    const quest =  props.tasks.find(taskObj=> taskObj.id === parseInt(props.match.params.id ))
     const [status, setStatus] = useState("active");
     const [heroBehavior, setHeroBehavior] = useState("running");
     const [enemy,setEnemy]= useState(monsters[Math.round(Math.random())])
     const [music, setMusic] = useState(props.music);
-    const [background, setBackground] = useState(Math.floor(Math.random() * 8) + 1);
+    const [background, setBackground] = useState(Math.floor(Math.random() * 6) + 1);
+    const [modalOn,setModalOn] =useState(false)
+
+    useEffect(() => {
+        setModalOn(true);
+      }, [quest])
 
 
     const punishHero = ()=>{
@@ -27,17 +33,18 @@ const AdventureContainer = (props) => {
         const penalty = 10
         const playerReputation = props.chosenHero.reputation -penalty >0 ? props.chosenHero.reputation- penalty: 0
         const body= {reputation: playerReputation}
-
-
-        console.log("this is the player's new reputation that will be sent to patch method", body)
-
         props.patchChosenHero(body,props.chosenHero.id)}
 
     }
 
     const completeQuest =() =>{
         
-       !quest["completed?"] ? props.patchTask({["completed?"]: true},quest.id) : console.log("this already completed")
+
+        if(!quest["completed?"]){
+            setModalOn(true)
+            props.patchTask({["completed?"]: true},quest.id)
+        }
+
     }
     
     const changingHeroAction=(command)=>{ 
@@ -47,16 +54,13 @@ const AdventureContainer = (props) => {
     
     
     const loadingOrRender =()=>{
-        return quest ? (
+        return (quest) ? (
             <div id="adventure-page">
-        {/* <h1> This is the Adventure Container</h1>
-        <h3>Inside is the following quest</h3>
-        <h4> {`Param ID = ${props.match.params.id}`}</h4> 
-        <h4> {`Item was found? = ${!!quest}`}</h4> 
-        { quest ? <h4> {`Item title is  = ${quest.title}`}</h4> : "loading" } 
-         */}
-         {props.chosenHero? <h4> ChosenHero's reputation is {props.chosenHero.reputation}</h4> : null}
-
+      
+         {modalOn && quest["completed?"] ?  
+              <SuccessModal divName="quest-success-sprite-modal" sprite={props.sprite} chosenHero={props.chosenHero} link1= {{url:"/main", text: "Back to Main"}}  link2= {{url:"/main/quests/", text: "Tackle Another Quest"} } adventure={true}/>
+                :
+                <>
 <Row className="row justify-content-between " id="adventure-jumbotron-row" >
             <Col  xl={12} id="adventure-sprite-jumbotron" style={{backgroundImage: `url("/images/adventureBackgrounds/${background}.png")`}}>
                 <Row>
@@ -74,8 +78,8 @@ const AdventureContainer = (props) => {
             <Col  lg={4}>
                 <ClockContainer key={status} status={status}  active={activeFunction} break={breakFunction} bad={badFunction} />
                 <ButtonGroup style={{textAlign:"center"}}>
-                    {status==="bad" ? <Button color="info" onClick={()=>setStatus("break")} >Take A Break</Button> : null}
-                    {status==="break" || status==="bad" ? <Button color="success" onClick={()=> setStatus("active")} >Get Active</Button> : null}
+                    {status==="bad" ? <Button color="info" onClick={()=>{ setMusic(props.music); setStatus("break")}} >Take A Break</Button> : null}
+                    {status==="break" || status==="bad" ? <Button color="success" onClick={()=> {setMusic(props.music); setStatus("active")}} >Get Active</Button> : null}
                     <Button color="warning" onClick={()=> setStatus("bad")} >you won't see this</Button>
                     <Button color="secondary" onClick={completeQuest} >Complete Quest</Button>
                     </ButtonGroup>
@@ -106,17 +110,21 @@ const AdventureContainer = (props) => {
             </Col>
         </Row>
         <TaskMedia key={quest.id} {...quest} patchHandler={""} />
-
+        </>}
         </div>
         )
         :
-        <h1> We are unable to load this quest. It is either because the quest does not exist or It has been completed. Please return to the quest board or create a new quest.</h1>
-
+        <div id="loadingScreen" >
+            <h1> Loading... </h1>
+               {props.tasks ? <h2>Please return to the quest board or create a new quest.</h2> : null}
+            <img src="https://i.gifer.com/4V0b.gif" />
+        </div>
     }
 
 
     const activeFunction = () =>{
         console.log("I'm what happens when this goes active")
+        setMusic("https://api.soundcloud.com/tracks/609143430")
         setStatus("bad")
     }
 
@@ -128,7 +136,8 @@ const AdventureContainer = (props) => {
     const badFunction = () =>{
         console.log("I'm what happens when this is bad")
         punishHero()
-        setStatus("active")
+        setMusic("https://api.soundcloud.com/tracks/609143430")
+
     }
 
 
@@ -147,12 +156,5 @@ const AdventureContainer = (props) => {
 export default AdventureContainer
 
 AdventureContainer.defaultProps ={
-    match:{
-        ["params"]: {id: "1"}
-    },
-    tasks: [{title: "test",
-    description: "test",
-    id: 1
-    }],
     music: "https://api.soundcloud.com/playlists/300494469"
 }

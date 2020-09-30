@@ -40,6 +40,9 @@ class SpriteContainer extends React.Component{
         cofah: {
             start: (3* this.props.steps+1),
             end: (4* this.props.steps)},
+        rescue: {
+            start:1,
+            end: (this.props.steps)},
 
     }
 
@@ -72,7 +75,8 @@ class SpriteContainer extends React.Component{
             sprite.setEndAt((3* this.props.steps ))
             },
         shopper: ()=>null,
-        cofah: ()=>null
+        cofah: ()=>null,
+        rescue: ()=> null
 
     }
 // this is what the onMouseLeave Function shoudl ook like if I want to make it different depending on who is there, but right now.I can only think to keep it the same, just return it to normal
@@ -90,7 +94,10 @@ class SpriteContainer extends React.Component{
 
     // }
 
-     onMouseLeave = (sprite)=> {sprite.goToAndPlay(this.actions[this.state.behavior].start)
+     onMouseLeave = (sprite)=> {
+         
+       return this.props.status==="cofah" || this.props.status==="rescue" ? null:
+        sprite.goToAndPlay(this.actions[this.state.behavior].start)
                 sprite.setStartAt(this.actions[this.state.behavior].start)
                 sprite.setEndAt(this.actions[this.state.behavior].end)
     }
@@ -120,7 +127,8 @@ class SpriteContainer extends React.Component{
         cofah: ()=> {
             
             this.cofahrun()
-        }
+        },
+        rescue:  null
         
 
     }
@@ -182,7 +190,7 @@ class SpriteContainer extends React.Component{
     render(){
     return(
         
-        <div id={this.props.divName} style={{[this.state.behavior=="enemy" ? "right" : "left"]:(this.state.location.toFixed(2)+"%")}}>
+        <div id={this.props.divName} style={{[this.state.behavior=="cofah" ? "left" : "right"]:(this.state.location.toFixed(2)+"%")}}>
             <Spritesheet
             className= {this.props.styling}
             image= {this.props.url}

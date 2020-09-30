@@ -35,7 +35,7 @@ const Homepage = () =>{
 
                 <SpriteContainer key="enemyOrc1" url="/images/enemies/1.png" width={531} height= {357.5}  steps={10} status= "demoEnemy" divName="home-avatar-container"/>
                 {/* <SpriteContainer key="enemyOrc2" url="/images/enemies/1.png" width={531} height= {357.5}  steps={10} status= "demoEnemy" divName="home-avatar-container"/> */}
-                <SpriteContainer key="enemyOrc3" url="/images/shopper%20spritesheet.png" width={598} height= {461}  steps={10} status= "idle" divName="home-avatar-container"/>
+                <SpriteContainer key="enemyOrc3" url="/images/shopper%20spritesheet.png" width={598} height= {461}  steps={10} status= "shopper" divName="home-avatar-container"/>
                
 
             

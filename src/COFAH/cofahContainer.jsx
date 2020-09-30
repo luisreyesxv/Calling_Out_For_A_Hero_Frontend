@@ -1,13 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import {Route, Redirect} from 'react-router-dom'
-import { Container, Row, Col, Button, ButtonGroup,
-    Modal, ModalBody,ModalHeader, ModalFooter,
+import { Container, Row, Col, Button,
+    // Modal, ModalBody,ModalHeader, ModalFooter,
     Popover, PopoverHeader, PopoverBody
 } from 'reactstrap'
 import SpriteContainer from '../spriteAndClocks/spriteContainer'
 import Bio from './bioComponent'
 import PopoverItem from './popoverItems'
+import SuccessModal from '../spriteAndClocks/successModal'
 
 
 
@@ -87,38 +88,7 @@ class COFAHContainer extends React.Component{
 
 
         displayModal=()=>{
-
-            return (
-                
-                <Modal key={this.props.sprite} isOpen={true} centered id="cofah-success-sprite-container" >
-                    <ModalHeader id="successful-COFAH-head"> {this.props.chosenHero?<h3>{this.props.chosenHero.name} Has Answered the Call!</h3>:null}</ModalHeader>
-                    <ModalBody id="successful-COFAH">
-                        <Row className="row justify-content-between "  >
-                            <Col  xl={12} id="cofah-success-sprite-modal">
-                            {this.state.showModal? <div >
-                                 <SpriteContainer key="successful-cofah-avatar" {...this.props.sprite} status="cofah" divName= "cofah-success-avatar-container" /> 
-                                </div>
-                                : null}
-                            </Col>
-                        </Row>
-                    </ModalBody>
-                    <ModalFooter id="successful-COFAH-footer">
-                <ButtonGroup>
-                    <Button id="successful-COFAH-menu-button" tag={Link} to="/main"> Back to Main Menu</Button>
-                    <Button id="successful-COFAH-task-button" tag={Link} to="/main/quests/new"> Start Posting New Tasks</Button>
-                </ButtonGroup>
-
-                    </ModalFooter>
-            
-            </Modal>
-
-
-
-
-
-
-
-            )
+            return <SuccessModal divName="cofah-success-sprite-modal" sprite={this.props.sprite} chosenHero={this.props.chosenHero} link1= {{url:"/main", text: "Back to Main"}}  link2= {{url:"/main/quests/new", text: "Start Making New Quest"}} />
         }
 
 
@@ -137,7 +107,6 @@ class COFAHContainer extends React.Component{
 
 
     render(){
-        // this.displayModal()
         return(
             <div>
                 {this.state.showModal ? this.displayModal() : null}
