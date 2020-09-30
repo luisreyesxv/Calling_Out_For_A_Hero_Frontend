@@ -215,6 +215,16 @@ background-size: 100% 100%;
   bottom: 0
 
 }
+#cofah-success-avatar-container{
+  position: absolute;
+  width: 25%;
+  margin-bottom: 0;
+  bottom: 0;
+}
+
+#cofah-success-avatar-container img{
+  position: absolute;
+}
 
 #home-avatar-container{
   
@@ -261,7 +271,7 @@ background-size: 100% 100%;
 #COFAH-avatar-container{
   
   width: 200%;
-  margin-bottom: 0
+  margin-bottom: 0;
  
   
 }
@@ -272,12 +282,22 @@ background-size: 100% 100%;
 
 }
 
-
+#successful-COFAH-head, #successful-COFAH-footer{
+  background: blue;
+  text-align: center;
+}
+#successful-COFAH-menu-button,#successful-COFAH-task-button{
+background: orange;
+}
 
 #adventure-sprite-jumbotron{
-
   background-size: 100% 100%;
+}
 
+#cofah-success-sprite-modal{
+  background-image: url("/images/adventureBackgrounds/3.png");
+  background-size: 100% 100%;
+  height: 400px;
 }
 
 #clockContainer{
@@ -416,4 +436,15 @@ left:0;
   /* background-image: url("/images/newQuestBackground.png"); */
   background-color: peru;
   background-size: 100% 100%;
+}
+
+#COFAH-submit-button, #Popover-specificCOFAHHero{
+background-color:peru;
+}
+
+#COFAH-specific-hero{
+text-align: center;
+}
+#successful-COFAH{
+  background-color: peru
 }

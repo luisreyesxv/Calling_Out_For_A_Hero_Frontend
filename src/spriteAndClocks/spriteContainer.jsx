@@ -36,7 +36,10 @@ class SpriteContainer extends React.Component{
             end: (2* this.props.steps)},
         shopper: {
             start:1,
-            end: (this.props.steps)}
+            end: (this.props.steps)},
+        cofah: {
+            start: (3* this.props.steps+1),
+            end: (4* this.props.steps)},
 
     }
 
@@ -68,7 +71,8 @@ class SpriteContainer extends React.Component{
             sprite.setStartAt((1* this.props.steps + 1))
             sprite.setEndAt((3* this.props.steps ))
             },
-        shopper: ()=>null
+        shopper: ()=>null,
+        cofah: ()=>null
 
     }
 // this is what the onMouseLeave Function shoudl ook like if I want to make it different depending on who is there, but right now.I can only think to keep it the same, just return it to normal
@@ -98,9 +102,9 @@ class SpriteContainer extends React.Component{
         ,
         attack:  ()=> {
             
-                this.spritesheeInstance.goToAndPlay((this.actions[this.state.behavior].start))
-                this.spritesheeInstance.setStartAt((this.actions[this.state.behavior].start))
-                this.spritesheeInstance.setEndAt((this.actions[this.state.behavior].end))
+                this.spritesheetInstance.goToAndPlay((this.actions[this.state.behavior].start))
+                this.spritesheetInstance.setStartAt((this.actions[this.state.behavior].start))
+                this.spritesheetInstance.setEndAt((this.actions[this.state.behavior].end))
             
         }
         ,
@@ -112,25 +116,43 @@ class SpriteContainer extends React.Component{
         },
         demoHero:  null,
         demoEnemy:  null,
-        shopper:  null
+        shopper:  null,
+        cofah: ()=> {
+            
+            this.cofahrun()
+        }
         
 
     }
 
+    cofahrun =()=>{
+        if( this.state.location >=40){
+            this.spritesheetInstance.goToAndPlay(21)
+            this.spritesheetInstance.setStartAt(21)
+            this.spritesheetInstance.setEndAt(30)
+        }
+        if (this.state.location <40){
+        const newLocation = this.state.location <60 ? this.state.location+10: 0
+        this.setState({
+            ...this.state,
+            location:newLocation
+            })
+        }
+    }
     
     determiningLocation=()=>{
         if( this.state.location >=55){
             this.props.changeHero("attack")
-            this.spritesheeInstance.goToAndPlay(51)
-            this.spritesheeInstance.setStartAt(51)
-            this.spritesheeInstance.setEndAt(60)
+            this.spritesheetInstance.goToAndPlay(51)
+            this.spritesheetInstance.setStartAt(51)
+            this.spritesheetInstance.setEndAt(60)
         }
         
         if( this.state.location >=60){
             this.props.changeHero("running")
-            this.spritesheeInstance.goToAndPlay((this.actions[this.state.behavior].start))
-            this.spritesheeInstance.setStartAt((this.actions[this.state.behavior].start))
-            this.spritesheeInstance.setEndAt((this.actions[this.state.behavior].end))
+            this.spritesheetInstance.goToAndPlay((this.actions[this.state.behavior].start))
+            this.spritesheetInstance.setStartAt((this.actions[this.state.behavior].start))
+            this.spritesheetInstance.setEndAt((this.actions[this.state.behavior].end))
         }
         const newLocation = this.state.location <60 ? this.state.location+5: 0
         this.setState({
@@ -145,9 +167,9 @@ class SpriteContainer extends React.Component{
                 ...this.state,
                 behavior: this.props.status
             },()=>{
-                this.spritesheeInstance.goToAndPlay((this.actions[this.state.behavior].start))
-                this.spritesheeInstance.setStartAt((this.actions[this.state.behavior].start))
-                this.spritesheeInstance.setEndAt((this.actions[this.state.behavior].end))
+                this.spritesheetInstance.goToAndPlay((this.actions[this.state.behavior].start))
+                this.spritesheetInstance.setStartAt((this.actions[this.state.behavior].start))
+                this.spritesheetInstance.setEndAt((this.actions[this.state.behavior].end))
             })
 
 
@@ -160,7 +182,7 @@ class SpriteContainer extends React.Component{
     render(){
     return(
         
-        <div id={this.props.divName} style={{right:(this.state.location.toFixed(2)+"%")}}>
+        <div id={this.props.divName} style={{[this.state.behavior=="enemy" ? "right" : "left"]:(this.state.location.toFixed(2)+"%")}}>
             <Spritesheet
             className= {this.props.styling}
             image= {this.props.url}
@@ -177,7 +199,7 @@ class SpriteContainer extends React.Component{
             onLoopComplete= {this.onLoopComplete[this.state.behavior]}
             key = {this.props.divName}
             getInstance={spritesheet => {
-                this.spritesheeInstance = spritesheet;
+                this.spritesheetInstance = spritesheet;
               }}
             />
     </div>

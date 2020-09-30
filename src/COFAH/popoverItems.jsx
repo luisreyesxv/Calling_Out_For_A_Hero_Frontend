@@ -5,11 +5,31 @@ const PopoverItem = props => {
   const { id, item } = props;
   const [popoverOpen, setPopoverOpen] = useState(false);
 
+
+
+    const submitButton =(e)=>{
+        e.preventDefault()
+        const body ={
+            method: "specific",
+            house:  id
+        }
+        console.log(body)
+        props.callHero(body)
+
+    }
+
+
+
   const toggle = () => setPopoverOpen(!popoverOpen);
-    console.log( "i'm inside the popover, this is the text", props.item.text)
-  return (
-    <Col md={2} > 
-    <span>
+  
+  
+  
+  
+  
+  
+    return (
+    // <Col md={2} > 
+    <>
       
          <img id={"Popover-" + id} src= {item.url}/>
       
@@ -20,14 +40,18 @@ const PopoverItem = props => {
         toggle={toggle}
         trigger="legacy"
       >
-        <PopoverHeader>{item.house}</PopoverHeader>
+        <PopoverHeader>
+            <img id={"Popover-" + id} src= {item.url}/>
+            {item.house}  
+        </PopoverHeader>
         <PopoverBody>
           <p>{item.text}</p>
-          <Button block disabled >Submit</Button>
+          <Button id="COFAH-submit-button" block onClick={submitButton} >Call Out To the House of {item.house}</Button>
         </PopoverBody>
       </Popover>
-    </span>
-    </Col>
+   
+    {/* </Col> */}
+    </>
   );
 };
 
