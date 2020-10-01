@@ -7,6 +7,22 @@
   pointer-events: none;
 
 }
+
+@font-face {
+  font-family: 'riffic-bold';
+  src: url('./fonts/riffic-bold-webfont.woff2') format('woff2'),
+       url('./fonts/riffic-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+*{
+  font-family: 'riffic-bold';
+}
+
+
+
  #NavBar{
    background: #a0522d;
    box-shadow: 0 3px 5px rgba(0,0,0,20.05);
@@ -69,13 +85,13 @@
   background-size: 100vw 100vh;
 }
 
-#banner{
+/* #banner{
 width: 100vw;
-height: 30vh;
+height: 15vh;
 
-/* margin-left: 30%; */
-background: #574D68;
-}
+margin-left: 30%;
+
+} */
 
 
 #task-carousel{
@@ -314,6 +330,7 @@ background-size: 100% 100%;
  
   
 }
+
 #COFAH-avatar-container img{
   position: absolute;
   z-index: 2;
@@ -322,11 +339,12 @@ background-size: 100% 100%;
 }
 
 #successful-COFAH-head, #successful-COFAH-footer{
-  background: blue;
+  background: #F7D08A;
   text-align: center;
+  
 }
 #successful-COFAH-menu-button,#successful-COFAH-task-button{
-background: orange;
+background: #a0522d;
 }
 
 #adventure-sprite-jumbotron{
@@ -485,15 +503,19 @@ left:0;
 }
 
 #COFAH-submit-button, #Popover-specificCOFAHHero{
-background-color:peru;
+background-color:#A0522D;
 }
 
 #COFAH-specific-hero{
 text-align: center;
 }
 #successful-COFAH{
-  background-color: peru
+  background-color: #F7D08A;
+ 
 }
+
+
+
 
 #loadingScreen{
   background-image: url("/images/newQuestBackground.png");
@@ -535,6 +557,7 @@ background-image: url("/images/adventureBackgrounds/3.png");
 
 #home-jumbotron{
 background: #EDC79B;
+margin: 10px;
   
 }
 

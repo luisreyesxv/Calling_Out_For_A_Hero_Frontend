@@ -63,7 +63,7 @@ const AdventureContainer = (props) => {
          <ReactPlayer
                             className='react-player'
                             loop= {true}
-                            volume= {0.15}
+                            volume= {0.25}
                             width='1px'
                             height='1px'
                             url={music}
@@ -112,7 +112,7 @@ const AdventureContainer = (props) => {
                         <ReactPlayer
                             className='react-player'
                             loop= {true}
-                            volume= {0.15}
+                            volume= {0.30}
                             width='100%'
                             height='200%'
                             url={music}

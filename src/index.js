@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './fonts/riffic-bold-webfont.woff2' 
+import './fonts/riffic-bold-webfont.woff' 
+
 import {BrowserRouter} from "react-router-dom"
 
 ReactDOM.render(

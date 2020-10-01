@@ -25,7 +25,7 @@ const Homepage = () =>{
  
                
             <Row  >
-                <Banner />
+                {/* <Banner /> */}
                 <Col>
                 <Jumbotron id="home-jumbotron">
                 {/* <Row className="row justify-content-between"  noGutters={false} > */
@@ -77,13 +77,8 @@ const Homepage = () =>{
                         
                    </p>
         </div>
-                    </Jumbotron>
 
-
-                </Col>
-            </Row>
-
-            <Row style={{"marginTop":"5"}} className="row justify-content-between"  noGutters={true} >
+        <Row style={{"marginTop":"5"}} className="row justify-content-between"  noGutters={true} >
                 <Col md="4" >
                     <Link to="/login" >
                         <Button block style={{background: "#D2691E"}} size="lg">
@@ -99,6 +94,13 @@ const Homepage = () =>{
                     </Link>
                 </Col>
             </Row>
+                    </Jumbotron>
+
+
+                </Col>
+            </Row>
+
+            
         </Container>
 </div>
     )
