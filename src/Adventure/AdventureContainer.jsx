@@ -103,8 +103,8 @@ const AdventureContainer = (props) => {
                 <ButtonGroup style={{textAlign:"center"}}>
                     {status==="bad" ? <Button color="info" onClick={()=>{ setMusic(props.music); setStatus("break")}} >Take A Break</Button> : null}
                     {status==="break" || status==="bad" ? <Button color="success" onClick={()=> {setMusic(props.music); setStatus("active")}} >Get Active</Button> : null}
-                    <Button color="warning" onClick={()=> setStatus("bad")} >you won't see this</Button>
-                    <Button color="secondary" onClick={completeQuest} >Complete Quest</Button>
+                    {/* <Button color="warning" onClick={()=> setStatus("bad")} >you won't see this</Button> */}
+                    <Button color="dark" onClick={completeQuest} >Complete Quest</Button>
                     </ButtonGroup>
             </Col>
             <Col  lg={4}>
