@@ -63,6 +63,7 @@ const AdventureContainer = (props) => {
          <ReactPlayer
                             className='react-player'
                             loop= {true}
+                            volume= {0.15}
                             width='1px'
                             height='1px'
                             url={music}
@@ -111,6 +112,7 @@ const AdventureContainer = (props) => {
                         <ReactPlayer
                             className='react-player'
                             loop= {true}
+                            volume= {0.15}
                             width='100%'
                             height='200%'
                             url={music}
@@ -138,7 +140,7 @@ const AdventureContainer = (props) => {
         :
         <div id="loadingScreen" >
             <h1> Loading... </h1>
-               {props.tasks ? <h1>Please return to the quest board or create a new quest.</h1> : null}
+               {!props.tasks ? <h1>Please return to the quest board or create a new quest.</h1> : null}
                <Spinner color="light" />
         </div>
     }

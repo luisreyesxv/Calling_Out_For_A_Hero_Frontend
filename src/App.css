@@ -8,7 +8,7 @@
 
 }
  #NavBar{
-   background: #C6A15B;
+   background: #a0522d;
    box-shadow: 0 3px 5px rgba(0,0,0,20.05);
 
  }
@@ -80,6 +80,7 @@ background: #574D68;
 
 #task-carousel{
   height: 20vh;
+  
 }
 
 #{
@@ -158,8 +159,19 @@ background-size: 100% 100%;
   text-align: center;
 }
 
+#list-of-all-quests{
+  background-image: url("/images/wooden wall.jpg");
+  text-align: center;
+
+}
+
+#list-of-all-quests h1{
+  color: gold;
+}
+
 .featured-quests-buttons{
-  width:100%
+  width:100%;
+  background-color: #63A375
 }
 
 .featured-quests-container{
@@ -167,20 +179,47 @@ background-size: 100% 100%;
   background-size: 100% 100%;
    text-align: center;
    padding:20px;
+   box-shadow: 20px 10px 20px 20px black;
    
    
 }
 
 .featured-quests-container h1{
-  color: #F2E86D
+  color: gold
 }
 
 .featured-quests-slide{
-  padding:20px;
+  padding:15px;
   background-image: url("/images/quest-background.jpg");
   background-size: 100% 100%;
   height:100%;
   width: 100%;
+  
+}
+
+#adventure-quests-container{
+  background-image: url("/images/questboard.jpg");
+  background-size: 100% 100%;
+   text-align: center;
+   padding:20px;
+   box-shadow: 20px 10px 20px 20px black;
+   
+   
+   
+}
+
+.adventure-quests-container h1{
+  color: gold;
+  text-align: center;
+}
+
+.adventure-quests-slide{
+  padding:15px;
+  background-image: url("/images/quest-background.jpg");
+  background-size: 100% 100%;
+  height:100%;
+  width: 100%;
+  
 }
 
 
@@ -291,6 +330,7 @@ background: orange;
 }
 
 #adventure-sprite-jumbotron{
+  background-image: url("/images/bg.png");
   background-size: 100% 100%;
 }
 
@@ -332,7 +372,7 @@ background: orange;
 
 
 * {
-  color: #574D68
+  /* color: #574D68 */
 }
 
 
@@ -440,8 +480,8 @@ left:0;
 
 #adventure-page{
   /* background-image: url("/images/newQuestBackground.png"); */
-  background-color: peru;
-  background-size: 100% 100%;
+  background-image: url("/images/wooden wall.jpg");
+  /* background-size: 100% 100%; */
 }
 
 #COFAH-submit-button, #Popover-specificCOFAHHero{
@@ -482,4 +522,23 @@ text-align: center;
 .welcome-message-ul{
   
   list-style-type:none;
+}
+
+#mainpage-Container{
+background-image: url("/images/adventureBackgrounds/3.png");
+  background-size: 100% 100%
+}
+
+#cofah-page{
+  background-image: url("/images/wooden wall.jpg");
+}
+
+#home-jumbotron{
+background: #EDC79B;
+  
+}
+
+#Homepage-container{
+  background-image: url("/images/adventureBackgrounds/victory.png");
+  background-size: 100% 100%;
 }

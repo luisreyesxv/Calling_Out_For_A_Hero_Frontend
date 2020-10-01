@@ -108,9 +108,8 @@ class COFAHContainer extends React.Component{
 
     render(){
         return(
-            <div>
+            <div id="cofah-page">
                 {this.state.showModal ? this.displayModal() : null}
-                <h1> Recruit a hero time!!</h1>
                 <Container>
                     <Row className="row justify-content-between">
                         <Col md="5">

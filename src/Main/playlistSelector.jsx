@@ -17,7 +17,7 @@ const PlaylistSelector = (props) => {
             <Button>The music of our people</Button>
              */}
 
-             {props.playlists.map(playlist=> <Button key={playlist.text} onClick={()=>props.addPlaylist(playlist.url)}><img src={playlist.img} /> {playlist.text}</Button>)}
+             {props.playlists.map(playlist=> <Button key={playlist.text} style={{background:"#63A375",borderRadius:"10px", fontWeight: "bold",  color: "#6EDC79B"}} onClick={()=>props.addPlaylist(playlist.url)}><img src={playlist.img} alt={`icon for ${playlist.text} playlist`}/> {playlist.text}</Button>)}
           </ButtonGroup>
         </ButtonToolbar>
         </>

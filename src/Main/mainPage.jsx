@@ -34,6 +34,7 @@ class MainPage extends React.Component{
 
     render(){
         return(
+           <div id="mainpage-Container"> 
             <Container >
                 <FeaturedQuestCarousel tasks={this.props.tasks} patchTask={this.props.patchTask} first={!this.props.chosenHero} />
                 <Row className="row justify-content-center"  noGutters={false}>
@@ -53,6 +54,7 @@ class MainPage extends React.Component{
                    
                 </Row>
             </Container>
+            </div> 
         )
     }
 }

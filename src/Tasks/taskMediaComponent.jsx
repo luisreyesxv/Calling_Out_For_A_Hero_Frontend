@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 
 
-const TaskMedia =(props)=>{
+const TaskMedia =({...props},divName="featured-quests-container")=>{
     const [modal, setModal] = useState(false);
     const [title, setTitle] = useState(props.title);
     const [description, setDescription] = useState(props.description);
@@ -67,9 +67,9 @@ const TaskMedia =(props)=>{
 
     return (
     
-        <div className="featured-quests-container" > 
+        <div className={props.featured ? "featured-quests-container" : "adventure-quests-container"} > 
         <h1> Quest: {props.title}</h1>
-         <Media className="featured-quests-slide">
+         <Media className={props.featured ? "featured-quests-slide" : "adventure-quests-slide"} >
       
             <Media body>
                 <Media heading>
@@ -149,7 +149,6 @@ const TaskMedia =(props)=>{
 }
 
 export default TaskMedia
-
 
 
 

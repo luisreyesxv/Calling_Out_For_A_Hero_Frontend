@@ -7,13 +7,13 @@ const TaskList =(props)=>{
 
     const displayCards = () =>{
        
-     return props.tasks.map(taskObj =>  <TaskCard key={taskObj.id} {...taskObj} patchHandler={props.patchTask} />)
+     return props.tasks.sort((a, b) => a.date - b.date).map(taskObj =>  <TaskCard key={taskObj.id} {...taskObj} patchHandler={props.patchTask} />)
     }
 
 
     return(
-        <div  >
-                <h1> List of all tasks</h1>
+        <div  id="list-of-all-quests">
+                <h1> HALL OF RECORDS</h1>
                 
                 <CardColumns>
             
