@@ -199,10 +199,13 @@ class MainContainer extends React.Component{
 
 export default MainContainer
 
-// MainContainer.defaultProps={
-//     token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyODd9.kgxly5F6ZQV94hb3MtEO2TI75xGJ_CKH-xJNRCQXvtQ",
-//     chosenHero:  {"id":97,"user_id":230,"hero_id":237,"name":"Elfberto","reputation":34,"flavor":{"trait":"I like to read and memorize poetry. It keeps me calm and brings me fleeting moments of happiness. Also,I live for the thrill of the hunt.","bond":"Ruthless pirates murdered my captain and crewmates, plundered our ship, and left me to die. Vengeance will be mine.","flaw":"I have lived a hard life and find it difficult to empathize with others."}},
-// sprite: {"width":298.8571429,"height":261.3333333,"steps":7,"url":"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBadz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a17e7731ffd95e15d7110a6aa490fcf18072bd5c/Pirate%201.png"}
+MainContainer.defaultProps={
+    token: 
+    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyOTR9.-jvFz7ym-MH3NbvlwkOUb9cnTObU1SXa2--HdvHKfrk",
+    chosenHero: {"id":156,"user_id":294,"hero_id":252,"name":"Elfberto","reputation":34,"flavor":{"trait":"I am always willing to act in accordance with the financial incentive offered. Also, I can't think of anything to look forward to.","bond":"I face danger and evil to offset an unredeemable act in my past.","flaw":"There's no room for caution in a life lived to the fullest."}},
+    tasks: [{"id":445,"user_id":294,"title":"Call Out For A Hero ","description":"Welcome to Calling Out For A Hero. After you have called out to a hero Go to the Hall of Quests and register a new quest. Schedule it for whenever you want and build up your reputation.","date":"2020-10-01","completed?":false,"created_at":"2020-10-01T19:44:53.992Z","updated_at":"2020-10-01T19:44:53.992Z","flavor":"A sage named Criphreusim seeks a company of adventurers to rescue the elven town of Lechy from Shaka the Lich Tyrant."},{"id":448,"user_id":294,"title":"Call Out For A Hero ","description":"Welcome to Calling Out For A Hero. After you have called out to a hero Go to the Hall of Quests and register a new quest. Schedule it for whenever you want and build up your reputation.","date":"2020-10-01","completed?":true,"created_at":"2020-10-01T19:44:54.013Z","updated_at":"2020-10-01T19:44:54.013Z","flavor":"An elven lady named Bruocha seeks a company of adventurers to thwart the monstrous plan of Sisigoia the Unspeakable. However, her information is completely wrong."}],
+    sprite: 
+    {"width":204.2,"height":148.33333333,"steps":10,"url":"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBhUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--eadd794c0b5712b4920d59e5ff4b78efc1782f9a/elf%201.png"}
 
+}
 
-// }

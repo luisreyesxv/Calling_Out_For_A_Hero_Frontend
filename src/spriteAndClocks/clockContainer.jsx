@@ -11,12 +11,10 @@ const ClockContainer =(props)=>{
     }
 
     const time = {
-        // active: (25*60),
-        // break:  (5*60),
-        // bad: (10)
-        active: (10),
-        break:  (20),
+        active: (25*60),
+        break:  (5*60),
         bad: (10)
+        
 
     }
 

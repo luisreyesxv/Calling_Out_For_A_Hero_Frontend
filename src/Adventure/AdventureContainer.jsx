@@ -112,7 +112,7 @@ const AdventureContainer = (props) => {
                         <ReactPlayer
                             className='react-player'
                             loop= {true}
-                            volume= {0.30}
+                            volume= {0.25}
                             width='100%'
                             height='200%'
                             url={music}
@@ -180,5 +180,16 @@ const AdventureContainer = (props) => {
 export default AdventureContainer
 
 AdventureContainer.defaultProps ={
-    music: "https://api.soundcloud.com/playlists/300494469"
+    music: "https://api.soundcloud.com/playlists/300494469",
+    chosenHero: {"id":156,"user_id":294,"hero_id":252,"name":"Elfberto","reputation":34,"flavor":{"trait":"I am always willing to act in accordance with the financial incentive offered. Also, I can't think of anything to look forward to.","bond":"I face danger and evil to offset an unredeemable act in my past.","flaw":"There's no room for caution in a life lived to the fullest."}},
+    tasks: [{"id":445,"user_id":294,"title":"Call Out For A Hero ","description":"Welcome to Calling Out For A Hero. After you have called out to a hero Go to the Hall of Quests and register a new quest. Schedule it for whenever you want and build up your reputation.","date":"2020-10-01","completed?":false,"created_at":"2020-10-01T19:44:53.992Z","updated_at":"2020-10-01T19:44:53.992Z","flavor":"A sage named Criphreusim seeks a company of adventurers to rescue the elven town of Lechy from Shaka the Lich Tyrant."},{"id":448,"user_id":294,"title":"Call Out For A Hero ","description":"Welcome to Calling Out For A Hero. After you have called out to a hero Go to the Hall of Quests and register a new quest. Schedule it for whenever you want and build up your reputation.","date":"2020-10-01","completed?":true,"created_at":"2020-10-01T19:44:54.013Z","updated_at":"2020-10-01T19:44:54.013Z","flavor":"An elven lady named Bruocha seeks a company of adventurers to thwart the monstrous plan of Sisigoia the Unspeakable. However, her information is completely wrong."}],
+    sprite: 
+    {"width":204.2,"height":148.33333333,"steps":10,"url":"http://localhost:3000/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBhUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--eadd794c0b5712b4920d59e5ff4b78efc1782f9a/elf%201.png"}
+
+
+
 }
+
+
+
+
