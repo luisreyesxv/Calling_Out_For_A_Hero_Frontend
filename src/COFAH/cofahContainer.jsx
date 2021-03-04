@@ -1,8 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import {Route, Redirect} from 'react-router-dom'
 import { Container, Row, Col, Button,
-    // Modal, ModalBody,ModalHeader, ModalFooter,
     Popover, PopoverHeader, PopoverBody
 } from 'reactstrap'
 import SpriteContainer from '../spriteAndClocks/spriteContainer'
@@ -127,10 +124,9 @@ class COFAHContainer extends React.Component{
                         <Col md="3"  id="COFAH-page-hero">
                             {this.props.sprite ? 
                             <>
-                            <h3> {this.props.chosenHero.name} Has Answered The Call!</h3>
-                            <img src="/images/magic cloud.gif" id="sparkles" />
-                            <SpriteContainer key="mainChosenHero" {...this.props.sprite} divName="COFAH-avatar-container"/>
-                            {/* <img id="podium" alt="podium" src="/images/podium.png" /> */}
+                                <h3> {this.props.chosenHero.name} Has Answered The Call!</h3>
+                                <img src="/images/magic cloud.gif" id="sparkles"  alt=""/>
+                                <SpriteContainer key="mainChosenHero" {...this.props.sprite} divName="COFAH-avatar-container"/>
                             </> 
                             :
                             <>
@@ -140,7 +136,7 @@ class COFAHContainer extends React.Component{
                             } 
                         </Col>
                         <Col md="5">
-                        {this.props.chosenHero ? <Bio {...this.props.chosenHero} /> : <h1>Call Out For A Hero to get your Certified Pomodoria Hero Card Today!</h1>}
+                            {this.props.chosenHero ? <Bio {...this.props.chosenHero} /> : <h1>Call Out For A Hero to get your Certified Pomodoria Hero Card Today!</h1>}
                         </Col>
                         
                     </Row>

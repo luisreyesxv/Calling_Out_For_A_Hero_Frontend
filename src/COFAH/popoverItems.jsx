@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Popover, PopoverHeader, PopoverBody, Col } from "reactstrap";
+import { Button, Popover, PopoverHeader, PopoverBody} from "reactstrap";
 
 const PopoverItem = props => {
   const { id, item } = props;
@@ -13,7 +13,6 @@ const PopoverItem = props => {
             method: "specific",
             house:  id
         }
-        console.log(body)
         props.callHero(body)
 
     }
@@ -28,7 +27,6 @@ const PopoverItem = props => {
   
   
     return (
-    // <Col md={2} > 
     <>
       
          <img id={"Popover-" + id} src= {item.url}/>
@@ -49,9 +47,7 @@ const PopoverItem = props => {
           <Button id="COFAH-submit-button" block onClick={submitButton} >Call Out To the House of {item.house}</Button>
         </PopoverBody>
       </Popover>
-   
-    {/* </Col> */}
-    </>
+      </>
   );
 };
 

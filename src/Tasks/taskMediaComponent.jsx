@@ -1,5 +1,5 @@
 import React,  {useState} from 'react'
-import { Media, Button, Col , Row,
+import { Media, Button,
     Modal, ModalHeader, ModalBody, ModalFooter ,
     InputGroup, InputGroupAddon, InputGroupText, Input, FormText
 } from 'reactstrap';

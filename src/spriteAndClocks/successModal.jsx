@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Container, Row, Col, Button, ButtonGroup,
-    Modal, ModalBody,ModalHeader, ModalFooter,
-    Popover, PopoverHeader, PopoverBody
+import { Row, Col, Button, ButtonGroup,
+    Modal, ModalBody,ModalHeader, ModalFooter
 } from 'reactstrap'
 import SpriteContainer from '../spriteAndClocks/spriteContainer'
 

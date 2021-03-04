@@ -1,5 +1,5 @@
 import React,  {useState} from 'react'
-import { Card, CardTitle, CardText, CardImg, CardImgOverlay, CardBody,CardHeader,CardFooter, Button, Col , 
+import { Card, CardTitle, CardText, CardImgOverlay, CardBody,CardHeader,CardFooter, Button, Col , 
     Modal, ModalHeader, ModalBody, ModalFooter ,
     InputGroup, InputGroupAddon, InputGroupText, Input, FormText, FormFeedback
 } from 'reactstrap';

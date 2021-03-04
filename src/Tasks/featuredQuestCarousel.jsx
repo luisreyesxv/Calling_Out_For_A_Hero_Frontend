@@ -1,24 +1,10 @@
 import React,{useState} from 'react'
-import TaskCard from './TaskCard'
 import TaskMedia from './taskMediaComponent'
-import {
-    Carousel,
-    CarouselItem,
-    CarouselControl,
-    CarouselIndicators,
-    CarouselCaption,
-    Media
-  } from 'reactstrap';
+import { Carousel, CarouselItem, CarouselControl} from 'reactstrap';
 
 
 
 const FeaturedQuestCarousel =(props)=>{
-
-    // const displayCards = () =>{
-       
-    //  return props.tasks.map(taskObj =>  <TaskCard key={taskObj.id} {...taskObj} patchHandler={props.patchTask} />)
-    // }
-
 
       const [activeIndex, setActiveIndex] = useState(0);
       const [animating, setAnimating] = useState(false);
@@ -34,11 +20,7 @@ const FeaturedQuestCarousel =(props)=>{
         const nextIndex = activeIndex === 0 ? props.tasks.length - 1 : activeIndex - 1;
         setActiveIndex(nextIndex);
       }
-    
-      // const goToIndex = (newIndex) => {
-      //   if (animating) return;
-      //   setActiveIndex(newIndex);
-      // }
+
     
       const slides = props.tasks.map((task) => {
         return (
@@ -61,10 +43,7 @@ const FeaturedQuestCarousel =(props)=>{
             <Carousel
             activeIndex={activeIndex}
             next={next}
-            previous={previous}
-            
-            
-            
+            previous={previous} 
             >
           
             {slides}

@@ -38,111 +38,19 @@ const AdventureContainer = (props) => {
     }
 
     const completeQuest =() =>{
-        
-
         if(!quest["completed?"]){
             setModalOn(true)
             setMusic("https://api.soundcloud.com/tracks/311545220")
             props.patchTask({["completed?"]: true},quest.id)
         }
-
     }
     
     const changingHeroAction=(command)=>{ 
         setHeroBehavior(command)
     }
 
-    
-    
     const loadingOrRender =()=>{
-        return (quest) ? (
-            <div id="adventure-page">
-      
-         {modalOn && quest["completed?"] ?  
-         <div id="victory-screen">
-         <ReactPlayer
-                            className='react-player'
-                            loop= {true}
-                            volume= {0.25}
-                            width='1px'
-                            height='1px'
-                            url={music}
-                            config={
-                                {
-                                    soundcloud: {
-                                        options: {
-                                            auto_play: true,
-                                        show_artwork: true,
-                                        show_user:false,
-                                        start_track: (Math.round(Math.random()*6)+1),
-                                        }
-                                    }
-                                }
-                            }
-                            />
-              <SuccessModal divName="quest-success-sprite-modal" sprite={props.sprite} chosenHero={props.chosenHero} link1= {{url:"/main", text: "Back to Main"}}  link2= {{url:"/main/quests/", text: "Tackle Another Quest"} } adventure={true}/>
-              </div>
-                :
-                <>
-<Row className="row justify-content-between " id="adventure-jumbotron-row" >
-            <Col  xl={12} id="adventure-sprite-jumbotron" style={{backgroundImage: `url("/images/adventureBackgrounds/${background}.png")`}}>
-                <Row>
-                  
-                        {/* <SpriteContainer key="mainChosenHero" {...props.sprite} status={heroBehavior} divName= "hero-avatar-container"/> */}
-                        <SpriteContainer key="mainChosenHero" {...props.sprite} status={heroBehavior} divName= "hero-avatar-container" changeHero={changingHeroAction}/>
-
-                  
-                        <SpriteContainer key="enemyOrc" {...enemy} status= "enemy" divName= "enemy-avatar-container" changeHero={changingHeroAction} />
-                    </Row>
-            </Col>
-        </Row>
-
-        <Row className="row justify-content-center" id="adventure-clock-row">
-            <Col  lg={4}>
-                <ClockContainer key={status} status={status}  active={activeFunction} break={breakFunction} bad={badFunction} />
-                <ButtonGroup style={{textAlign:"center"}}>
-                    {status==="bad" ? <Button color="info" onClick={()=>{ setMusic(props.music); setStatus("break")}} >Take A Break</Button> : null}
-                    {status==="break" || status==="bad" ? <Button color="success" onClick={()=> {setMusic(props.music); setStatus("active")}} >Get Active</Button> : null}
-                    {/* <Button color="warning" onClick={()=> setStatus("bad")} >you won't see this</Button> */}
-                    <Button color="dark" onClick={completeQuest} >Complete Quest</Button>
-                    </ButtonGroup>
-            </Col>
-            <Col  lg={4}>
-                <div id="player-wrapper" >
-                        <ReactPlayer
-                            className='react-player'
-                            loop= {true}
-                            volume= {0.25}
-                            width='100%'
-                            height='200%'
-                            url={music}
-                            config={
-                                {
-                                    soundcloud: {
-                                        options: {
-                                            auto_play: true,
-                                        show_artwork: true,
-                                        show_user:false,
-                                        start_track: (Math.round(Math.random()*6)+1),
-                                        }
-                                    }
-                                }
-                            }
-                            />
-                    </div>
-
-            </Col>
-        </Row>
-        <TaskMedia key={quest.id} {...quest} patchHandler={""} />
-        </>}
-        </div>
-        )
-        :
-        <div id="loadingScreen" >
-            <h1> Loading... </h1>
-               {!props.tasks ? <h1>Please return to the quest board or create a new quest.</h1> : null}
-               <Spinner color="light" />
-        </div>
+        return quest? renderAdventure() : loadingScreen()
     }
 
 
@@ -165,10 +73,112 @@ const AdventureContainer = (props) => {
     }
 
 
+    const victoryScreen=()=>{
+        return (
+            <div id="victory-screen">
+                <ReactPlayer
+                        className='react-player'
+                        loop= {true}
+                        volume= {0.25}
+                        width='1px'
+                        height='1px'
+                        url={music}
+                        config={
+                            {
+                                soundcloud: {
+                                    options: {
+                                        auto_play: true,
+                                        show_artwork: true,
+                                        show_user:false,
+                                        start_track: (Math.round(Math.random()*6)+1),
+                                    }
+                                }
+                            }
+                        }
+                />
+                <SuccessModal divName="quest-success-sprite-modal" sprite={props.sprite} chosenHero={props.chosenHero} link1= {{url:"/main", text: "Back to Main"}}  link2= {{url:"/main/quests/", text: "Tackle Another Quest"} } adventure={true}/>
+            </div>
+        )
+
+    }
+
+    const loadingScreen=()=>{
+        return (
+            <div id="loadingScreen" >
+            <h1> Loading... </h1>
+               {!props.tasks ? <h1>Please return to the quest board or create a new quest.</h1> : null}
+               <Spinner color="light" />
+        </div>
+        )
+    }
+
+    const adventuringScreen=()=>{
+        return (
+            <>
+            <Row className="row justify-content-between " id="adventure-jumbotron-row" >
+                <Col  xl={12} id="adventure-sprite-jumbotron" style={{backgroundImage: `url("/images/adventureBackgrounds/${background}.png")`}}>
+                    <Row>
+                        <SpriteContainer key="mainChosenHero" {...props.sprite} status={heroBehavior} divName= "hero-avatar-container" changeHero={changingHeroAction}/>
+                        <SpriteContainer key="enemyOrc" {...enemy} status= "enemy" divName= "enemy-avatar-container" changeHero={changingHeroAction} />
+                    </Row>
+                </Col>
+            </Row>
+
+            <Row className="row justify-content-center" id="adventure-clock-row">
+                <Col  lg={4}>
+                    <ClockContainer key={status} status={status}  active={activeFunction} break={breakFunction} bad={badFunction} />
+                    <ButtonGroup style={{textAlign:"center"}}>
+                        {status==="bad" ? <Button color="info" onClick={()=>{ setMusic(props.music); setStatus("break")}} >Take A Break</Button> : null}
+                        {status==="break" || status==="bad" ? <Button color="success" onClick={()=> {setMusic(props.music); setStatus("active")}} >Get Active</Button> : null}
+                        {/* <Button color="warning" onClick={()=> setStatus("bad")} >you won't see this. This is to test without waiting</Button> */}
+                        <Button color="dark" onClick={completeQuest} >Complete Quest</Button>
+                    </ButtonGroup>
+                </Col>
+                <Col  lg={4}>
+                    <div id="player-wrapper" >
+                            <ReactPlayer
+                                className='react-player'
+                                loop= {true}
+                                volume= {0.25}
+                                width='100%'
+                                height='200%'
+                                url={music}
+                                config={
+                                    {
+                                        soundcloud: {
+                                            options: {
+                                                auto_play: true,
+                                                show_artwork: true,
+                                                show_user:false,
+                                                start_track: (Math.round(Math.random()*6)+1),
+                                            }
+                                        }
+                                    }
+                                }
+                                />
+                        </div>
+                </Col>
+            </Row>
+            <TaskMedia key={quest.id} {...quest} patchHandler={""} />
+        </>
+        )
+    }
+
+    const renderAdventure=()=>{
+        return(
+            <div id="adventure-page">
+                {modalOn && quest["completed?"] ? victoryScreen(): adventuringScreen()}
+            </div>
+        )
+    }
+    
+    
+    
+
+
 
     return(
         loadingOrRender()
-
     )
 
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ButtonGroup, ButtonToolbar, Label } from 'reactstrap';
+import { Button, ButtonGroup, ButtonToolbar } from 'reactstrap';
 
 const PlaylistSelector = (props) => {
 
