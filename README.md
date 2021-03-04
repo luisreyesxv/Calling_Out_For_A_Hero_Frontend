@@ -27,7 +27,7 @@ The spritesheet document needs to be formatted in the following way.
 * For the purpose of spritesheet, it should be as a PNG file. It having transparency and layers should be the point. It should look at follows
 <br>
     <img src="./public/images/enemies/1.png" height="200px" width="auto">
-* <p> Each frame of the animations should be separated by equal lengths. Something like <a href="https://spritegen.website-performance.org/" rel="nofollow">this sprite generator</a> should help make a sheet of equal distance. Try to make the distance between be 0.
+* <p> Each frame of the animations should be separated by equal lengths. Something like <a href="https://spritegen.website-performance.org/" rel="nofollow">this sprite generator</a> should help make a sheet of equal distance. Try to make the distance between be 0. Also, the sprite sheet doesn't HAVE to be organized with each action given it's own row as long as it has the same number of frames for each action. It will be easier on the eyes though.
 * The "actions" & frames for each spritesheet should be organized in the following order
     <p>
 
