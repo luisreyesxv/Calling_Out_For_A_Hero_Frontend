@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col, Button } from 'reactstrap'
 import SpriteContainer from '../spriteAndClocks/spriteContainer'
-import Bio, {BioStats,BioEmpty} from '../COFAH/bioComponent'
+import {BioStats,BioEmpty} from '../COFAH/bioComponent'
 import PlaylistSelector from './playlistSelector'
 
 import FeaturedQuestCarousel from '../Tasks/featuredQuestCarousel'
@@ -35,10 +35,9 @@ class MainPage extends React.Component{
     render(){
         return(
            <div id="mainpage-Container"> 
-            <Container >
+            <Container fluid>
                 <FeaturedQuestCarousel tasks={this.props.tasks} patchTask={this.props.patchTask} first={!this.props.chosenHero} />
                 <Row className="row justify-content-center"  noGutters={false}>
-                   {/* <h5> The Sounds of Pomodoria</h5> */}
                     <PlaylistSelector addPlaylist={this.props.addPlaylist}/>
                 </Row>
                 <Row className="row justify-content-center"  noGutters={false}>
@@ -47,9 +46,7 @@ class MainPage extends React.Component{
                         {this.spriteOrButton()}
                     </Col>
                     <Col  sm={8} md={10} xl={10} > 
-                        
                         {this.props.chosenHero ? <BioStats {...this.props.chosenHero} numberOfTasks={this.props.tasks.length} /> : <BioEmpty />}
-                        {/* <TaskList  tasks={this.props.tasks} patchTask={this.props.patchTask} /> */}
                     </Col >
                    
                 </Row>

@@ -34,7 +34,6 @@ function App() {
   return (
     <>  
     <NavBar  user={user} />
-    {console.log("this is the current state",user,"this is the token",token,"this is the sprite",sprite,"this is the chosenHero",chosenHero)}
     <Route exact path="/" render={(routerProps)=><Homepage  {...routerProps} user={user}/>} />
     <Route exact path="/login" render={(routerProps)=><LogIn {...routerProps} setUserInformation={setUserInformation} apiUrl={baseAPIUrl} user={user}/>} />
     <Route exact path="/logout" render={()=><>{setUserInformation()} Successfully Logged Out. Redirecting ... <Redirect to="/" /> </>} />

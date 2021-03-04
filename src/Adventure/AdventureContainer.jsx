@@ -153,7 +153,7 @@ const AdventureContainer = (props) => {
     }
 
     const breakFunction = () =>{
-        console.log("I'm what happens when this goes creak")
+        console.log("I'm what happens when this goes break")
         setStatus("bad")
     }
 
