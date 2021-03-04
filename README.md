@@ -28,6 +28,7 @@ The spritesheet document needs to be formatted in the following way.
 <br>
     <img src="./public/images/enemies/1.png" height="200px" width="auto">
 * <p> Each frame of the animations should be separated by equal lengths. Something like <a href="https://spritegen.website-performance.org/" rel="nofollow">this sprite generator</a> should help make a sheet of equal distance. Try to make the distance between be 0. Also, the sprite sheet doesn't HAVE to be organized with each action given it's own row as long as it has the same number of frames for each action. It will be easier on the eyes though.
+
 * The "actions" & frames for each spritesheet should be organized in the following order
     <p>
 
