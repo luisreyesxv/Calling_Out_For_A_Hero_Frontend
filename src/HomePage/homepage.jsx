@@ -13,8 +13,6 @@ const Homepage = () =>{
     <div id="Homepage-container">
 
         <Container >
-            
-
             <Row  >
                 {/* <Banner /> */}
                 <Col>
@@ -73,9 +71,7 @@ const Homepage = () =>{
                         </Row>
                      </Jumbotron>
                 </Col>
-            </Row>
-
-            
+            </Row>   
         </Container>
 </div>
     )

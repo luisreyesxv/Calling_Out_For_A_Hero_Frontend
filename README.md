@@ -8,6 +8,9 @@
 </p>
 
 This is the front-end for Calling Out For A Hero app, a gamified pomodoro timer made with React. Here is the link to the [back end](https://github.com/luisreyesxv/Calling_Out_For_A_Hero_Backend)
+<br>
+
+<img src='./screenshots/COFAH_screenshot.png'>
 
 --- 
 
