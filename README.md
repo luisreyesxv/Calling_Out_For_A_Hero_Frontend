@@ -1,22 +1,32 @@
 # Calling Out For A Hero - Front End
-[description]
+ <p>     
+                    Inside <strong>Calling Out For A Hero</strong>, you will find yourself in the world of Pomodoria, which is filled with rival factions. As you go on your own personal quests,
+                    you find yourself getting burned out & looking for help. You reach the local guild hall, where you find yourself  <strong>Calling Out For A Hero</strong>. The call is heard all throughout
+                    Pomodoria, where different heroes come to your aid. As you continue doing your quests, your hero will grow along with you, and there may be a few surprises along the way.
+                    There is no better time than the present for <strong>Calling Out For A Hero</strong>
+                        
+</p>
 
+This is the front-end for Calling Out For A Hero app, a gamified pomodoro timer made with React. Here is the link to the [back end](https://github.com/luisreyesxv/Calling_Out_For_A_Hero_Backend)
+
+--- 
 
 ## Libraries used
-* [React Responsive Spritesheet](https://github.com/danilosetra/react-responsive-spritesheet)
-* [React Countdown Circle Timer](https://github.com/vydimitrov/react-countdown-circle-timer/tree/master/packages/web#react-countdown-circle-timer)
-* [ReactPlayer](https://github.com/CookPete/react-player)
+* [React Responsive Spritesheet](https://github.com/danilosetra/react-responsive-spritesheet) v.2.3.9
+* [React Countdown Circle Timer](https://github.com/vydimitrov/react-countdown-circle-timer/tree/master/packages/web#react-countdown-circle-timer) v.2.3.7
+* [ReactPlayer](https://github.com/CookPete/react-player) v.2.6.2
+*  [ReactStrap](https://github.com/reactstrap/reactstrap) v.8.5.1
 
 
 
-## Spritesheet Component Set Up
+## Spritesheet Component Set Up & Information
  This component is found within **/src/spriteAndClocks/spriteContainer.jsx** and uses the [React Responsive Spritesheet](https://github.com/danilosetra/react-responsive-spritesheet) to animate sprites. Please refer to the official documentation for React Responsive Spritesheet for functions specific to that component. The component default name is **\<SpriteContainer />** But for this component, there are few things to highlight so it can work as intended
 
-### Sprite Sheet Specifications
+### Spritesheet Specifications
 The spritesheet document needs to be formatted in the following way.
 * For the purpose of spritesheet, it should be as a PNG file. It having transparency and layers should be the point. It should look at follows
-    <img src="./public/images/enemies/1.png" height="20vh" width="auto">
-* <p> Each frame of the animations should be separated by equal lengths. Something like [this sprite generator](https://spritegen.website-performance.org/) should help make a sheet of equal distance. try to make the distance between be 0.
+    <img src="./public/images/enemies/1.png" height="200px" width="auto">
+* <p> Each frame of the animations should be separated by equal lengths. Something like <a href="https://spritegen.website-performance.org/" rel="nofollow">this sprite generator</a> should help make a sheet of equal distance. Try to make the distance between be 0.
 * The "actions" & frames for each spritesheet should be organized in the following order
     <p>
 
@@ -43,7 +53,7 @@ The spritesheet document needs to be formatted in the following way.
  > **steps** - how many frames are in the actions
 </p>
 
-### Sprite Sheet Component Additional Props
+### Spritesheet Component Additional Props
 In addition to the sprite props mentioned above, the **\<SpriteContainer />** should be given the following props.
 <p>
 
@@ -78,8 +88,33 @@ The following are the current acceptable status props that can be passed down
 
 </p>
 
+---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##  Clock Component Information
+This component is found within **/src/spriteAndClocks/clockContainer.jsx** and uses the [React Countdown Circle Timer](https://github.com/vydimitrov/react-countdown-circle-timer/tree/master/packages/web#react-countdown-circle-timer)  to display the circular timer. Please refer to the official documentation for React Countdown Circle Timer for functions specific to that component. The component default name is **\<ClockContainer />** But for this component, there are few things to highlight so it can work as intended
+
+### Clock Component props
+The props for this are pretty basic they are
+| props  | purpose                                                                                                                                                                                                |
+|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| active | executes passed callback function after the timer is complete                                                                                                                                          |
+| break  | executes passed callback function after the timer is complete                                                                                                                                          |
+| bad    | executes passed callback function after the timer is complete                                                                                                                                          |
+| status | gives the timer a timer and tells it how long it should run. It will also direct the timer on which of the above callbacks it should execute on completion. It should be a string of one of the above. |
+
+
+
+
+
+# Credits for Outside Assets
+
+Majority of the pre-spritesheet frames came from [Craftpix](https://craftpix.net/freebies/filter/sprites/)
+
+-------
+
+
+
+
 
 ## Available Scripts
 
@@ -118,33 +153,3 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# Calling_Out_For_A_Hero_Frontend
